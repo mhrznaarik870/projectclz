@@ -1,0 +1,527 @@
+@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rakkas&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "secular one", sans-serif;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+.navbar-brand {
+  font-size: 2rem;
+  color: black;
+  font-family: "Lobster", cursive;
+}
+.navbar-brand:hover {
+  color: black;
+}
+.nav-link {
+  margin-right: 10px;
+  margin-left: 10px;
+  color: black;
+  text-transform: uppercase;
+}
+.nav-link:hover,
+.nav-link:focus {
+  color: rgb(34, 222, 222);
+}
+.search {
+  height: 40px;
+  width: 1000%;
+  border-radius: 60px;
+  outline: none;
+  margin-right: -8px;
+  font-family: "Rubik", sans-serif;
+  border: 2px solid rgb(5, 205, 152);
+}
+.btn0 {
+  height: 40px;
+  width: 500%;
+  outline: none;
+  border: none;
+  background: rgb(5, 145, 205);
+  color: white;
+  font-family: "Lobster", cursive;
+  border-radius: 70px;
+  font-weight: 700;
+}
+
+.main {
+  position: relative;
+  isolation: isolate;
+  padding: 121px 0;
+  background-size: cover;
+}
+.blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0 0 0 / 30%);
+  backdrop-filter: blur(9px);
+  z-index: -1;
+}
+.main img {
+  max-height: 469px;
+  object-fit: cover;
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  font-family: "Lobster", cursive;
+}
+
+.navbar a {
+  color: white;
+  font-family: "Rakkas", cursive;
+  font-size: 20px;
+}
+
+.navbar .nav-link.active {
+  color: rgb(34, 222, 222);
+}
+
+.navbar-brands {
+  transition: all 0.2s ease-in-out;
+}
+.navbar-brands img {
+  max-width: 50px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.navbar-brands :hover {
+  transform: scale(1.05);
+  color: rgb(34, 222, 222);
+}
+
+.nav li {
+  display: inline-block;
+
+  position: relative;
+}
+
+.navbar a:not(.navbar-brands):before {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: rgb(34, 222, 222);
+
+  /* position: absolute; */
+  top: 0;
+  width: 0%;
+  transition: all ease-in-out 200ms;
+}
+.navbar a:hover::before,
+.navbar a.active::before {
+  width: 100%;
+}
+
+.uk-flex {
+  height: 40px;
+  width: 25%;
+  padding: 7px;
+  background-color: rgb(255, 255, 255);
+  font-size: 1.2rem;
+  font-weight: 900;
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.uk-flex:hover {
+  transform: scale(1.1);
+}
+.uk-flex a {
+  color: rgb(0, 0, 0);
+  font-family: "Secular one";
+  font-weight: 700;
+}
+
+h2 {
+  font-family: Rakkas, cursive;
+}
+.banner-content {
+  background-color: rgba(0 0 0 / 30%);
+  border: 3px solid white;
+  padding: 50px 0;
+  backdrop-filter: blur(5px);
+  height: 100%;
+}
+
+a {
+  font-family: "secular one", cursive;
+}
+
+@media (max-width: 767.98px) {
+  .collapse {
+    background-color: #000;
+  }
+}
+
+.banner-content1 {
+  padding: 15%;
+  text-align: center;
+  color: wheat;
+}
+
+.btn1 {
+  height: 40px;
+  width: 10%;
+  outline: none;
+  border: none;
+  background: white;
+  color: rgb(172, 98, 45);
+  font-weight: 900;
+  font-family: "Secular One", sans-serif;
+  border-radius: 10px;
+  transition: all 0.24s ease-in-out;
+}
+.btn1:hover {
+  transform: scale(1.05);
+}
+
+.card:hover {
+  box-shadow: 11px -7px 34px 16px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 11px -7px 34px 16px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 11px -7px 34px 16px rgba(0, 0, 0, 0.7);
+  transition: 0.4s;
+}
+.card .card-body {
+  text-align: center;
+}
+.card .img-fluid {
+  max-height: 150px;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 40px;
+}
+.card:hover .img-fluid {
+  transform: scale(1.1);
+}
+
+.form-control {
+  border-radius: 10px;
+}
+
+h4 {
+  color: rgba(255, 255, 255, 0.708);
+  font-family: "Lobster", cursive;
+  line-height: 170%;
+}
+
+h4 span {
+  font-family: "Rakkas", cursive;
+}
+
+footer {
+  color: white;
+  padding: 5%;
+  font-size: 25px;
+  text-align: center;
+}
+
+.footerico {
+  max-width: 70px;
+}
+
+.fa-brands {
+  transition: all 0.24s ease-in-out;
+  padding: 5px;
+  margin: 18px 0;
+}
+
+.fa-brands:hover {
+  transform: scale(1.09);
+}
+
+.nav-item {
+  transition: all 0.24s ease-in-out;
+}
+
+.nav-item:hover {
+  transform: scale(1.08);
+}
+
+h4 span {
+  font-family: "Rakkas", cursive;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.navbar a {
+  position: relative;
+  font-size: 1.1em;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.navbar a::after {
+  content: " ";
+  position: absolute;
+  width: 100%;
+}
+
+.navbar .btnlogin-popup {
+  width: 130px;
+  height: 45px;
+  background: transparent;
+  outline: none;
+  border: 2px solid #fff;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #fff;
+  font-weight: 10;
+  font-size: 22px;
+  margin-left: 40px;
+  font-family: "Rakkas";
+  transition: all 5 ease-in-out;
+}
+
+.navbar .btnlogin-popup:hover {
+  background-color: #95196fdb;
+  transform: scaleY(1.08);
+}
+.wrapper {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 460px;
+  background: black;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  transition: 0.5 ease-in-out;
+}
+
+.wrapper.active {
+  height: 500px;
+  display: flex;
+  box-shadow: 10px 10px 50px 100vmax rgba(0 0 0 / 80%);
+}
+
+.wrapper .form-box {
+  width: 100%;
+  padding: 40px;
+}
+
+.form-box h2 {
+  padding-top: 60px;
+  padding-left: 72px;
+  font-size: 2em;
+  color: #f8f9fa;
+  text-align: center;
+}
+
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid #f8f9fa;
+  margin: 30px 0;
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: #f8f9fa;
+  font-weight: 400;
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.input-box input :focus ~ label,
+.input-box input :valid ~ label {
+  top: -5px;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: #f8f9fa;
+  font-weight: 600;
+  padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+  position: absolute;
+  right: 8px;
+  font-size: 1.2em;
+  color: #f8f9fa;
+  line-height: 57px;
+}
+
+.remember-forget {
+  font-size: 0.9em;
+  color: #f8f9fa;
+  font-weight: 400;
+  margin-top: -15 0 15;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  width: 50%;
+  height: 35px;
+  margin-top: -6px;
+  background: #162938;
+  font-weight: 100;
+  font-family: "Rakkas";
+  border: none;
+  border-radius: 11px;
+  cursor: pointer;
+  font-size: 1em;
+  outline: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  font-weight: 400;
+  font-size: 1rem;
+  background-color: #95196fdb;
+  font-family: "rakkas";
+}
+
+.login-register {
+  font-size: 0.9rem;
+  color: #f8f9fa;
+  text-align: center;
+  font-weight: 400;
+  margin: 30px 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-register p a {
+  color: #f8f9fa;
+  text-decoration: none;
+  font-weight: 400;
+  font-family: "Rakkas";
+  font-size: medium;
+  transition: all 0.2s ease-in-out;
+}
+
+.login-register p a:hover {
+  text-decoration: underline;
+  color: #dc7826db;
+  font-family: "rakkas";
+  transform: scale(1.4);
+}
+
+.icon-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 40px;
+  height: 40px;
+  background: #2469ad;
+  cursor: pointer;
+  color: #fff;
+  font-size: 2em;
+  font-weight: bolder;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+}
+.icon-close:hover {
+  transform: scale(1.09);
+  background-color: red;
+}
+.icon-inner:hover {
+  font-weight: bolder;
+  font-size: 9em;
+}
+.loginico {
+  width: 20%;
+  height: 20%;
+  margin-left: 21%;
+  margin-top: -26%;
+}
+
+.registerico {
+  width: 20%;
+  height: 20%;
+  margin-left: 12%;
+  margin-top: -26%;
+}
+
+.regbtn {
+  width: 100%;
+  height: 45px;
+  margin: 12px 0 -15px;
+  background: #162938;
+  font-weight: 500;
+  font-family: "Rakkas";
+  border: none;
+  border-radius: 11px;
+  cursor: pointer;
+  font-size: 1em;
+  outline: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.26s ease-in-out;
+}
+.regbtn:hover {
+  transform: scale(1.02);
+  font-weight: 500;
+  font-size: 1rem;
+  background: #95196fdb;
+}
+.register-box {
+  font-size: 0.9rem;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  margin: -1px 0 5px;
+}
