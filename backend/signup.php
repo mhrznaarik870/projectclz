@@ -1,3 +1,28 @@
+<?php
+$showAlert = false;
+$showError = false;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  include 'partials/_dbconnect.php';
+  $email = $_POST["email"];
+  $password = $_POST["password"];
+  $cpassword = $_POST["cpassword"];
+  $phoneno = $_POST["phoneno"];
+  $exists = false;
+  if (($password == $cpassword) && $exists == false) {
+    $sql = "INSERT INTO `users` ( `email`, `password`, `phoneno`, `dt`) VALUES ( '$email', '$password', '$phoneno', current_timestamp())";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+      $showAlert = true;
+    }
+  } else {
+    $showError = true;
+
+  }
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -32,27 +57,36 @@
           <li class="nav-item">
             <a class="nav-link" href="/admotors/backend/logout.php">Logout</a>
           </li>
-
-
-
         </ul>
 
       </div>
     </div>
   </nav>
 
-
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>SUCCESS!!</strong>Your account is created. Now you can login to our WebSite.
+  <?php
+  if ($showAlert) {
+    echo '
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>SUCCESS!! </strong>Your account is created. Now you can login to our WebSite.
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
+    </div>';
+  }
+  if ($showError === true) {
+    echo '
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Error! </strong>' . $showError . '
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+  }
+  ?>
+
   <div class="container my-4">
     <h1 class="text-center"><u> Signup to Our Site</u></h1> <br>
 
     <form action="signup.php" method="post" style="display: flex ;    align-items: center;   flex-direction: column;">
       <div class="mb-3 col-md-4">
         <label for="email" class="form-label">Enter your E-mail address:</label>
-        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+        <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp">
         <div id="emailHelp" class="form-text text-white  ">We'll never share your information with anyone else.</div>
       </div>
       <div class="mb-3 col-md-4">
@@ -66,8 +100,8 @@
       </div>
 
       <div class="mb-3 col-md-4">
-        <label for="mnumber" class="form-label">Enter your mobile number:</label>
-        <input type="mnumber" class="form-control" id="mnumber" name="mnumber">
+        <label for="phoneno" class="form-label">Enter your phone number:</label>
+        <input type="phoneno" class="form-control" id="phoneno" name="phoneno">
       </div>
 
       <button type="submit" class="btn btn-primary">Submit</button>
@@ -86,14 +120,3 @@
 </body>
 
 </html>
-
-
-<?php
-require_once 'partials/_dbconnect.php';
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-  $username = $_POST["username"];
-  $password = $_POST["password"];
-  $email = $_POST["email"];
-  $phoneno = $_POST["mnumber"];
-}
