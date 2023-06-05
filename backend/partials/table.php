@@ -5,11 +5,10 @@ include 'function.php';
 $conn = OpenCon();
 //sql to create table
 $sql = "CREATE TABLE clients (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    Username VARCHAR(30) NOT NULL,
-    Password VARCHAR(30) NOT NULL,
-    Email VARCHAR(50),
-    PhoneNo INT(10),
+    sno INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name  VARCHAR(30) NOT NULL,
+    password VARCHAR(30) NOT NULL,
+    email VARCHAR(50),
     Reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     )";
 

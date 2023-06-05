@@ -1,3 +1,27 @@
+<?php
+$showAlert = false;
+$showError = false;
+
+require '../backend/partials/_dbconnect.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $password = $_POST['password'];
+    $email = $_POST['email'];
+    $exists = false;
+    if ($exists == false) {
+        $sql = "INSERT INTO `clients` (`name`, `password`, `email`, `dt`) VALUES ('$name', '$password', '$email', current_timestamp())";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            $showAlert = true;
+        }
+    } else {
+        $showError = true;
+
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,6 +76,28 @@
                 </div>
             </div>
         </nav>
+
+        <?php
+        if ($showAlert) {
+            echo '
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>SUCCESS!! </strong>Your account is created. Now you can login to our WebSite.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>';
+        }
+        if ($showError) {
+            echo '
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+            <div>
+              <strong> ERROR!! </strong> in creating your account!
+            </div>
+          </div>';
+        }
+        ?>
+
+
+
         <div class="big-wrapper">
             <!-- registration button -->
             <div class="wrapper">
@@ -63,23 +109,23 @@
                     <div class="form-box register">
                         <h2>Registration</h2>
                         <img src="./assets/img/logo.png" alt="logo" class="registerico" />
-                        <form action="#">
+                        <form action="/projectclz/frontend/header.php" method="POST">
 
                             <div class="input-box">
                                 <span class="icon"><ion-icon name="people"></ion-icon> </span>
-                                <input type="text" required>
-                                <label> Full Name</label>
+                                <input type="text" id="name" name="name" placeholder="Name" required>
+                                <!-- <label> Full Name</label> -->
                             </div>
 
                             <div class="input-box">
                                 <span class="icon"><ion-icon name="mail"></ion-icon> </span>
-                                <input type="mail" required>
-                                <label> E-Mail Address</label>
+                                <input type="email" id="email" name="email" placeholder="E-Mail Address" required>
+                                <!-- <label> E-Mail Address</label> -->
                             </div>
                             <div class="input-box">
                                 <span class="icon"> <ion-icon name="lock-closed"></ion-icon></span>
-                                <input type="password" required>
-                                <label> Password</label>
+                                <input type="password" id="password" name="password" placeholder="Password" required>
+                                <!-- <label> Password</label> -->
                             </div>
                             <div class="register-box ">
                                 <label><input type="checkbox">I agree to the terms & conditions</label>
@@ -99,13 +145,13 @@
                     <form action="#">
                         <div class="input-box">
                             <span class="icon"><ion-icon name="mail"></ion-icon> </span>
-                            <input type="mail" required>
-                            <label> E-Mail Address</label>
+                            <input type="mail" placeholder="E-Mail Address" required>
+                            <!-- <label> E-Mail Address</label> -->
                         </div>
                         <div class="input-box">
                             <span class="icon"> <ion-icon name="lock-closed"></ion-icon></span>
-                            <input type="password" required>
-                            <label> Password</label>
+                            <input type="password" placeholder="Password" required>
+                            <!-- <label> Password</label> -->
                         </div>
                         <div class="remember-forget">
                             <label><input type="checkbox"> Remember Me</label>

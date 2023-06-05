@@ -192,6 +192,9 @@ a {
   font-family: "Secular One", sans-serif;
   border-radius: 10px;
   transition: all 0.24s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .btn1:hover {
   transform: scale(1.05);
