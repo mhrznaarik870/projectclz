@@ -1,23 +1,23 @@
+<!-- html linking and posting the values in the dbms -->
 <?php
 $showAlert = false;
 $showError = false;
 
 require '../backend/partials/_dbconnect.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $name = $_POST['name'];
     $password = $_POST['password'];
     $email = $_POST['email'];
     $exists = false;
     if ($exists == false) {
-        $sql = "INSERT INTO `clients` (`name`, `password`, `email`, `dt`) VALUES ('$name', '$password', '$email', current_timestamp())";
+        $sql = "INSERT INTO `clients` (`name`, `password`, `email`, `Reg_date`) VALUES ('$name', '$password', '$email', current_timestamp())";
         $result = mysqli_query($conn, $sql);
         if ($result) {
             $showAlert = true;
         }
     } else {
         $showError = true;
-
     }
 }
 ?>
@@ -31,15 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A.D MOTORS</title>
 
-    <!-- Bootstrap & Google font links  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Bootstrap  and icon links-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         class="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet" />
-
-    <link href="https://fonts.googleapis.com/css2?family=Rakkas&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css" />
     <link rel="icon" type="image/x-icon" href="./assets/img/logo.png" />
     <link rel="stylesheet" href="./assets/css/style.css" />
@@ -47,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body style="background-color: rgb(87, 80, 80)">
     <header>
+        <!-- navigation bar -->
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brands" href="./index.php">
@@ -73,10 +70,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </li>
                     </ul>
                     <button class="btnlogin-popup">Login</button>
+                    <span class="cart-icon fa-2x ">
+                        <ion-icon name="cart-outline"></ion-icon>
+                    </span>
                 </div>
             </div>
         </nav>
 
+        <!-- show alerts whether account is created or not -->
         <?php
         if ($showAlert) {
             echo '
@@ -84,6 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <strong>SUCCESS!! </strong>Your account is created. Now you can login to our WebSite.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>';
+            // header('Location: ./index.php');
         }
         if ($showError) {
             echo '
