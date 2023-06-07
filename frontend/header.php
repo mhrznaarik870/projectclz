@@ -34,8 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <!-- Bootstrap  and icon links-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         class="stylesheet">
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css" />
     <link rel="icon" type="image/x-icon" href="./assets/img/logo.png" />
     <link rel="stylesheet" href="./assets/css/style.css" />
@@ -70,8 +68,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </li>
                     </ul>
                     <button class="btnlogin-popup">Login</button>
-                    <span class="cart-icon fa-2x ">
-                        <ion-icon name="cart-outline"></ion-icon>
+
+                    <!-- the cart -->
+                    <span class="cart-icon">
+                        <ion-icon size="large" name="cart-outline"></ion-icon>
+                    </span>
+                    <span class="admin-icon  fa-2x">
+                        <ion-icon name="arrow-dropdown-circle"></ion-icon>
                     </span>
                 </div>
             </div>
@@ -101,6 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
         <div class="big-wrapper">
+
             <!-- registration button -->
             <div class="wrapper">
                 <span class="icon-close"><ion-icon name="close-outline"></ion-icon></span>

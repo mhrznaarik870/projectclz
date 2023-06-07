@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 offset-md-1">
+      <div class="over-image col-md-6 offset-md-1">
         <img src="./assets/img/bg.jpg" alt="bg" />
       </div>
     </div>
