@@ -428,7 +428,7 @@ header {
   transform: scale(1.05);
   font-weight: 400;
   font-size: 1rem;
-  background-color: #95196fdb;
+  background-color: #2469ad;
   font-family: "rakkas";
 }
 
@@ -449,20 +449,20 @@ header {
   font-weight: 400;
   font-family: "Rakkas";
   font-size: medium;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.13s ease-in-out;
 }
 
 .login-register p a:hover {
   text-decoration: underline;
   color: rgb(34, 222, 222);
   font-family: "rakkas";
-  transform: scale(1.35);
+  transform: scale(1.5);
 }
 
 .icon-close {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 6px;
+  right: 7px;
   width: 40px;
   height: 40px;
   background: #2469ad;
@@ -520,7 +520,7 @@ header {
   transform: scale(1.02);
   font-weight: 300;
   font-size: 1.1em;
-  background: #95196fdb;
+  background: #2469ad;
   display: flex;
   align-items: center;
   justify-content: center;
