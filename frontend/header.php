@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <div class="container">
                 <a class="navbar-brands" href="./index.php">
                     <img class="logo" src="./assets/img/logo.png" alt="logo" />
-                    A.D MOTORS</a>
+                    A.D. MOTORS</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto my-2 my-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./index.php">HOME</a>
+                            <a class="nav-link " aria-current="page" href="./index.php">HOME</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link " href="./trending.php">TRENDING</a>

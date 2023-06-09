@@ -24,10 +24,12 @@ img {
 }
 .navbar-brands:hover {
   transform: scale(1.02);
-  color: rgb(12, 52, 147);
-  text-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 12px rgb(34, 222, 222),
+  color: #fff;
+  z-index: 2;
+  text-shadow: 0 0 8px rgb(34, 222, 222), 0 0 12px rgb(34, 222, 222),
     0 0 16px rgb(34, 222, 222), 0 0 20px rgb(34, 222, 222),
-    0 0 24px rgb(34, 222, 222), 0 0 28px rgb(34, 222, 222);
+    0 0 24px rgb(34, 222, 222), 0 0 26px rgb(34, 222, 222),
+    0 0 30px rgb(34, 222, 222);
 }
 .nav-link {
   margin-right: 10px;
