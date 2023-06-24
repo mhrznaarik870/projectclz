@@ -24,10 +24,12 @@ img {
 }
 .navbar-brands:hover {
   transform: scale(1.02);
-  color: rgb(12, 52, 147);
-  text-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 12px rgb(34, 222, 222),
+  color: #fff;
+  z-index: 2;
+  text-shadow: 0 0 8px rgb(34, 222, 222), 0 0 12px rgb(34, 222, 222),
     0 0 16px rgb(34, 222, 222), 0 0 20px rgb(34, 222, 222),
-    0 0 24px rgb(34, 222, 222), 0 0 28px rgb(34, 222, 222);
+    0 0 24px rgb(34, 222, 222), 0 0 26px rgb(34, 222, 222),
+    0 0 30px rgb(34, 222, 222);
 }
 .nav-link {
   margin-right: 10px;
@@ -313,8 +315,10 @@ header {
 }
 
 .navbar .btnlogin-popup:hover {
-  background-color: #95196fdb;
+  background-color: rgb(222, 75, 34);
   transform: scaleY(1.08);
+  color: #ffffff;
+  font-weight: 600;
 }
 .wrapper {
   display: none;
@@ -347,7 +351,7 @@ header {
 
 .form-box h2 {
   padding-top: 60px;
-  padding-left: 72px;
+  padding-left: 70px;
   font-size: 2em;
   color: #f8f9fa;
   text-align: center;
@@ -406,9 +410,10 @@ header {
 }
 
 .btn {
-  width: 50%;
+  width: 51%;
   height: 35px;
-  margin-top: -6px;
+  margin-top: -46px;
+  margin-left: 150px;
   background: #162938;
   font-weight: 200;
   font-family: "Rakkas";
@@ -428,7 +433,7 @@ header {
   transform: scale(1.05);
   font-weight: 400;
   font-size: 1rem;
-  background-color: #95196fdb;
+  background-color: #2469ad;
   font-family: "rakkas";
 }
 
@@ -449,20 +454,20 @@ header {
   font-weight: 400;
   font-family: "Rakkas";
   font-size: medium;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.13s ease-in-out;
 }
 
 .login-register p a:hover {
   text-decoration: underline;
   color: rgb(34, 222, 222);
   font-family: "rakkas";
-  transform: scale(1.35);
+  transform: scale(1.5);
 }
 
 .icon-close {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 6px;
+  right: 7px;
   width: 40px;
   height: 40px;
   background: #2469ad;
@@ -492,10 +497,9 @@ header {
 }
 
 .registerico {
-  width: 20%;
-  height: 20%;
-  margin-left: 12%;
-  margin-top: -26%;
+  width: 18%;
+  margin-left: 30px;
+  margin-top: -60px;
 }
 
 .regbtn {
@@ -520,7 +524,7 @@ header {
   transform: scale(1.02);
   font-weight: 300;
   font-size: 1.1em;
-  background: #95196fdb;
+  background: #2469ad;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -544,13 +548,10 @@ header {
   transform: scale(1.25);
 }
 
-.admin-icon {
-  color: #fff;
-  margin: 0 10px;
-  margin-top: 10px;
-  transition: all 0.26s ease-in-out;
-}
-
-.admin-icon:hover {
-  transform: scale(1.25);
+.show-alerts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 18vh;
+  width: 100%;
 }

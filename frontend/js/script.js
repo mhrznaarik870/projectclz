@@ -1,4 +1,3 @@
-
 const wrapper = document.querySelector(".wrapper");
 const loginlink = document.querySelector(".login-link");
 const registerlink = document.querySelector(".register-link");
@@ -23,3 +22,20 @@ popup.addEventListener("click", () => {
 close.addEventListener("click", () => {
   wrapper.classList.remove("active");
 });
+
+// Get all nav-link elements
+// const navLinks = document.querySelectorAll(".nav-link");
+
+// // Loop through each nav-link
+// navLinks.forEach((navLink) => {
+//   // Add click event listener
+//   navLink.addEventListener("click", function () {
+//     // Remove the "active" class from all nav-links
+//     navLinks.forEach((link) => {
+//       link.classList.remove("active");
+//     });
+
+//     // Add the "active" class to the clicked nav-link
+//     this.classList.add("active");
+//   });
+// });
