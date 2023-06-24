@@ -1,4 +1,5 @@
-<?php require_once('header.php'); ?>
+<?php include('header.php') ?>
+
 <section class="main text-white" style="background-image: url('./assets/img/bg.jpg')">
   <div class="blur"></div>
   <div class="container">
@@ -28,4 +29,6 @@
     </div>
   </div>
 </section>
-<?php include('footer.php'); ?>
+
+
+<?php include('footer.php') ?>
