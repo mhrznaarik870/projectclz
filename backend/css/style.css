@@ -1,12 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rakkas&display=swap");
 
 * {
   padding: 0;
   margin: 0;
-  font-family: "secular one", sans-serif;
+  font-family: "Poppins", sans-serif;
   box-sizing: border-box;
+}
+a {
+  text-decoration: none;
 }
 
 img {
@@ -14,29 +16,15 @@ img {
   height: auto;
 }
 
-.navbar-brands {
-  font-size: 2rem;
-  color: rgb(255, 255, 255);
-  font-family: "Lobster", cursive;
+.search {
+  height: 40px;
+  width: 1000%;
+  border-radius: 60px;
+  outline: none;
+  margin-right: -8px;
+  font-family: "Rubik", sans-serif;
+  border: 2px solid rgb(5, 205, 152);
 }
-.navbar-brands:hover {
-  transform: scale(1.02);
-  color: #fff;
-  z-index: 2;
-  text-shadow: 0 0 8px rgb(34, 222, 222), 0 0 12px rgb(34, 222, 222),
-    0 0 16px rgb(34, 222, 222), 0 0 20px rgb(34, 222, 222),
-    0 0 24px rgb(34, 222, 222), 0 0 26px rgb(34, 222, 222),
-    0 0 30px rgb(34, 222, 222);
-}
-.nav-link {
-  margin-right: 10px;
-  margin-left: 10px;
-  text-transform: uppercase;
-}
-.nav-link:hover {
-  color: rgb(34, 222, 222);
-}
-
 .btn0 {
   height: 40px;
   width: 500%;
@@ -68,7 +56,6 @@ img {
 .main img {
   max-height: 469px;
   object-fit: cover;
-  border-radius: 20px;
 }
 
 .navbar {
@@ -77,10 +64,10 @@ img {
   left: 0;
   width: 100%;
   z-index: 5;
+  font-family: "Rakkas", cursive;
 }
 
 .navbar a {
-  text-decoration: none;
   color: white;
   font-family: "Rakkas", cursive;
   font-size: 20px;
@@ -88,14 +75,6 @@ img {
 
 .navbar .nav-link.active {
   color: rgb(34, 222, 222);
-}
-
-.navbar-brands img,
-.navbar-brands {
-  max-width: 100%;
-  height: 40px;
-  margin-right: 10px;
-  transition: all 0.2s ease-in-out;
 }
 
 .nav li {
@@ -110,6 +89,8 @@ img {
   height: 2px;
   width: 100%;
   background-color: rgb(34, 222, 222);
+
+  /* position: absolute; */
   top: 0;
   width: 0%;
   transition: all ease-in-out 200ms;
@@ -121,28 +102,19 @@ img {
 
 .uk-flex {
   height: 40px;
-  width: 20%;
+  width: max-content;
   padding: 7px;
   background-color: rgb(255, 255, 255);
-  font-size: 1.2rem;
-  font-weight: 500;
-  transition: all 0.2s ease-in-out;
-  border-radius: 10px;
-  display: flex;
   align-items: center;
-  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
 }
 .uk-flex:hover {
   transform: scale(1.1);
 }
 .uk-flex a {
   color: rgb(0, 0, 0);
-  font-family: "Secular one";
-  font-weight: 700;
-}
-
-.buy-bike-parts:hover {
-  text-decoration: underline;
+  font-family: "Permanent Marker", cursive;
 }
 
 h2 {
@@ -154,11 +126,10 @@ h2 {
   padding: 50px 0;
   backdrop-filter: blur(5px);
   height: 100%;
-  border-radius: 20px;
 }
 
 a {
-  font-family: "secular one", cursive;
+  font-family: "Permanent Marker", cursive;
 }
 
 @media (max-width: 767.98px) {
@@ -180,15 +151,36 @@ a {
   border: none;
   background: white;
   color: rgb(172, 98, 45);
-  font-weight: 600;
-  font-family: "Secular One", sans-serif;
-  border-radius: 10px;
+  font-family: "Permanent Marker";
+  border-radius: 70px;
   transition: all 0.24s ease-in-out;
-  margin: 0 auto;
 }
-
 .btn1:hover {
   transform: scale(1.05);
+  font-family: "Permanent Marker";
+}
+
+.card:hover {
+  box-shadow: 11px -7px 34px 16px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 11px -7px 34px 16px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 11px -7px 34px 16px rgba(0, 0, 0, 0.7);
+  transition: 0.4s;
+}
+.card .card-body {
+  text-align: center;
+}
+.card .img-fluid {
+  max-height: 150px;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 40px;
+}
+.card:hover .img-fluid {
+  transform: scale(1.1);
+}
+
+.form-control {
+  border-radius: 10px;
 }
 
 h4 {
@@ -201,14 +193,32 @@ h4 span {
   font-family: "Rakkas", cursive;
 }
 
+footer {
+  color: white;
+  padding: 5%;
+  font-size: 25px;
+  text-align: center;
+}
+
+.footerico {
+  max-width: 70px;
+}
+
 .fa-brands {
   transition: all 0.24s ease-in-out;
   padding: 5px;
-  margin: 18px 0;
 }
 
 .fa-brands:hover {
-  transform: scale(1.09);
+  transform: scale(1.08);
+}
+
+.nav {
+  position: fixed;
+  background: transparent;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 
 .nav-item {
@@ -222,12 +232,61 @@ h4 span {
 h4 span {
   font-family: "Rakkas", cursive;
 }
-.login-box {
-  width: 350px;
-  margin: 10% auto;
-  padding: 50px;
-  color: aliceblue;
+
+label {
+  display: block;
+  text-align: center;
+}
+
+.navbar-brand {
+  font-size: 2rem;
+  color: #fff !important;
+  font-family: "Lobster", cursive;
+}
+
+.navbar-brand a {
+  color: red;
+}
+.navbar-brand:hover {
+  color: black;
+}
+.nav-link {
+  margin-right: 10px;
+  margin-left: 10px;
+  color: black;
+  text-transform: uppercase;
+}
+.nav-link:hover,
+.nav-link:focus {
+  color: rgb(34, 222, 222);
+}
+body {
+  padding-top: 100px;
   background: rgb(87, 80, 80);
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 0, 0.4, 0.6);
+  color: white;
+}
+
+.alert {
+  display: none;
+}
+
+.alert-success {
+  display: inherit;
+}
+
+.navbar a:not(.navbar-brands):before {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: rgb(34, 222, 222);
+
+  /* position: absolute; */
+  top: 0;
+  width: 0%;
+  transition: all ease-in-out 200ms;
+}
+.navbar a:hover::before,
+.navbar a.active::before {
+  width: 100%;
 }
