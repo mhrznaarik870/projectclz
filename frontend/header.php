@@ -1,53 +1,3 @@
-<?php
-$showAlert = false;
-$showError = false;
-$errorMessage = "";
-
-require_once '../backend/partials/_dbconnect.php';
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $name = $_POST['name'];
-    $password = $_POST['password'];
-    $email = $_POST['email'];
-
-    if (isset($_POST['terms']) && $_POST['terms'] === "1") {
-        // Check if the username already exists
-        $checkQuery = "SELECT * FROM clients WHERE name='$name'";
-        $checkResult = mysqli_query($conn, $checkQuery);
-
-        if (mysqli_num_rows($checkResult) > 0) {
-            $showError = true; // Set the error flag if username exists
-            $errorMessage = "Username already exists. Please reset your password and try to login!";
-        } else {
-            // Check if the email already exists
-            $checkEmailQuery = "SELECT * FROM clients WHERE email='$email'";
-            $checkEmailResult = mysqli_query($conn, $checkEmailQuery);
-
-            if (mysqli_num_rows($checkEmailResult) > 0) {
-                $showError = true; // Set the error flag if email exists
-                $errorMessage = "Email already exists. Please try resetting your password!";
-            } else {
-                // Insert the new user into the database
-                $sql = "INSERT INTO `clients` (`name`, `password`, `email`, `Reg_date`) VALUES ('$name', '$password', '$email', current_timestamp())";
-                $result = mysqli_query($conn, $sql);
-
-                if ($result) {
-                    $showAlert = true; // Set the success flag if insertion is successful
-                } else {
-                    $showError = true; // Set the error flag if insertion fails
-                    $errorMessage = "Unable to create your account. Please try again later.";
-                }
-            }
-        }
-    } else {
-        // Checkbox not checked, show error message
-        $showError = true;
-        $errorMessage = "Please accept the terms and conditions.";
-    }
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body style="background-color: rgb(87, 80, 80)">
     <header>
         <!-- navigation bar -->
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg" id="navbar">
             <div class="container">
                 <a class="navbar-brands" href="./index.php">
                     <img class="logo" src="./assets/img/logo.png" alt="logo" />
@@ -108,25 +58,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
         </nav>
 
-
-        <?php if ($showAlert): ?>
-            <div class="show-alerts ">
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>SUCCESS!!</strong> Your account is created. Please verify your email-address by visiting your
-                    gmail account.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            </div>
-        <?php elseif ($showError): ?>
-            <div class="show-alerts ">
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Error!!</strong>
-                    <?php echo $errorMessage; ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            </div>
-        <?php endif; ?>
-
         <!-- registration and login form -->
         <div class="big-wrapper">
 
@@ -143,10 +74,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <img src="./assets/img/logo.png" alt="logo" class="registerico" />
 
                         <!-- Form action post -->
-                        <form action="/projectclz/frontend/index.php" method="POST">
+                        <form method="POST" action="login_register.php">
                             <div class="input-box">
                                 <span class="icon"><ion-icon name="people"></ion-icon> </span>
-                                <input type="text" id="name" name="name" placeholder="Username" required>
+                                <input type="text" id="name" name="name" placeholder="Full Name" required>
                             </div>
                             <div class="input-box">
                                 <span class="icon"><ion-icon name="mail"></ion-icon> </span>
@@ -156,9 +87,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 <span class="icon"> <ion-icon name="lock-closed"></ion-icon></span>
                                 <input type="password" id="password" name="password" placeholder="Password" required>
                             </div>
+                            <div class="input-box">
+                                <span class="icon"> <ion-icon name="call"></ion-icon></span>
+                                <input type="phoneno" id="phoneno" name="phoneno" placeholder="Phone No." required>
+                            </div>
                             <div class="register-box ">
-                                <label><input type="checkbox" name="terms" value="1">
-                                    I agree to the <a href="#">terms & conditions</a> </label>
                                 <button type="submit" class="regbtn">Register</button>
                             </div>
                             <div class="login-register">
@@ -167,14 +100,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </form>
                     </div>
                 </div>
+
                 <!-- login-box -->
                 <div class="form-box login">
                     <h2>Login</h2>
                     <img src="./assets/img/logo.png" alt="logo" class="loginico" />
-                    <form action="#">
+                    <form method="POST" action="login_register.php">
                         <div class="input-box">
                             <span class="icon"><ion-icon name="mail"></ion-icon> </span>
-                            <input type="mail" placeholder="E-Mail Address" required>
+                            <input type="mail" placeholder="E-Mail " required>
                             <!-- <label> E-Mail Address</label> -->
                         </div>
                         <div class="input-box">
