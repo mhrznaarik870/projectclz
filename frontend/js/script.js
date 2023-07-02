@@ -23,19 +23,50 @@ close.addEventListener("click", () => {
   wrapper.classList.remove("active");
 });
 
+// Get the current page URL
+const currentURL = window.location.href;
+
 // Get all nav-link elements
-// const navLinks = document.querySelectorAll(".nav-link");
+const navLinks = document.querySelectorAll(".nav-link");
 
-// // Loop through each nav-link
-// navLinks.forEach((navLink) => {
-//   // Add click event listener
-//   navLink.addEventListener("click", function () {
-//     // Remove the "active" class from all nav-links
-//     navLinks.forEach((link) => {
-//       link.classList.remove("active");
-//     });
+// Loop through each nav-link
+navLinks.forEach((navLink) => {
+  // Get the URL of the nav-link
+  const linkURL = navLink.href;
 
-//     // Add the "active" class to the clicked nav-link
-//     this.classList.add("active");
-//   });
-// });
+  // Check if the URL matches the current page URL
+  if (linkURL === currentURL) {
+    // Add the "active" class to the matching nav-link
+    navLink.classList.add("active");
+  }
+});
+
+// Add event listener for login button
+const loginButton = document.querySelector(".btnlogin-popup");
+loginButton.addEventListener("click", () => {
+  const wrapper = document.querySelector(".big-wrapper");
+  wrapper.classList.toggle("show-register-wrapper");
+});
+
+// Add event listener for register link in login form
+const registerLink = document.querySelector(".register-link");
+registerLink.addEventListener("click", (e) => {
+  e.preventDefault();
+  const wrapper = document.querySelector(".big-wrapper");
+  wrapper.classList.add("show-register-wrapper");
+});
+
+// Add event listener for login link in registration form
+const loginLink = document.querySelector(".login-link");
+loginLink.addEventListener("click", (e) => {
+  e.preventDefault();
+  const wrapper = document.querySelector(".big-wrapper");
+  wrapper.classList.remove("show-register-wrapper");
+});
+
+// Add event listener for close button in registration form
+const closeButton = document.querySelector(".icon-close");
+closeButton.addEventListener("click", () => {
+  const wrapper = document.querySelector(".big-wrapper");
+  wrapper.classList.remove("show-register-wrapper");
+});

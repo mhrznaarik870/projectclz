@@ -1,53 +1,4 @@
-<?php
-$showAlert = false;
-$showError = false;
-$errorMessage = "";
-
-require_once '../backend/partials/_dbconnect.php';
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $name = $_POST['name'];
-    $password = $_POST['password'];
-    $email = $_POST['email'];
-
-    if (isset($_POST['terms']) && $_POST['terms'] === "1") {
-        // Check if the username already exists
-        $checkQuery = "SELECT * FROM clients WHERE name='$name'";
-        $checkResult = mysqli_query($conn, $checkQuery);
-
-        if (mysqli_num_rows($checkResult) > 0) {
-            $showError = true; // Set the error flag if username exists
-            $errorMessage = "Username already exists. Please reset your password and try to login!";
-        } else {
-            // Check if the email already exists
-            $checkEmailQuery = "SELECT * FROM clients WHERE email='$email'";
-            $checkEmailResult = mysqli_query($conn, $checkEmailQuery);
-
-            if (mysqli_num_rows($checkEmailResult) > 0) {
-                $showError = true; // Set the error flag if email exists
-                $errorMessage = "Email already exists. Please try resetting your password!";
-            } else {
-                // Insert the new user into the database
-                $sql = "INSERT INTO `clients` (`name`, `password`, `email`, `Reg_date`) VALUES ('$name', '$password', '$email', current_timestamp())";
-                $result = mysqli_query($conn, $sql);
-
-                if ($result) {
-                    $showAlert = true; // Set the success flag if insertion is successful
-                } else {
-                    $showError = true; // Set the error flag if insertion fails
-                    $errorMessage = "Unable to create your account. Please try again later.";
-                }
-            }
-        }
-    } else {
-        // Checkbox not checked, show error message
-        $showError = true;
-        $errorMessage = "Please accept the terms and conditions.";
-    }
-}
-?>
-
-
+<?php require('../backend/partials/_dbconnect.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -109,23 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </nav>
 
 
-        <?php if ($showAlert): ?>
-            <div class="show-alerts ">
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>SUCCESS!!</strong> Your account is created. Please verify your email-address by visiting your
-                    gmail account.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            </div>
-        <?php elseif ($showError): ?>
-            <div class="show-alerts ">
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Error!!</strong>
-                    <?php echo $errorMessage; ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            </div>
-        <?php endif; ?>
 
         <!-- registration and login form -->
         <div class="big-wrapper">
@@ -143,23 +77,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <img src="./assets/img/logo.png" alt="logo" class="registerico" />
 
                         <!-- Form action post -->
-                        <form action="/projectclz/frontend/index.php" method="POST">
+                        <form action="../backend/login_register.php" method="POST">
                             <div class="input-box">
                                 <span class="icon"><ion-icon name="people"></ion-icon> </span>
-                                <input type="text" id="name" name="name" placeholder="Username" required>
+                                <input type="text" id="username" name="username" placeholder="Username" required>
                             </div>
                             <div class="input-box">
                                 <span class="icon"><ion-icon name="mail"></ion-icon> </span>
                                 <input type="email" id="email" name="email" placeholder="E-Mail Address" required>
                             </div>
                             <div class="input-box">
+                                <span class="icon"><ion-icon name="call"></ion-icon> </span>
+                                <input type="tel" id="phoneno" name="phoneno" placeholder="Phone Number" required>
+                            </div>
+                            <div class="input-box">
                                 <span class="icon"> <ion-icon name="lock-closed"></ion-icon></span>
                                 <input type="password" id="password" name="password" placeholder="Password" required>
                             </div>
                             <div class="register-box ">
-                                <label><input type="checkbox" name="terms" value="1">
-                                    I agree to the <a href="#">terms & conditions</a> </label>
-                                <button type="submit" class="regbtn">Register</button>
+                                <button type="submit" class="regbtn" name="register">Register</button>
                             </div>
                             <div class="login-register">
                                 <p>Already have an account? <a href="#" class="login-link">Login</a></p>
@@ -171,81 +107,34 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <div class="form-box login">
                     <h2>Login</h2>
                     <img src="./assets/img/logo.png" alt="logo" class="loginico" />
-                    <form action="#">
+                    <form action="../backend/login_register.php" method="POST">
                         <div class="input-box">
-                            <span class="icon"><ion-icon name="mail"></ion-icon> </span>
-                            <input type="mail" placeholder="E-Mail Address" required>
-                            <!-- <label> E-Mail Address</label> -->
+                            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                            <input type="text" id="email_username" name="email_username"
+                                placeholder="E-Mail Address / Username" required>
                         </div>
+
                         <div class="input-box">
-                            <span class="icon"> <ion-icon name="lock-closed"></ion-icon></span>
-                            <input type="password" placeholder="Password" required>
-                            <!-- <label> Password</label> -->
+                            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                            <input type="password" id="password" name="password" placeholder="Password" required>
                         </div>
 
                         <div class="forget-password">
-                            <p> <a href="#" class="login-link">Reset password??</a></p>
+                            <p><a href="#" class="login-link">Reset password?</a></p>
                         </div>
                         <div class="remember-forget">
-                            <button type="submit" class="btn">Login</button>
-
+                            <button type="submit" class="btn" name="login">Login</button>
                         </div>
                         <div class="login-register">
                             <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
                         </div>
                     </form>
                 </div>
+
             </div>
-        </div>
     </header>
 
-    <script>
-        // Get the current page URL
-        const currentURL = window.location.href;
-
-        // Get all nav-link elements
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        // Loop through each nav-link
-        navLinks.forEach(navLink => {
-            // Get the URL of the nav-link
-            const linkURL = navLink.href;
-
-            // Check if the URL matches the current page URL
-            if (linkURL === currentURL) {
-                // Add the "active" class to the matching nav-link
-                navLink.classList.add('active');
-            }
-        });
-
-        // Add event listener for login button
-        const loginButton = document.querySelector('.btnlogin-popup');
-        loginButton.addEventListener('click', () => {
-            const wrapper = document.querySelector('.big-wrapper');
-            wrapper.classList.toggle('show-register-wrapper');
-        });
-
-        // Add event listener for register link in login form
-        const registerLink = document.querySelector('.register-link');
-        registerLink.addEventListener('click', () => {
-            const wrapper = document.querySelector('.big-wrapper');
-            wrapper.classList.toggle('show-register-wrapper');
-        });
-
-        // Add event listener for login link in register form
-        const loginLink = document.querySelector('.login-link');
-        loginLink.addEventListener('click', () => {
-            const wrapper = document.querySelector('.big-wrapper');
-            wrapper.classList.toggle('show-register-wrapper');
-        });
-
-        // Add event listener for close icon
-        const closeIcon = document.querySelector('.icon-close');
-        closeIcon.addEventListener('click', () => {
-            const wrapper = document.querySelector('.big-wrapper');
-            wrapper.classList.remove('show-register-wrapper');
-        });
-    </script>
+    <script href="./js/script.js"></script>
 </body>
 
 </html>

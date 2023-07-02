@@ -82,6 +82,7 @@ img {
   max-height: 469px;
   object-fit: cover;
   border-radius: 20px;
+  border: 2px solid white;
 }
 
 .navbar {
@@ -135,7 +136,6 @@ img {
 
 .uk-flex {
   height: 40px;
-  width: 20%;
   padding: 7px;
   background-color: rgb(255, 255, 255);
   font-size: 1.2rem;
@@ -363,7 +363,7 @@ header {
   height: 50px;
   border-bottom: 2px solid #f8f9fa;
   background: transparent;
-  margin: 30px 0;
+  margin-bottom: 20px;
 }
 
 .input-box label {
@@ -399,7 +399,17 @@ header {
   color: #f8f9fa;
   line-height: 57px;
 }
+.input-box .icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #f8f9fa;
+  font-size: 18px; /* Adjust the icon size as needed */
+}
 
+.input-box .icon ion-icon {
+  vertical-align: middle;
+}
 .remember-forget {
   font-size: 0.9em;
   color: #f8f9fa;
@@ -499,7 +509,7 @@ header {
 .registerico {
   width: 18%;
   margin-left: 30px;
-  margin-top: -60px;
+  margin-top: -80px;
 }
 
 .regbtn {
