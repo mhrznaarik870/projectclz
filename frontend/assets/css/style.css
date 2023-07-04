@@ -19,18 +19,56 @@ img {
 
 .navbar-brands {
   font-size: 2rem;
-  color: rgb(255, 255, 255);
+  color: #fff;
   font-family: "Lobster", cursive;
+  background-color: none;
 }
+
 .navbar-brands:hover {
-  transform: scale(1.02);
   color: #fff;
   z-index: 2;
-  text-shadow: 0 0 8px rgb(34, 222, 222), 0 0 12px rgb(34, 222, 222),
-    0 0 16px rgb(34, 222, 222), 0 0 20px rgb(34, 222, 222),
-    0 0 24px rgb(34, 222, 222), 0 0 26px rgb(34, 222, 222),
-    0 0 30px rgb(34, 222, 222);
+  text-shadow: 0 0 10px #000, 0 0 14px #000, 0 0 18px #000, 0 0 22px #000,
+    0 0 26px #000, 0 0 30px #000;
+  transition: all 0.3s ease-in-out;
+  animation: shake 0.6s;
 }
+
+@keyframes shake {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-10px, 0);
+  }
+  20% {
+    transform: translate(10px, 0);
+  }
+  30% {
+    transform: translate(-10px, 0);
+  }
+  40% {
+    transform: translate(10px, 0);
+  }
+  50% {
+    transform: translate(-5px, 0);
+  }
+  60% {
+    transform: translate(5px, 0);
+  }
+  70% {
+    transform: translate(-2px, 0);
+  }
+  80% {
+    transform: translate(2px, 0);
+  }
+  90% {
+    transform: translate(-1px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
 .nav-link {
   margin-right: 10px;
   margin-left: 10px;
@@ -103,8 +141,6 @@ img {
   color: rgb(34, 222, 222);
 }
 
-.navbar-brands {
-}
 .navbar-brands img,
 .navbar-brands {
   max-width: 100%;
@@ -227,6 +263,11 @@ a {
 .form-control {
   border-radius: 10px;
 }
+h3 {
+  color: rgba(255, 255, 255, 0.708);
+  font-family: "rakkas", cursive;
+  line-height: 200%;
+}
 
 h4 {
   color: rgba(255, 255, 255, 0.708);
@@ -246,6 +287,7 @@ footer {
 }
 
 .footerico {
+  margin-right: 1px;
   max-width: 70px;
 }
 
@@ -311,15 +353,17 @@ header {
   font-size: 22px;
   margin-left: 40px;
   font-family: "Rakkas";
-  transition: all 5 ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .navbar .btnlogin-popup:hover {
-  background-color: rgb(222, 75, 34);
-  transform: scaleY(1.08);
+  background-color: #222222;
+  transform: scale(1.05);
   color: #ffffff;
   font-weight: 600;
+  box-shadow: 0 0 10px #000000;
 }
+
 .wrapper {
   display: none;
   position: fixed;

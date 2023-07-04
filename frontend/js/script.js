@@ -23,6 +23,12 @@ close.addEventListener("click", () => {
   wrapper.classList.remove("active");
 });
 
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    wrapper.classList.remove("active");
+  }
+});
+
 // Get the current page URL
 const currentURL = window.location.href;
 

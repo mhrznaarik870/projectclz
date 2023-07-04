@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require('./partials/_dbconnect.php');
 
 # For login
@@ -9,18 +9,17 @@ if (isset($_POST['login'])) {
 
     // Check if the email or username exists in the database
     $query = "SELECT * FROM `clients` WHERE `email`='$email_username' OR `username`='$email_username'";
-    $result = mysqli_query($conn, $query);
+    $result_fetch = mysqli_query($conn, $query);
 
-    if ($result) {
-        if (mysqli_num_rows($result) == 1) {
-            $user = mysqli_fetch_assoc($result);
-            if (password_verify($password, $user['password'])) {
+    if ($result_fetch) {
+        if (mysqli_num_rows($result_fetch) == 1) {
+            $result = mysqli_fetch_assoc($result_fetch);
+
+            if ($password === $result['password']) {
                 // Password matched
-                echo "
-                <script>
-                alert('Login Successful!');
-                </script>
-                ";
+                $_SESSION['logged_in'] = true;
+                $_SESSION['username'] = $result['username'];
+                header("location: ../frontend/dashboard.php");
             } else {
                 // Password does not match
                 echo "
@@ -49,6 +48,7 @@ if (isset($_POST['login'])) {
         ";
     }
 }
+
 
 #for registration
 if (isset($_POST['register'])) {
@@ -79,8 +79,8 @@ if (isset($_POST['register'])) {
 
         } else {
             #it will be executed if no one has taken username or the email
-            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            $query = "INSERT INTO `clients`( `username`, `password`, `email`, `phoneno`, `Reg_date`) VALUES ('$_POST[username]','$password','$_POST[email]','$_POST[phoneno]', current_timestamp())";
+            // $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $query = "INSERT INTO `clients`( `username`, `password`, `email`, `phoneno`, `Reg_date`) VALUES ('$_POST[username]','$_POST[password]','$_POST[email]','$_POST[phoneno]', current_timestamp())";
             if (mysqli_query($conn, $query)) {
                 #if data inserted successfully
                 echo "
@@ -108,4 +108,5 @@ if (isset($_POST['register'])) {
         ";
     }
 }
+
 ?>

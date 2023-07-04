@@ -47,7 +47,7 @@
                                     <a class="nav-link" href="./contactUs.php">CONTACT US</a>
                                 </li>
                             </ul>
-                            <button class="btnlogin-popup">Login</button>
+                            <button style="--clr:#0FF0FC" class="btnlogin-popup">Login</button>
 
                             <!-- the cart -->
                             <span class="cart-icon">

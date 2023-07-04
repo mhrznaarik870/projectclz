@@ -1,4 +1,8 @@
-<?php require_once('header.php'); ?>
+<?php
+session_start();
+require_once('header.php');
+?>
+
 <section class="main text-white" style="background-image: url('./assets/img/bg.jpg')">
   <div class="blur"></div>
   <div class="container">
