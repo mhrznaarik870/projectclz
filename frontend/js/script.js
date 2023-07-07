@@ -7,6 +7,11 @@ const registerWrapper = document.querySelector(".register-wrapper");
 const loginWrapper = wrapper.querySelector(".login");
 
 registerlink.addEventListener("click", () => {
+  registerWrapper.classList.toggle("d-none");
+  loginWrapper.classList.add("d-none");
+});
+
+registerlink.addEventListener("click", () => {
   registerWrapper.classList.remove("d-none");
   loginWrapper.classList.add("d-none");
 });
@@ -46,7 +51,6 @@ navLinks.forEach((navLink) => {
     navLink.classList.add("active");
   }
 });
-
 // Add event listener for login button
 const loginButton = document.querySelector(".btnlogin-popup");
 loginButton.addEventListener("click", () => {
