@@ -1,0 +1,103 @@
+h2 {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  font-weight: 700;
+  position: relative;
+  color: Black;
+}
+h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 50px;
+  background: black;
+}
+h4 {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  padding: 0 0.3rem;
+  transition: all 0.5 ease;
+}
+h4:hover {
+  opacity: 0.9;
+}
+
+.product-rating {
+  color: #ffc107;
+}
+.product-rating span {
+  font-weight: 600;
+  color: #252525;
+}
+p {
+  font-size: 0.9rem;
+  padding: 0.3rem;
+  opacity: 0.8;
+}
+
+ul {
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+li {
+  margin: 0;
+  line-height: 1.3rem;
+  list-style: none;
+  background: url(/checked.png) left center no-repeat;
+  background-size: 17px;
+  padding-left: 1.7rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+ul,
+li span {
+  font-weight: 400;
+}
+.product-price {
+  margin: 1rem 0;
+  font-size: 1 rem;
+  font-weight: 700;
+}
+.last-price {
+  margin: 1rem 0;
+  font-size: 1 rem;
+  font-weight: 700;
+}
+.product-price span {
+  font-weight: 400;
+  color: #256eff;
+}
+.last-price span {
+  color: #f74749;
+  text-decoration: line-through;
+}
+
+.purchase-info {
+  margin: 1.5rem 0;
+}
+.purchase-info .btn {
+  border: 1.5px solid #ddd;
+  border-radius: 25px;
+  text-align: center;
+  padding: 0.45rem 0.8rem;
+  outline: 9;
+  margin-right: 0.2rem;
+  margin-bottom: 1re;
+}
+
+.purchase-info .btn {
+  cursor: pointer;
+  color: #fff;
+}
+.purchase-info .btn:first-of-type {
+  background: #256eff;
+}
+.purchase-info .btn:hover {
+  opacity: 0.9;
+}

@@ -1,4 +1,3 @@
-<?php require('../backend/partials/_dbconnect.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,12 +54,14 @@
                                 <span class="icon"> <ion-icon name="lock-closed"></ion-icon></span>
                                 <input type="password" id="password" name="password" placeholder="Password" required>
                             </div>
+
                             <div class="register-box ">
                                 <button type="submit" class="regbtn" name="register">Register</button>
                             </div>
                             <div class="login-register">
                                 <p>Already have an account? <a href="#" class="login-link">Login</a></p>
                             </div>
+
                         </form>
                     </div>
                 </div>
