@@ -13,10 +13,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto my-2 my-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="./index.php">HOME</a>
+                            <a class="nav-link" aria-current="page" href="./index.php">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="./trending.php">TRENDING</a>
+                            <a class="nav-link" href="./trending.php">TRENDING</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./store.php">STORE</a>
@@ -25,7 +25,20 @@
                             <a class="nav-link" href="./contactUs.php">CONTACT US</a>
                         </li>
                     </ul>
-                    <button style="--clr:#0FF0FC" class="btnlogin-popup">Login</button>
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <div class="dropdown">
+                            <button class="user-btn dropdown-toggle dropdown-custom" type="button" id="dropdownMenuButton"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <?php echo $_SESSION['username']; ?>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item align-center" href="logout.php">Logout</a></li>
+                            </ul>
+                        </div>
+                    <?php else: ?>
+                        <button style="--clr:#0FF0FC" class="btnlogin-popup" data-bs-toggle="modal"
+                            data-bs-target="#loginModal">Login</button>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
