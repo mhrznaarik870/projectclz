@@ -260,10 +260,6 @@ a {
   transform: scale(1.1);
 }
 
-.card-link:hover {
-  cursor: pointer;
-}
-
 .form-control {
   border-radius: 10px;
 }
@@ -364,7 +360,7 @@ header {
   background-color: #222222;
   transform: scale(1.05);
   color: #ffffff;
-  font-weight: 00;
+  font-weight: 600;
   box-shadow: 0 0 10px #000000;
 }
 
