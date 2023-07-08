@@ -32,7 +32,7 @@
                                 <?php echo $_SESSION['username']; ?>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <li><a class="dropdown-item align-center" href="logout.php">Logout</a></li>
+                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                             </ul>
                         </div>
                     <?php else: ?>

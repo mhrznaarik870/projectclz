@@ -4,5 +4,8 @@ CREATE TABLE IF NOT EXISTS clients (
     password VARCHAR(30) NOT NULL,
     email VARCHAR(50),
     phoneno INT(10),
-    Reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP 
+    Reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    verification_code VARCHAR(255),
+    is_verified INT(10) default 0
+
      );

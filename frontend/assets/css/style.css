@@ -151,11 +151,10 @@ img {
 
 .nav li {
   display: inline-block;
-
   position: relative;
 }
 
-.navbar a:not(.navbar-brands):not(.user-btn):before {
+.navbar a:not(.navbar-brands):before {
   content: "";
   display: block;
   height: 2px;
@@ -163,7 +162,7 @@ img {
   background-color: rgb(34, 222, 222);
   top: 0;
   width: 0%;
-  transition: all ease-in-out 200ms;
+  transition: all ease-in-out 150ms;
 }
 .navbar a:hover::before,
 .navbar a.active::before {
@@ -287,7 +286,7 @@ footer {
 }
 
 .footerico {
-  margin-right: 1px;
+  margin-right: 10px;
   max-width: 70px;
 }
 
@@ -376,7 +375,7 @@ header {
   color: #fff;
   font-weight: 200;
   font-size: 22px;
-  margin-left: 40px;
+  margin-left: 20px;
   font-family: "Rakkas";
   transition: all 0.2s ease-in-out;
 }
