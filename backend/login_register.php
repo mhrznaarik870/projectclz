@@ -1,6 +1,20 @@
 <?php
 session_start();
 require('./partials/_dbconnect.php');
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+function sendMail($email, $v_code)
+{
+    require("phpmailer/PHPMailer.php");
+    require("phpmailer/SMTP.php");
+    require("phpmailer/Exception.php");
+
+    $mail = new PHPMailer(true);
+
+}
+
 
 # For login
 if (isset($_POST['login'])) {
@@ -80,7 +94,10 @@ if (isset($_POST['register'])) {
         } else {
             #it will be executed if no one has taken username or the email
             // $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            $query = "INSERT INTO `clients`( `username`, `password`, `email`, `phoneno`, `Reg_date`) VALUES ('$_POST[username]','$_POST[password]','$_POST[email]','$_POST[phoneno]', current_timestamp())";
+            $v_code = bin2hex(random_bytes(18));
+            $query = "INSERT INTO `clients`(`username`, `password`, `email`, `phoneno`, `Reg_date`, `verification_code`, `is_verified`) 
+            VALUES ('$_POST[username]', '$_POST[password]', '$_POST[email]', '$_POST[phoneno]', current_timestamp(), '$v_code', '0')";
+
             if (mysqli_query($conn, $query)) {
                 #if data inserted successfully
                 echo "

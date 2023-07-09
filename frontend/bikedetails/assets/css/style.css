@@ -7,6 +7,7 @@
   margin: 0;
   font-family: "secular one", sans-serif;
   box-sizing: border-box;
+  color: antiquewhite ;
 }
 body {
   background-color: rgb(87, 80, 80);
@@ -72,16 +73,6 @@ img {
   }
 }
 
-.nav-link {
-  margin-right: 10px;
-  margin-left: 10px;
-  color: black;
-  text-transform: uppercase;
-}
-.nav-link:hover,
-.nav-link:focus {
-  color: rgb(34, 222, 222);
-}
 .search {
   height: 40px;
   width: 1000%;
@@ -132,6 +123,7 @@ img {
   left: 0;
   width: 100%;
   z-index: 5;
+  list-style: none;
 }
 
 .navbar a {
@@ -140,8 +132,22 @@ img {
   font-size: 20px;
 }
 
+.nav-link {
+  margin-right: 10px;
+  margin-left: 10px;
+  text-transform: uppercase;
+  padding-right: 90px;
+  list-style: none;
+  background: none;
+}
+.nav-link:hover,
+.nav-link:focus {
+  color: rgb(34, 222, 222);
+}
+
 .navbar .nav-link.active {
   color: rgb(34, 222, 222);
+  text-decoration: none;
 }
 
 .navbar-brands img,
