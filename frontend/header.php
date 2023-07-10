@@ -2,9 +2,9 @@
 $server = "localhost";
 $username = "root";
 $password = "";
-$database = "admotors";
+$db = "admotors";
 
-$conn = mysqli_connect($server, $username, $password, $database);
+$conn = mysqli_connect($server, $username, $password, $db);
 
 if (!$conn) {
     die("Error" . mysqli_connect_error());
@@ -22,14 +22,14 @@ if (!$conn) {
     <!-- Bootstrap and icon links -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         class="stylesheet">
-    <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
     <link rel="icon" type="image/x-icon" href="./assets/img/logo.png" />
     <link rel="stylesheet" href="./assets/css/style.css" />
 
+    <?php include_once('content-header.php'); ?>
 </head>
 
 <body>
-    <?php include_once('content-header.php'); ?>
 
     <script href="./js/script.js"></script>
 </body>

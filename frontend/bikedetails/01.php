@@ -10,7 +10,7 @@
     <!-- Bootstrap and icon links -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 
-    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
     <link rel="icon" type="image/x-icon" href="../assets/img/logo.png" />
     <link rel="stylesheet" href="./assets/css/prostyle.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
@@ -28,12 +28,13 @@
                     <div class="proimg">
                         <img src="./assets/img/products/01.jpg" alt="Kawasaki Ninja H2" class="img-fluid" />
                     </div>
-                    <div class="purchase-info">
-                        <div class="price-info">
+                    <div class="purchase-info ">
+                        <div class="price-info text-center">
                             <div class="product-price">New Price: <span>$31,500/-</span></div>
                             <div class="last-price">Old Price: <span>$32,500/-</span></div>
                         </div>
-                        <button type="button" class="btn">
+                        <button type="button" class="btn"
+                            style="display: flex; align-items: center; justify-content: center; text-align: center;">
                             Buy Now
                             <i class="fas fa-shopping-cart"></i>
                         </button>
@@ -86,7 +87,7 @@
     </section>
 
     <!-- Bootstrap and JavaScript links -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
     <script src="../js/script.js"></script>
 </body>
 <?php include('../footer.php') ?>

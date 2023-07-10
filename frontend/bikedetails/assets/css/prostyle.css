@@ -58,9 +58,9 @@ li {
   margin: 0;
   line-height: 1.7rem;
   list-style: none;
-  /* background: url(../img/tick.png) left center no-repeat transparent ; */
+  text-decoration: none;
   background-size: 20px;
-  padding-left: 1.7rem;
+  /* padding-left: 1.7rem; */
   font-weight: 400;
 }
 
@@ -81,10 +81,12 @@ li span {
 }
 .product-price span {
   font-weight: 400;
-  color: #555555;
+  font-size: x-large;
+  color: #0ed6d6;
 }
 .last-price span {
-  color: #f74749;
+  color: red;
+  font-weight: 400;
   text-decoration: line-through;
 }
 
@@ -95,9 +97,9 @@ li span {
   border: 1.5px solid #bbbbbb;
   border-radius: 25px;
   text-align: center;
-  padding: 0.45rem 0.8rem;
   outline: 9;
-  margin-right: 0.2rem;
+  margin-left: 10.5rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
   background-color: #f5f5f5;
   color: #555555;
@@ -107,5 +109,5 @@ li span {
 .purchase-info .btn:hover {
   background-color: #555555;
   color: white;
-  box-shadow: 0 0 10px 5px #888888;
+  box-shadow: 0 0 7px 5px #888888;
 }

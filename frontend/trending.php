@@ -16,7 +16,7 @@
             <div class="card-body">
               <!-- https://www.zigwheels.com/newbikes/Kawasaki/ninja-h2#leadform -->
               <img src="./assets/img/products/01.jpg" class="img-fluid" />
-              <a href="#"></a>
+              <a href="./bikedetails.01.php"></a>
               <p size="3" align="center">Kawasaki Ninja H2</p>
               <p>Rs. 90 lakhs - 1 crore</p>
             </div>
