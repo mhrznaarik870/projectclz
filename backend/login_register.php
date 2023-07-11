@@ -13,6 +13,32 @@ function sendMail($email, $v_code)
 
     $mail = new PHPMailer(true);
 
+
+    try {
+        //Server settings
+        $mail->isSMTP(); //Send using SMTP
+        $mail->Host = 'smtp.gmail.com'; //Set the SMTP server to send through
+        $mail->SMTPAuth = true; //Enable SMTP authentication
+        $mail->Username = 'mhrznaa.980@gmail.com'; //SMTP username
+        $mail->Password = 'mhrznaarik123'; //SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; //Enable implicit TLS encryption
+        $mail->Port = 465; //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+        //Recipients
+        $mail->setFrom('mhrznaa.980@gmail.com', 'AD. Motors');
+        $mail->addAddress('$email'); //Add a recipient
+
+        //Content
+        $mail->isHTML(true); //Set email format to HTML
+        $mail->Subject = 'EMAIL-VERIFICATION from AD. Motors';
+        $mail->Body = "Thanks for the registration!!
+         <b>Click on the link below to verify the email address.</b>
+        <a href='http://localhost/projectclz/verify.php?email=$email&v_code=$v_code'>Click to verify</a>";
+        $mail->send();
+        return true;
+    } catch (Exception $e) {
+        return false;
+    }
 }
 
 
@@ -98,7 +124,7 @@ if (isset($_POST['register'])) {
             $query = "INSERT INTO `clients`(`username`, `password`, `email`, `phoneno`, `Reg_date`, `verification_code`, `is_verified`) 
             VALUES ('$_POST[username]', '$_POST[password]', '$_POST[email]', '$_POST[phoneno]', current_timestamp(), '$v_code', '0')";
 
-            if (mysqli_query($conn, $query)) {
+            if (mysqli_query($conn, $query) && sendMail($_POST['email'], $v_code)) {
                 #if data inserted successfully
                 echo "
                 <script>
@@ -110,7 +136,7 @@ if (isset($_POST['register'])) {
                 #if data cannot be inserted
                 echo "
                     <script>
-                    alert(('Cannot Run Query');
+                    alert(('SERVER DOWN!! Plz try again later.');
                     window.location.href='../frontend/index.php';
                     </script>
                     ";
