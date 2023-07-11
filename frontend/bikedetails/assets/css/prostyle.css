@@ -41,7 +41,7 @@ h4:hover {
 }
 .product-rating span {
   font-weight: 600;
-  color: #252525;
+  color: #0dcaf0;
 }
 
 p {
@@ -110,4 +110,22 @@ li span {
   background-color: #555555;
   color: white;
   box-shadow: 0 0 7px 5px #888888;
+}
+
+.proimg img {
+  margin-top: 17px;
+  border-radius: 20px;
+  max-width: 95%;
+}
+
+@media only screen and (max-width: 576px) {
+  .proimg img {
+    margin-top: 0;
+    margin-left: 0;
+    max-width: 90%;
+    margin-left: 5%;
+  }
+  .purchase-info .btn {
+    margin-left: 90px;
+  }
 }
