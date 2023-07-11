@@ -1,51 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Royale Enfield Classic 350</title>
 
-    <!-- Bootstrap and icon links -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kawasaki Ninja H2</title>
 
-    <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css" />
-    <link rel="icon" type="image/x-icon" href="./assets/img/logo.png" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <!-- Custom CSS -->
-    <style>
-      /* Add your custom styles here */
-    </style>
-  </head>
+  <!-- Bootstrap and icon links -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 
-  <body>
-    <header>
-      <?php include('navbar.php'); ?>
-    </header>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+  <link rel="icon" type="image/x-icon" href="../assets/img/logo.png" />
+  <link rel="stylesheet" href="./assets/css/prostyle.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
 
-    <section class="bike-details">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <img
-              src="../img/products/01.jpg"
-              alt="Kawasaki Ninja H2"
-              class="img-fluid"
-            />
+<body>
+  <header>
+    <?php
+    include_once('../content-header.php'); ?>
+  </header>
+  <section class="bike-details">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 proimg">
+          <div class="proimg">
+            <img src="./assets/img/products/02.jpg" alt="Royal Enfield Classic 350" class="img-fluid" />
           </div>
-          <div class="col-md-6">
-            <h2>Royale Enfield Classic 350</h2>
+          <div class="purchase-info ">
+            <h4>Specifications</h4>
+            <ul>
+              <li>
+                Engine Type: 4 Stroke, Air-Oil Cooled Engine, Spark Ignition,
+                Single Cylinder
+              </li>
+
+              <li>Displacement: 349.34 cc</li>
+              <li>Max Torque: 27 Nm @ 4000 rpm</li>
+              <li>No. of Cylinders: 1</li>
+              <li>Cooling System: Air & Oil Cooled</li>
+              <li>Valve Per Cylinder: 2</li>
+              <li>Starting: Self Start Only</li>
+              <li>Fuel Supply Fuel: Injection</li>
+              <li>Clutch: Wet, multi-plate</li>
+              <li>Ignition: Electronic Fuel Injection (EFI)</li>
+
+              <li>Gear Box: 5 Speed</li>
+              <li>Bore: 72 mm</li>
+              <li>Stroke: 85.8 mm</li>
+              <li>Compression Ratio: 9.5 :1</li>
+              <li>Emission Type: bs6</li>
+            </ul>
+            <div class="purchase-info ">
+              <div class="price-info text-center">
+                <div class="product-price">New Price: <span>$31,500/-</span></div>
+                <div class="last-price">Old Price: <span>$32,500/-</span></div>
+              </div>
+              <button type="button" class="btn"
+                style="display: flex; align-items: center; justify-content: center; text-align: center;">
+                Buy Now
+                <i class="fas fa-shopping-cart"></i>
+              </button>
+            </div>
+          </div>
+
+
+          <div class="col-md-6  specs">
+
+            <h2>Royal Enfield Classic 350</h2>
             <div class="product-rating">
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <span>5(40)</span>
+              <i class="fas fa-star-half-alt"></i>
+              <span>4.7(21)</span>
             </div>
 
             <p>
@@ -103,51 +133,17 @@
               disc/rear drum setup. The dual disc models use dual-channel ABS
               while the Redditch range uses a single-channel ABS.
             </p>
-            <h4>Specifications</h4>
-            <ul>
-              <li>
-                Engine Type: 4 Stroke, Air-Oil Cooled Engine, Spark Ignition,
-                Single Cylinder
-              </li>
 
-              <li>Displacement: 349.34 cc</li>
-              <li>Max Torque: 27 Nm @ 4000 rpm</li>
-              <li>No. of Cylinders: 1</li>
-              <li>Cooling System: Air & Oil Cooled</li>
-              <li>Valve Per Cylinder: 2</li>
-              <li>Starting: Self Start Only</li>
-              <li>Fuel Supply Fuel: Injection</li>
-              <li>Clutch: Wet, multi-plate</li>
-              <li>Ignition: Electronic Fuel Injection (EFI)</li>
 
-              <li>Gear Box: 5 Speed</li>
-              <li>Bore: 72 mm</li>
-              <li>Stroke: 85.8 mm</li>
-              <li>Compression Ratio: 9.5 :1</li>
-              <li>Emission Type: bs6</li>
-            </ul>
-
-            <div class="last-price">Old Price: <span>Rs.8,00,000/-</span></div>
-            <div class="product-price">
-              New Price: <span>Rs.7,75,000/-</span>
-            </div>
           </div>
-          <div class="purchase-info">
-            <button type="button" class="btn">
-              Buy Now
-              <i class="fas fa-shopping-cart"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <footer>
-      <!-- Include your footer content here -->
-    </footer>
+  </section>
 
-    <!-- Bootstrap and JavaScript links -->
-    <script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="./js/script.js"></script>
-  </body>
+  </div>
+  <!-- Bootstrap and JavaScript links -->
+  <script src="../bootstrap/js/bootstrap.min.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+<?php include('../footer.php') ?>
+
 </html>
