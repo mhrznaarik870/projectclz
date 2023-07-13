@@ -44,3 +44,5 @@
         </div>
     </div>
 </nav>
+<script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="./js/sctipt.js"></script>

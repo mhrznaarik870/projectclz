@@ -29,6 +29,8 @@
                         <img src="./assets/img/products/01.jpg" alt="Kawasaki Ninja H2" class="img-fluid" />
                     </div>
                     <div class="purchase-info ">
+                        <?php $product_name = 'Kawasaki Ninja H2' ?>
+                        <?php $product_price = 'Rs.90,00,000' ?>
                         <h2>Kawasaki Ninja H2</h2>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
@@ -108,10 +110,13 @@
                         New Price: <span>Rs.90,00,000/-</span>
                     </div>
                     <div class="purchase-info">
-                        <button type="button" class="btn">
-                            Buy Now
-                            <i class="fas fa-shopping-cart"></i>
-                        </button>
+                        <form action="../../backend/orders.php?ordered_bike=Kawasaki Ninja H2" method="post">
+                            <button type="submit" name="purchased" class="btn">
+                                Buy Now
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </form>
+
                     </div>
                 </div>
 
