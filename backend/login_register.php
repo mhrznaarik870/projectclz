@@ -1,44 +1,44 @@
 <?php
 session_start();
 require('./partials/_dbconnect.php');
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\SMTP;
+// use PHPMailer\PHPMailer\Exception;
 
-function sendMail($email, $v_code)
-{
-    require("phpmailer/PHPMailer.php");
-    require("phpmailer/SMTP.php");
-    require("phpmailer/Exception.php");
+// function sendMail($email, $v_code)
+// {
+//     require("phpmailer/PHPMailer.php");
+//     require("phpmailer/SMTP.php");
+//     require("phpmailer/Exception.php");
 
-    $mail = new PHPMailer(true);
+//     $mail = new PHPMailer(true);
 
-    try {
-        // Server settings
-        $mail->isSMTP(); // Send using SMTP
-        $mail->Host = 'smtp.gmail.com'; // Set the SMTP server to send through
-        $mail->SMTPAuth = true; // Enable SMTP authentication
-        $mail->Username = 'mhrznaa.980@gmail.com'; // SMTP username
-        $mail->Password = 'mhrznaarik123'; // SMTP password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Enable implicit TLS encryption
-        $mail->Port = 465; // TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+//     try {
+//         // Server settings
+//         $mail->isSMTP(); // Send using SMTP
+//         $mail->Host = 'smtp.gmail.com'; // Set the SMTP server to send through
+//         $mail->SMTPAuth = true; // Enable SMTP authentication
+//         $mail->Username = 'mhrznaa.980@gmail.com'; // SMTP username
+//         $mail->Password = 'mhrznaarik123'; // SMTP password
+//         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Enable implicit TLS encryption
+//         $mail->Port = 465; // TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-        // Recipients
-        $mail->setFrom('mhrznaa.980@gmail.com', 'AD. Motors');
-        $mail->addAddress($email); // Add a recipient
+//         // Recipients
+//         $mail->setFrom('mhrznaa.980@gmail.com', 'AD. Motors');
+//         $mail->addAddress($email); // Add a recipient
 
-        // Content
-        $mail->isHTML(true); // Set email format to HTML
-        $mail->Subject = 'EMAIL-VERIFICATION from AD. Motors';
-        $mail->Body = "Thanks for the registration!!
-            <b>Click on the link below to verify the email address.</b>
-            <a href='http://localhost/projectclz/verify.php?email=$email&v_code=$v_code'>Click to verify</a>";
-        $mail->send();
-        return true;
-    } catch (Exception $e) {
-        return false;
-    }
-}
+//         // Content
+//         $mail->isHTML(true); // Set email format to HTML
+//         $mail->Subject = 'EMAIL-VERIFICATION from AD. Motors';
+//         $mail->Body = "Thanks for the registration!!
+//             <b>Click on the link below to verify the email address.</b>
+//             <a href='http://localhost/projectclz/verify.php?email=$email&v_code=$v_code'>Click to verify</a>";
+//         $mail->send();
+//         return true;
+//     } catch (Exception $e) {
+//         return false;
+//     }
+// }
 
 # For login
 if (isset($_POST['login'])) {
@@ -122,33 +122,30 @@ if (isset($_POST['register'])) {
             }
         } else {
             // It will be executed if no one has taken the username or the email
-            $v_code = bin2hex(random_bytes(12));
-            $query = "INSERT INTO `clients`(`username`, `password`, `email`, `phoneno`, `Reg_date`, `verification_code`, `is_verified`) 
-                VALUES ('$_POST[username]', '$_POST[password]', '$_POST[email]', '$_POST[phoneno]', current_timestamp(), '$v_code', '0')";
+            // $v_code = bin2hex(random_bytes(12));
+            $query = "INSERT INTO `clients`(`username`, `password`, `email`, `phoneno`, `Reg_date`) 
+                VALUES ('$_POST[username]', '$_POST[password]', '$_POST[email]', '$_POST[phoneno]', current_timestamp())";
 
-            if (mysqli_query($conn, $query) && sendMail($_POST['email'], $v_code)) {
+            if (mysqli_query($conn, $query)) { //&& sendMail($_POST['email'], $v_code)
+                $_SESSION['logged_in'] = true;
+                $_SESSION['username'] = $_POST['username'];
                 $_SESSION['email'] = $_POST['email'];
                 $_SESSION['phoneno'] = $_POST['phoneno'];
 
-
-                // If data inserted successfully
+                // Redirect to the dashboard page
+                header("Location: ../frontend/dashboard.php");
+                exit();
+            } else {
+                // Registration failed
                 echo "
                     <script>
-                    alert('Registration Success!! Please verify your email address by visiting your email inbox!');
+                    alert('SERVER DOWN!! Please try again later.');
                     window.location.href='../frontend/index.php';
                     </script>
                     ";
                 exit();
-            } else {
-                // If data cannot be inserted
-                echo "
-                        <script>
-                        alert('SERVER DOWN!! Please try again later.');
-                        window.location.href='../frontend/index.php';
-                        </script>
-                        ";
-                exit();
             }
+
         }
     } else {
         echo "

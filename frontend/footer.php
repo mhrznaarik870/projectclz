@@ -6,7 +6,8 @@
         eveniet earum corporis itaque magnam maxime doloribus, amet reiciendis
         ipsa, velit cumque aliquid dolor, ducimus culpa doloremque deserunt
         assumenda nulla? <br><br>
-        <b>Mail us: info@ADmotors121.com</b>
+        <b>Mail us: info@ADmotors121.com</b><br>
+        <b>Contact no: +9779800000000</b>
     </p>
     <br />
     <img src="./assets/img/logo.png" alt="logo" class="footerico" />

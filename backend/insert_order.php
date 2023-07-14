@@ -9,8 +9,6 @@ if (!isset($_SESSION['username']) || $_SESSION['logged_in'] !== true) {
     exit(); // Stop further execution
 }
 
-// Rest of your code...
-
 // Get the user's information from the session
 $username = $_SESSION['username'];
 
@@ -50,21 +48,17 @@ $stmt->close();
 $ordered_bike = $_GET['ordered_bike'];
 
 // Prepare and execute the SQL query to insert the order
-$stmt = $conn->prepare("INSERT INTO orders (username, email, phoneno, ordered_bike) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("ssss", $username, $email, $phoneno, $ordered_bike);
+$stmt = $conn->prepare("INSERT INTO orders (username, email, phoneno, ordered_bike) SELECT ?, ?, ?, ? FROM DUAL WHERE NOT EXISTS (SELECT * FROM orders WHERE username = ?)");
+$stmt->bind_param("sssss", $username, $email, $phoneno, $ordered_bike, $username);
 
 // Execute the statement
 if ($stmt->execute()) {
-    echo '<script>
-    if (confirm("Are you sure you want to place the order?")) {
-        // User confirmed, proceed with inserting the order data
-        window.location.href = "insert_order.php?ordered_bike=' . $ordered_bike . '";
-    } else {
-        // User cancelled, do something else or redirect
-        window.location.href = "../frontend/trending.php";
-    }
-</script>';
+    // Display a successful alert message
+    echo '<script>alert("Order placed successfully!"); window.location.href="../frontend/index.php";</script>';
+} else {
+    echo '<script>alert("Error placing the order.");</script>';
 }
+
 // Close the statement and the database connection
 $stmt->close();
 $conn->close();

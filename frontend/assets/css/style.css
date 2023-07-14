@@ -422,7 +422,7 @@ header {
 
 .dropdown-item:hover {
   background-color: transparent;
-  color: red;
+  color: aquamarine;
 }
 .wrapper {
   display: none;
