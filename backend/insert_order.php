@@ -49,12 +49,12 @@ $ordered_bike = $_GET['ordered_bike'];
 
 // Prepare and execute the SQL query to insert the order
 $stmt = $conn->prepare("INSERT INTO orders (username, email, phoneno, ordered_bike) SELECT ?, ?, ?, ? FROM DUAL WHERE NOT EXISTS (SELECT * FROM orders WHERE username = ?)");
-$stmt->bind_param("sssss", $username, $email, $phoneno, $ordered_bike, $username);
+$stmt->bind_param("ssiss", $username, $email, $phoneno, $ordered_bike, $username);
 
 // Execute the statement
 if ($stmt->execute()) {
     // Display a successful alert message
-    echo '<script>alert("Order placed successfully!"); window.location.href="../frontend/index.php";</script>';
+    echo '<script>alert("Order placed successfully!"); window.location.href="../frontend/purchase_success.php";</script>';
 } else {
     echo '<script>alert("Error placing the order.");</script>';
 }

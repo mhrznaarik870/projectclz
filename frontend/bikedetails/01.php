@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,8 +19,7 @@
 
 <body>
     <header>
-        <?php
-        include_once('../content-header.php'); ?>
+        <?php include_once('../content-header.php'); ?>
     </header>
     <section class="bike-details">
         <div class="container">

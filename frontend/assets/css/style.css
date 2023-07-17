@@ -16,7 +16,7 @@ p {
   margin-bottom: 0.5em;
 }
 a {
-  color: #000;
+  color: #fe1212;
   text-decoration: none;
 }
 
@@ -309,6 +309,7 @@ footer {
 }
 
 .nav-item {
+  cursor: pointer;
   transition: all 0.24s ease-in-out;
 }
 
@@ -417,11 +418,12 @@ header {
   padding: 8px 75px;
   font-weight: bold;
   color: #ffffff;
+  background: #222222;
   cursor: pointer;
 }
 
 .dropdown-item:hover {
-  background-color: transparent;
+  background-color: #222222;
   color: aquamarine;
 }
 .wrapper {
@@ -526,7 +528,7 @@ header {
 .btn {
   width: 51%;
   height: 35px;
-  margin-top: -46px;
+  margin-top: -35px;
   margin-left: 150px;
   background: #162938;
   font-weight: 200;

@@ -1,156 +1,90 @@
-<?php
-session_start();
-include_once('../backend/partials/_dbconnect.php');
-
-// Check if the user is not logged in
-if (!isset($_SESSION['username']) || $_SESSION['logged_in'] !== true) {
-    // Redirect to the login page
-    header("Location: ../frontend/login.php");
-    exit();
-}
-
-// Get the logged-in user's username
-$username = $_SESSION['username'];
-
-// Retrieve the purchased bike details from the session or database
-if (isset($_SESSION['ordered_bike'])) {
-    $ordered_bike = $_SESSION['ordered_bike']; // Example: You need to set this session variable after successful purchase
-} else {
-    // No bike details found
-    echo '<script>alert("No bike details found."); window.location.href = "../frontend/index.php";</script>';
-    exit();
-}
-
-// Query the database to retrieve the bike details
-$stmt = $conn->prepare("SELECT * FROM bikes WHERE bike_id = ?");
-$stmt->bind_param("s", $ordered_bike);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows == 1) {
-    $row = $result->fetch_assoc();
-    $bike_image = $row['bike_image'];
-} else {
-    // Bike details not found
-    echo '<script>alert("Bike details not found."); window.location.href = "../frontend/index.php";</script>';
-    exit();
-}
-
-// Close the statement
-$stmt->close();
-
-// Clear the purchased bike details from the session
-unset($_SESSION['ordered_bike']);
-
-// Close the database connection
-$conn->close();
-?>
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purchase Success</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A.D MOTORS</title>
+
+    <!-- Bootstrap and icon links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        class="stylesheet">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+    <link rel="icon" type="image/x-icon" href="./assets/img/logo.png" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <?php include('content-header.php') ?>
+
     <style>
-        /* CSS for the animated website */
         body {
-            background-color: #111;
-            color: #fff;
-            font-family: Arial, sans-serif;
             text-align: center;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
+            margin-top: 10%;
         }
 
-        .bike-photo {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 50px;
-            animation: rotate 5s infinite linear;
+        .row {
+            display: flex;
+            align-items: center;
         }
 
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
+        .column {
+            flex: 1;
+            padding: 20px;
         }
 
-        h1 {
-            font-size: 36px;
-            margin-top: 30px;
+        .column:first-child {
+            border-right: 2px solid #fff;
         }
 
-        p {
-            font-size: 18px;
+        .congrats {
             margin-bottom: 20px;
+            color: #fff;
+            font-family: 'rakkas', sans-serif;
+            text-shadow: 0 0 20px #9E131C, 0 0 40px #9E131C, 0 0 60px #9E131C, 0 0 80px #9E131C, 0 0 100px #9E131C;
+            font-size: 40px;
         }
 
-        .success-message {
-            animation: fade-in 2s;
+        .message {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 28px;
+            line-height: 1.5;
         }
 
-        @keyframes fade-in {
-            0% {
-                opacity: 0;
-            }
+        .message1 {
+            color: #fff;
+            line-height: 1.5;
+            font-size: 17px;
 
-            100% {
-                opacity: 1;
-            }
-        }
-
-        /* Celebration Effects */
-        .celebration {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-        }
-
-        .blast-effect {
-            width: 100px;
-            height: 100px;
-            background-color: #ffcc00;
-            border-radius: 50%;
-            animation: blast 2s ease-out;
-        }
-
-        @keyframes blast {
-            0% {
-                transform: scale(0);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        /* Additional CSS for cool effects */
-        .celebration .blast-effect {
-            animation-delay: 0.5s;
         }
     </style>
 </head>
 
 <body>
-    <h1>Congratulations,
-        <?php echo $username; ?>!
-    </h1>
-    <div class="bike-photo">
-        <img src="<?php echo $bike_image; ?>" alt="Bike Image">
-        <div class="celebration">
-            <div class="blast-effect"></div>
+    <div class="container">
+        <div class="row">
+            <div class="column">
+                <!-- Image column -->
+                <img src="./bikedetails/assets/gif/01.gif" alt="Background Image" class="img-fluid" />
+            </div>
+            <div class="column">
+                <!-- Text column -->
+                <?php
+                $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
+
+                echo '<h1 class="congrats">CONGRATULATIONS!!!</h1>';
+                echo '<h3 class="message">Your order is successfully placed, ' . $username . '!</h3>';
+                echo '<p class="message1">
+                We are thrilled to hear that you have purchased a new bike. Enjoy the thrill of the open road and the freedom that comes with it. May your journeys be filled with adventure and memorable experiences. Ride safe and have a fantastic time exploring! <br> <br>
+                 You will be receivinag the <b> <u> CALL THROUGH THE REGISTERED CONTACT NO.</u> </b> Plz be patient till then!  
+                </p>';
+                ?>
+            </div>
         </div>
     </div>
-    <p>Thank you for your purchase!</p>
+
+    <script src="./js/script.js"></script>
 </body>
 
 </html>

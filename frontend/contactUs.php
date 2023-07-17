@@ -1,5 +1,6 @@
-<?php include('header.php');
-include('navbar.php'); ?>
+<?php session_start(); ?>
+
+<?php include('header.php'); ?>
 
 <div>
   <div class="container">

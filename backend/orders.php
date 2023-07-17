@@ -51,7 +51,7 @@ $ordered_bike = $_GET['ordered_bike'];
 
 // Prepare and execute the SQL query to insert the order
 $stmt = $conn->prepare("INSERT INTO orders (username, email, phoneno, ordered_bike) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("ssss", $username, $email, $phoneno, $ordered_bike);
+$stmt->bind_param("ssis", $username, $email, $phoneno, $ordered_bike);
 
 // Execute the statement
 if ($stmt->execute()) {

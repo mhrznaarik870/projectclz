@@ -1,6 +1,5 @@
-<header style="background-color: rgba(0 0 0 / 50%);
+<header style="background-color: rgba(0 0 0 / 50%); backdrop-filter: blur(8px);">
 
-    backdrop-filter: blur(8px);">
     <!-- navigation bar -->
     <?php include('navbar.php'); ?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -8,7 +7,6 @@
     <link href="./bootstrap/css/bootstrap.min.css" />
     <link rel="icon" type="image/x-icon" href="./assets/img/logo.png" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-
     <!-- registration and login form -->
     <div class="big-wrapper">
 

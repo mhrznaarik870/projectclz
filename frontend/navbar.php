@@ -1,6 +1,8 @@
+<!-- navbar.php -->
+<script src="./script.js"></script>
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brands" href="./index.php">
+        <a class="navbar-brands" href="../index.php">
             <img class="logo" src="./assets/img/logo.png" alt="logo" />
             A.D. MOTORS
         </a>
@@ -12,16 +14,20 @@
             <div class="loading-spinner">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto my-2 my-lg-0">
-                        <li class="nav-item">
+                        <li
+                            class="nav-item <?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>">
                             <a class="nav-link" aria-current="page" href="./index.php">HOME</a>
                         </li>
-                        <li class="nav-item">
+                        <li
+                            class="nav-item <?php echo (basename($_SERVER['PHP_SELF']) == 'trending.php') ? 'active' : ''; ?>">
                             <a class="nav-link" href="./trending.php">TRENDING</a>
                         </li>
-                        <li class="nav-item">
+                        <li
+                            class="nav-item <?php echo (basename($_SERVER['PHP_SELF']) == 'store.php') ? 'active' : ''; ?>">
                             <a class="nav-link" href="./store.php">STORE</a>
                         </li>
-                        <li class="nav-item">
+                        <li
+                            class="nav-item <?php echo (basename($_SERVER['PHP_SELF']) == 'contactUs.php') ? 'active' : ''; ?>">
                             <a class="nav-link" href="./contactUs.php">CONTACT US</a>
                         </li>
                     </ul>
@@ -44,5 +50,3 @@
         </div>
     </div>
 </nav>
-<script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="./js/sctipt.js"></script>

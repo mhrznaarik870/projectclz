@@ -34,23 +34,6 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-// Get the current page URL
-const currentURL = window.location.href;
-
-// Get all nav-link elements
-const navLinks = document.querySelectorAll(".nav-link");
-
-// Loop through each nav-link
-navLinks.forEach((navLink) => {
-  // Get the URL of the nav-link
-  const linkURL = navLink.href;
-
-  // Check if the URL matches the current page URL
-  if (linkURL === currentURL) {
-    // Add the "active" class to the matching nav-link
-    navLink.classList.add("active");
-  }
-});
 // Add event listener for login button
 const loginButton = document.querySelector(".btnlogin-popup");
 loginButton.addEventListener("click", () => {
