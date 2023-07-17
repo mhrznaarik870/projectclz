@@ -1,5 +1,7 @@
 <!-- navbar.php -->
-<script src="./script.js"></script>
+<script src="./js/script.js"></script>
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
 <nav class="navbar navbar-expand-lg">
     <div class="container">
         <a class="navbar-brands" href="../index.php">
@@ -32,14 +34,12 @@
                         </li>
                     </ul>
                     <?php if (isset($_SESSION['username'])): ?>
-                        <div class="dropdown">
-                            <button class="user-btn dropdown-toggle dropdown-custom" type="button" id="dropdownMenuButton"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="dropdown" id="userDropdown">
+                            <button class="user-btn" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                title="Logout" onclick="showLogoutAlert()">
                                 <?php echo $_SESSION['username']; ?>
+                                <ion-icon name="log-out"></ion-icon>
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-                            </ul>
                         </div>
                     <?php else: ?>
                         <button style="--clr:#0FF0FC" class="btnlogin-popup" data-bs-toggle="modal"
@@ -50,3 +50,11 @@
         </div>
     </div>
 </nav>
+
+<script>
+    function showLogoutAlert() {
+        if (confirm("Are you sure you want to logout?")) {
+            window.location.href = "logout.php";
+        }
+    }
+</script>

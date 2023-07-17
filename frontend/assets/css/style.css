@@ -404,6 +404,12 @@ header {
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dropdown-menu {
