@@ -35,11 +35,11 @@
                     </ul>
                     <?php if (isset($_SESSION['username'])): ?>
                         <div class="dropdown" id="userDropdown">
-                            <button class="user-btn" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                title="Logout" onclick="showLogoutAlert()">
+                            <a class="user-btn" href="logout.php" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                title="Logout">
                                 <?php echo $_SESSION['username']; ?>
                                 <ion-icon name="log-out"></ion-icon>
-                            </button>
+                            </a>
                         </div>
                     <?php else: ?>
                         <button style="--clr:#0FF0FC" class="btnlogin-popup" data-bs-toggle="modal"

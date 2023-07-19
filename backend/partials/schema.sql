@@ -41,3 +41,13 @@ INSERT INTO bikes (bike_name, bike_image) VALUES
   ('Bike 13', 'frontend/bikedetails/assets/img/products/13.jpg'),
   ('Bike 14', 'frontend/bikedetails/assets/img/products/14.jpg'),
   ('Bike 15', 'frontend/bikedetails/assets/img/products/15.jpg');
+
+CREATE TABLE IF NOT EXISTS cancelled_orders (
+    orderno INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(30) NOT NULL,
+    email VARCHAR(50),
+    phoneno VARCHAR(10),
+    cancelled_bike VARCHAR(255),
+    cancelled_remarks VARCHAR(255),
+    ordered_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);

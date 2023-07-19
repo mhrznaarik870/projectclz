@@ -139,12 +139,6 @@ img {
   z-index: 5;
 }
 
-.navbar a {
-  color: white;
-  font-family: "Rakkas", cursive;
-  font-size: 20px;
-}
-
 .navbar .nav-link.active {
   color: rgb(34, 222, 222);
 }
@@ -338,7 +332,9 @@ header {
   font-size: 1.1em;
   text-decoration: none;
   font-weight: 500;
-  margin-left: 10px;
+  color: white;
+  font-family: "Rakkas", cursive;
+  font-size: 20px;
 }
 
 .navbar a::after {
@@ -381,10 +377,12 @@ header {
   border-radius: 15px;
   cursor: pointer;
   font-size: 1.1em;
-  color: #fff;
   font-weight: 200;
   font-size: 22px;
+  color: #fff;
   margin-left: 20px;
+  display: flex;
+  align-items: center;
   font-family: "Rakkas";
   transition: all 0.2s ease-in-out;
 }

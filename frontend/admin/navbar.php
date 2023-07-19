@@ -5,18 +5,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A.D MOTORS - Admin Dashboard</title>
+    <title>A.D MOTORS - Admin Panel</title>
 
     <!-- Bootstrap and icon links -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        class="stylesheet">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
     <link rel="icon" type="image/x-icon" href="../assets/img/logo.png" />
-    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../bikedetails/assets/css/style.css" />
+    <link rel="stylesheet" href="./admin_style.css">
 </head>
 
 <body>
-    <header style="background-color: rgba(0 0 0 / 50%); backdrop-filter: blur(8px);">
+    <header>
 
         <!-- navigation bar -->
         <nav class="navbar navbar-expand-lg">
@@ -34,35 +33,43 @@
                     <div class="loading-spinner">
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav m-auto my-2 my-lg-0">
+
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Dashboard</a>
+                                    <a class="nav-link" href="order_list.php">Order Lists</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Order Lists</a>
+                                    <a class="nav-link" href="customer.php">Customers</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Customers</a>
+                                    <a class="nav-link" href="admin_review.php">Reviews</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Reviews</a>
+                                    <a class="nav-link" href="cancelled.php">Cancelled Orders</a>
                                 </li>
                             </ul>
                             <?php if (isset($_SESSION['admin_username'])): ?>
-                                <div class="dropdown">
-                                    <button class="user-btn dropdown-toggle dropdown-custom" type="button"
-                                        id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="user-btn">
+                                    <a class="username" href="./logout.php">
+                                        <ion-icon name="log-out"></ion-icon>
                                         <?php echo $_SESSION['admin_username']; ?>
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-                                    </ul>
+                                    </a>
                                 </div>
                             <?php else: ?>
-                                <button style="--clr:#0FF0FC" class="btnlogin-popup" data-bs-toggle="modal"
-                                    data-bs-target="#loginModal">Login</button>
+                                <button class="btnlogin-popup">
+                                    <ion-icon name="log-in"></ion-icon>
+
+                                    Login
+                                </button>
                             <?php endif; ?>
                         </div>
                     </div>
                 </div>
             </div>
         </nav>
+
+    </header>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

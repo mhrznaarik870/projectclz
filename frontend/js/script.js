@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginWrapper = wrapper.querySelector(".login");
 
   registerLink.addEventListener("click", () => {
-    registerWrapper.classList.toggle("d-none");
     loginWrapper.classList.add("d-none");
+    registerWrapper.classList.remove("d-none");
   });
 
   loginLink.addEventListener("click", () => {
