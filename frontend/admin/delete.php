@@ -31,20 +31,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm'])) {
     $deleteSql = "DELETE FROM orders WHERE orderno = '$orderno'";
     if ($conn->query($deleteSql) === TRUE) {
         // Insert the order details into the cancelled_orders table with cancellation remarks
-        $insertSql = "INSERT INTO cancelled_orders (orderno, username, email, phoneno, cancelled_bike, cancelled_remarks, ordered_date)
+        $insertSql = "INSERT INTO cancelled_orders (orderno, username, email, phoneno, cancelled_bike, cancellation_remarks, ordered_date)
                       VALUES ('$orderno', '{$orderData['username']}', '{$orderData['email']}', '{$orderData['phoneno']}', '{$orderData['ordered_bike']}', '$cancellationRemarks', '{$orderData['ordered_date']}')";
         if ($conn->query($insertSql) === TRUE) {
             $_SESSION['success_message'] = "Order has been cancelled successfully!";
-            header("Location: order_list.php");
-            exit();
         } else {
             $_SESSION['error_message'] = "Failed to insert the order into the cancelled_orders table.";
         }
     } else {
         $_SESSION['error_message'] = "Failed to delete the order from the orders table.";
     }
-}
 
+    // Redirect to order_list.php after processing the form
+    header("Location: order_list.php");
+    exit();
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -89,13 +91,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm'])) {
                                 <?php echo $orderData['phoneno']; ?>
                             </li>
                             <li class="list-group-item">
-                                <strong>Ordered Bike: </strong>
+                                <strong>Cancelled Bike: </strong>
                                 <?php echo $orderData['ordered_bike']; ?>
                             </li>
                             <li class="list-group-item">
                                 <strong>Order Date: </strong>
                                 <?php echo $orderData['ordered_date']; ?>
                             </li>
+
                             <li class="list-group-item">
                                 <strong><label for="cancellation_remarks">Cancellation Remarks:</label></strong>
                                 <input type="text" id="cancellation_remarks" name="cancellation_remarks" required>
@@ -117,9 +120,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm'])) {
 
     <script>
         function confirmDelete() {
-            return confirm('Are you sure you want to delete this order?');
+            const confirmation = confirm('Are you sure you want to delete this order?');
+            if (confirmation) {
+                // If the user clicked "OK", submit the form and proceed to delete the order
+                return true;
+            } else {
+                // If the user clicked "Cancel", prevent form submission and stay on the same page
+                return false;
+            }
         }
     </script>
+
 </body>
 
 </html>

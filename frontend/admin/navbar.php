@@ -41,7 +41,7 @@
                                     <a class="nav-link" href="customer.php">Customers</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="admin_review.php">Reviews</a>
+                                    <a class="nav-link" href="reviews.php">Reviews</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="cancelled.php">Cancelled Orders</a>

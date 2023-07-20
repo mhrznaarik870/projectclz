@@ -25,9 +25,9 @@ include('../../backend/partials/_dbconnect.php');
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>USERS</h2>
+                    <h2>Client Reviews</h2>
                     <?php
-                    $sql = "SELECT * FROM clients";
+                    $sql = "SELECT * FROM reviews";
                     $result = $conn->query($sql);
 
                     if ($result === false) {
@@ -37,18 +37,18 @@ include('../../backend/partials/_dbconnect.php');
                     } else {
                         echo "<table class='table'>
                                 <tr>
-                                    <th>Client ID</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Phone Number</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Comments</th>
+                                <th>Feedback Date</th>
                                 </tr>";
 
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>
-                                    <td>" . $row["sno"] . "</td>
-                                    <td>" . $row["username"] . "</td>
+                                    <td>" . $row["name"] . "</td>
                                     <td>" . $row["email"] . "</td>
-                                    <td>" . $row["phoneno"] . "</td>
+                                    <td>" . $row["comments"] . "</td>
+                                    <td>" . $row["feedback_date"] . "</td>
                                 </tr>";
                         }
 

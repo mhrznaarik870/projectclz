@@ -25,9 +25,9 @@ include('../../backend/partials/_dbconnect.php');
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>USERS</h2>
+                    <h2>Cancelled Orders</h2>
                     <?php
-                    $sql = "SELECT * FROM clients";
+                    $sql = "SELECT * FROM cancelled_orders";
                     $result = $conn->query($sql);
 
                     if ($result === false) {
@@ -37,18 +37,29 @@ include('../../backend/partials/_dbconnect.php');
                     } else {
                         echo "<table class='table'>
                                 <tr>
-                                    <th>Client ID</th>
+                                    <th>Order No</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone Number</th>
+                                    <th>Cancelled Bike</th>
+                                    <th>Remarks</th>
+                                    <th>Ordered date</th>
+                                    <th>Cancellation date</th>
                                 </tr>";
 
                         while ($row = $result->fetch_assoc()) {
+                            // Get the current timestamp for cancellation date
+                            $cancellation_date = date('Y-m-d H:i:s');
+
                             echo "<tr>
-                                    <td>" . $row["sno"] . "</td>
+                                    <td>" . $row["orderno"] . "</td>
                                     <td>" . $row["username"] . "</td>
                                     <td>" . $row["email"] . "</td>
                                     <td>" . $row["phoneno"] . "</td>
+                                    <td>" . $row["cancelled_bike"] . "</td>
+                                    <td>" . $row["cancellation_remarks"] . "</td>
+                                    <td>" . $row["ordered_date"] . "</td>
+                                    <td>" . $cancellation_date . "</td>
                                 </tr>";
                         }
 

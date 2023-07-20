@@ -28,6 +28,30 @@ include('../../backend/partials/_dbconnect.php');
             <div class="row">
                 <div>
                     <?php
+                    // Check for delete message
+                    if (isset($_SESSION['delete_message'])) {
+                        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                ' . $_SESSION['delete_message'] . '
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                              </div>';
+                        unset($_SESSION['delete_message']);
+                    } elseif (isset($_SESSION['success_message'])) {
+                        // Check for success message
+                        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                                ' . $_SESSION['success_message'] . '
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                              </div>';
+                        unset($_SESSION['success_message']);
+                    } elseif (isset($_SESSION['error_message'])) {
+                        // Check for error message
+                        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                ' . $_SESSION['error_message'] . '
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                              </div>';
+                        unset($_SESSION['error_message']);
+                    }
+                    ?>
+                    <?php
                     $sql = "SELECT * FROM orders";
                     $result = $conn->query($sql);
 

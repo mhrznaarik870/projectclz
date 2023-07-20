@@ -13,11 +13,15 @@ if (isset($_GET['orderno'])) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
     $orderno = $_POST['orderno'];
-    $new_ordered_bike = $_POST['ordered_bike'];
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $phoneno = $_POST['phoneno'];
+    $ordered_bike = $_POST['ordered_bike'];
+    $ordered_date = $_POST['TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'];
 
-    // Update the ordered bike in the orders table
-    $stmt = $conn->prepare("UPDATE orders SET ordered_bike = ? WHERE orderno = ?");
-    $stmt->bind_param("si", $new_ordered_bike, $orderno);
+    // Update the order details in the orders table
+    $stmt = $conn->prepare("UPDATE orders SET username = ?, email = ?, phoneno = ?, ordered_bike = ?, ordered_date = ? WHERE orderno = ?");
+    $stmt->bind_param("sssssi", $username, $email, $phoneno, $ordered_bike, $ordered_date, $orderno);
     $stmt->execute();
 
     if ($stmt) {
@@ -26,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
         $_SESSION['error_message'] = "Failed to update the order. Please try again.";
     }
 
-    header("Location: orders.php");
+    header("Location: order_list.php");
     exit();
 }
 ?>
@@ -58,17 +62,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
                     <h2>Edit Order</h2>
                     <form action="" method="POST">
                         <div class="mb-3">
-                            <label for="orderno" class="form-label">Order Number</label>
+                            <label for="orderno" class="form-label">Order Number:</label>
                             <input type="text" class="form-control" id="orderno" name="orderno"
                                 value="<?php echo $row['orderno']; ?>" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username"
+                                value="<?php echo $row['username']; ?>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                value="<?php echo $row['email']; ?>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phoneno" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" id="phoneno" name="phoneno"
+                                value="<?php echo $row['phoneno']; ?>" required>
                         </div>
                         <div class="mb-3">
                             <label for="ordered_bike" class="form-label">Ordered Bike</label>
                             <input type="text" class="form-control" id="ordered_bike" name="ordered_bike"
                                 value="<?php echo $row['ordered_bike']; ?>" required>
                         </div>
+                        <div class="mb-3">
+                            <label for="ordered_date" class="form-label">Ordered Date</label>
+                            <input type="text" class="form-control" id="ordered_date" name="ordered_date"
+                                value="<?php echo $row['ordered_date']; ?>" readonly>
+                        </div>
                         <button type="submit" name="update" class="btn btn-primary">Update Order</button>
-                        <a href="orders.php" class="btn btn-secondary">Cancel</a>
+                        <a href="order_list.php" class="btn btn-secondary mt-2">Cancel</a>
                     </form>
                 </div>
             </div>

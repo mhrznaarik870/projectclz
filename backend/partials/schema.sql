@@ -48,6 +48,15 @@ CREATE TABLE IF NOT EXISTS cancelled_orders (
     email VARCHAR(50),
     phoneno VARCHAR(10),
     cancelled_bike VARCHAR(255),
-    cancelled_remarks VARCHAR(255),
-    ordered_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    cancellation_remarks VARCHAR(255),
+    ordered_date VARCHAR(255),
+    cancellation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS reviews(
+  name VARCHAR(30),
+  email VARCHAR(50),
+  comments VARCHAR(255),
+  feedback_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+
 );
