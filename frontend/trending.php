@@ -20,6 +20,7 @@ include_once('../backend/partials/_dbconnect.php');
   <link rel="stylesheet" href="./assets/css/style.css" />
 
 </head>
+
 <?php include_once('content-header.php'); ?>
 
 <!-- Trending Bikes available -->
@@ -34,6 +35,7 @@ include_once('../backend/partials/_dbconnect.php');
         <br />
       </div>
       <div class="row gy-4">
+
         <div class="col-lg-3 text-center">
           <div class="card">
             <a href="./bikedetails/01.php">
@@ -84,111 +86,108 @@ include_once('../backend/partials/_dbconnect.php');
         </div>
         <div class="col-lg-3 text-center">
           <div class="card">
-            <a href="./bikedetails/05.php"></a>
-            <div class="card-body">
-              <img src="./assets/img/products/05.jpg" class="img-fluid" />
-              <p size="3" align="center">Ducati Streetfighter V2</p>
-              <p>Rs. 74.75 lakhs - 83 lakhs</p>
-            </div>
+            <a href="./bikedetails/05.php">
+              <div class="card-body">
+                <img src="./assets/img/products/05.jpg" class="img-fluid" />
+                <p size="3" align="center">Ducati Streetfighter V2</p>
+                <p>Rs. 74.75 lakhs - 83 lakhs</p>
+              </div>
             </a>
           </div>
         </div>
+
         <div class="col-lg-3 text-center">
           <div class="card">
-            <a href="./bikedetails/06.php"></a>
-            <div class="card-body">
-              <!-- https://www.zigwheels.com/newbikes/KTM/Duke-390 -->
-              <img src="./assets/img/products/06.jpg" class="img-fluid" />
-              <p size="3" align="center">KTM 390 Duke</p>
-              <p>Rs. 10 lakhs - 12 lakhs</p>
-            </div>
+            <a href="./bikedetails/06.php">
+              <div class="card-body">
+                <!-- https://www.zigwheels.com/newbikes/KTM/Duke-390 -->
+                <img src="./assets/img/products/06.jpg" class="img-fluid" />
+                <p size="3" align="center">KTM 390 Duke</p>
+                <p>Rs. 10 lakhs - 12 lakhs</p>
+              </div>
             </a>
-
           </div>
         </div>
+
         <div class="col-lg-3 text-center">
           <div class="card">
-            <a href="./bikedetails/07.php"></a>
-
-            <div class="card-body">
-              <!-- https://www.zigwheels.com/newbikes/TVS/akula-310 -->
-              <img src="./assets/img/products/07.jpg" class="img-fluid" />
-              <p size="3" align="center">TVS Apache RR 310</p>
-              <p>Rs. 8 lakhs - 10 lakhs</p>
-            </div>
+            <a href="./bikedetails/07.php">
+              <div class="card-body">
+                <!-- https://www.zigwheels.com/newbikes/TVS/akula-310 -->
+                <img src="./assets/img/products/07.jpg" class="img-fluid" />
+                <p size="3" align="center">TVS Apache RR 310</p>
+                <p>Rs. 8 lakhs - 10 lakhs</p>
+              </div>
             </a>
-
           </div>
         </div>
+
         <div class="col-lg-3 text-center">
           <div class="card">
-            <a href="./bikedetails/08.php"></a>
-
-            <div class="card-body">
-              <!-- https://www.zigwheels.com/newbikes/Yamaha/mt-15/specifications -->
-              <img src="./assets/img/products/08.jpg" class="img-fluid" />
-              <p size="3" align="center">
-                Royal Enfield Continental GT 650
-              </p>
-              <p>Rs. 15.75 lakhs - 20 lakhs</p>
-            </div>
+            <a href="./bikedetails/08.php">
+              <div class="card-body">
+                <!-- https://www.zigwheels.com/newbikes/Yamaha/mt-15/specifications -->
+                <img src="./assets/img/products/08.jpg" class="img-fluid" />
+                <p size="3" align="center">
+                  Royal Enfield Continental GT 650
+                </p>
+                <p>Rs. 15.75 lakhs - 20 lakhs</p>
+              </div>
             </a>
-
           </div>
         </div>
+
         <!-- third row -->
         <div class="col-lg-3 text-center">
           <div class="card">
-            <a href="./bikedetails/09.php"></a>
+            <a href="./bikedetails/09.php">
+              <div class="card-body">
+                <!-- https://honda.com.np/motorcycle/hornet-2-0/ -->
+                <img src="./assets/img/products/09.jpg" class="img-fluid" />
+                <p size="3" align="center">Hornet 2.0</p>
+                <p>Rs. 5.75 lakhs - 8 lakhs</p>
+              </div>
+            </a>
+          </div>
+        </div>
 
-            <div class="card-body">
-              <!-- https://honda.com.np/motorcycle/hornet-2-0/ -->
-              <img src="./assets/img/products/09.jpg" class="img-fluid" />
-              <p size="3" align="center">Hornet 2.0</p>
-              <p>Rs. 5.75 lakhs - 8 lakhs</p>
-            </div>
+        <div class="col-lg-3 text-center">
+          <div class="card">
+            <a href="./bikedetails/10.php">
+              <div class="card-body">
+                <!-- https://www.zigwheels.com/newbikes/Yamaha/mt-15/specifications -->
+                <img src="./assets/img/products/10.jpg" class="img-fluid" />
+                <p size="3" align="center">Honda Xblade</p>
+                <p>Rs. 5 lakhs - 6 lakhs</p>
+              </div>
             </a>
 
           </div>
         </div>
         <div class="col-lg-3 text-center">
           <div class="card">
-            <a href="./bikedetails/10.php"></a>
+            <a href="./bikedetails/11.php">
 
-            <div class="card-body">
-              <!-- https://www.zigwheels.com/newbikes/Yamaha/mt-15/specifications -->
-              <img src="./assets/img/products/10.jpg" class="img-fluid" />
-              <p size="3" align="center">Honda Xblade</p>
-              <p>Rs. 5 lakhs - 6 lakhs</p>
-            </div>
+              <div class="card-body">
+                <!-- https://www.daraz.com.np/products/tvs-apache-rtr-200-abs-fi-i119549959-s1032720508.html?spm=a2a0e.searchlistcategory.list.15.71b01978sfDTdG&search=1    -->
+                <img src="./assets/img/products/11.jpg" class="img-fluid" />
+                <p size="3" align="center">TVS APACHE RTR 200 ABS FI</p>
+                <p>Rs. 4 lakhs - 5 lakhs</p>
+              </div>
             </a>
 
           </div>
         </div>
         <div class="col-lg-3 text-center">
           <div class="card">
-            <a href="./bikedetails/11.php"></a>
+            <a href="./bikedetails/12.php">
 
-            <div class="card-body">
-              <!-- https://www.daraz.com.np/products/tvs-apache-rtr-200-abs-fi-i119549959-s1032720508.html?spm=a2a0e.searchlistcategory.list.15.71b01978sfDTdG&search=1    -->
-              <img src="./assets/img/products/11.jpg" class="img-fluid" />
-              <p size="3" align="center">TVS APACHE RTR 200 ABS FI</p>
-              <p>Rs. 4 lakhs - 5 lakhs</p>
-            </div>
-            </a>
-
-          </div>
-        </div>
-        <div class="col-lg-3 text-center">
-          <div class="card">
-            <a href="./bikedetails/12.php"></a>
-
-            <div class="card-body">
-              <!-- https://www.zigwheels.com/newbikes/Yamaha/mt-15/specifications -->
-              <img src="./assets/img/products/12.jpg" class="img-fluid" />
-              <p size="3" align="center">Honda CB Hornet 160R</p>
-              <p>Rs. 3 lakhs - 4 lakhs</p>
-            </div>
+              <div class="card-body">
+                <!-- https://www.zigwheels.com/newbikes/Yamaha/mt-15/specifications -->
+                <img src="./assets/img/products/12.jpg" class="img-fluid" />
+                <p size="3" align="center">Honda CB Hornet 160R</p>
+                <p>Rs. 3 lakhs - 4 lakhs</p>
+              </div>
             </a>
 
           </div>
