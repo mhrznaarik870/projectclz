@@ -6,7 +6,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KTM 390 Duke</title>
+  <title>Kawasaki Ninja ZX-10R</title>
 
   <!-- Bootstrap and icon links -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
@@ -26,7 +26,7 @@
       <div class="row">
         <div class="col-md-6 proimg">
           <div class="proimg">
-            <img src="./assets/img/products/04.jpg" alt="Kawasaki Ninja H2" class="img-fluid" />
+            <img src="./assets/img/products/06.jpg" alt="Kawasaki Ninja H2" class="img-fluid" />
           </div>
           <div class="purchase-info ">
             <?php $product_name = 'Kawasaki Ninja H2' ?>
