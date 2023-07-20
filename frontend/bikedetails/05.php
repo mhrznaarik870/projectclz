@@ -1,43 +1,37 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ducati Streetfighter V2</title>
 
-    <!-- Bootstrap and icon links -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ducati Streetfighter V2</title>
 
-    <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css" />
-    <link rel="icon" type="image/x-icon" href="./assets/img/logo.png" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <!-- Custom CSS -->
-    <style>
-      /* Add your custom styles here */
-    </style>
-  </head>
+  <!-- Bootstrap and icon links -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 
-  <body>
-    <header>
-      <?php include('navbar.php'); ?>
-    </header>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+  <link rel="icon" type="image/x-icon" href="../assets/img/logo.png" />
+  <link rel="stylesheet" href="./assets/css/prostyle.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
 
-    <section class="bike-details">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <img
-              src="../img/products/01.jpg"
-              alt="Kawasaki Ninja H2"
-              class="img-fluid"
-            />
+<body>
+  <header>
+    <?php include_once('../content-header.php'); ?>
+  </header>
+  <section class="bike-details">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 proimg">
+          <div class="proimg">
+            <img src="./assets/img/products/05.jpg" alt="Kawasaki Ninja H2" class="img-fluid" />
           </div>
-          <div class="col-md-6">
+          <div class="purchase-info ">
+            <?php $product_name = 'Kawasaki Ninja H2' ?>
+            <?php $product_price = 'Rs.90,00,000' ?>
+
             <h2>Ducati Streetfighter V2</h2>
             <div class="product-rating">
               <i class="fas fa-star"></i>
@@ -122,62 +116,74 @@
               electronic controls. All this in order to ensure maximum
               performance and safety.
             </p>
-            <h4>Specifications</h4>
-            <ul>
-              <li>
-                Engine Type Superqudro: 90° V2, Desmodromic 4 valves per
-                cylinder, liquid cooled
-              </li>
 
-              <li>Displacement 955 cc</li>
-
-              <li>Max Torque 101.4 Nm @ 9000 rpm</li>
-
-              <li>Cooling System Liquid Cooled</li>
-
-              <li>Valve Per Cylinder 4</li>
-
-              <li>Starting Self Start Only</li>
-
-              <li>Fuel Supply Fuel Injection</li>
-
-              <li>
-                Clutch Hydraulically controlled slipper and self-servo wet
-                multiplate clutch. Self bleeding master cylinder
-              </li>
-
-              <li>Gear Box 6 Speed</li>
-
-              <li>Bore 100 mm</li>
-
-              <li>Stroke 68.8 mm</li>
-
-              <li>Compression Ratio 12.5:1</li>
-
-              <li>Emission Type bs6</li>
-            </ul>
-
-            <div class="last-price">Old Price: <span>Rs.84,00,000/-</span></div>
-            <div class="product-price">
-              New Price: <span>Rs.78,75,000/-</span>
-            </div>
-          </div>
-          <div class="purchase-info">
-            <button type="button" class="btn">
-              Buy Now
-              <i class="fas fa-shopping-cart"></i>
-            </button>
           </div>
         </div>
+
+        <div class="col-md-6  specs">
+
+          <h4>Specifications</h4>
+          <ul>
+            <li>
+              Engine Type Superqudro: 90° V2, Desmodromic 4 valves per
+              cylinder, liquid cooled
+            </li>
+
+            <li>Displacement 955 cc</li>
+
+            <li>Max Torque 101.4 Nm @ 9000 rpm</li>
+
+            <li>Cooling System Liquid Cooled</li>
+
+            <li>Valve Per Cylinder 4</li>
+
+            <li>Starting Self Start Only</li>
+
+            <li>Fuel Supply Fuel Injection</li>
+
+            <li>
+              Clutch Hydraulically controlled slipper and self-servo wet
+              multiplate clutch. Self bleeding master cylinder
+            </li>
+
+            <li>Gear Box 6 Speed</li>
+
+            <li>Bore 100 mm</li>
+
+            <li>Stroke 68.8 mm</li>
+
+            <li>Compression Ratio 12.5:1</li>
+
+            <li>Emission Type bs6</li>
+          </ul>
+
+
+          <div class="last-price">Old Price:
+            <span>Rs.84,00,000/-</span>
+          </div>
+          <div class="product-price">
+            New Price: <span>Rs.78,75,000/-</span>
+          </div>
+          <div class="purchase-info">
+            <form action="../../backend/orders.php?ordered_bike=Ducati Streetfighter V2" method="post">
+              <button type="submit" name="purchased" class="btn">
+                Buy Now
+                <i class="fas fa-shopping-cart"></i>
+              </button>
+            </form>
+
+          </div>
+        </div>
+
       </div>
-    </section>
+    </div>
 
-    <footer>
-      <!-- Include your footer content here -->
-    </footer>
+  </section>
 
-    <!-- Bootstrap and JavaScript links -->
-    <script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="./js/script.js"></script>
-  </body>
+  <!-- Bootstrap and JavaScript links -->
+  <script src="../bootstrap/js/bootstrap.min.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+<?php include('../footer.php') ?>
+
 </html>

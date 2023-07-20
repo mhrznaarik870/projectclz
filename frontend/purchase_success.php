@@ -77,7 +77,7 @@
                 echo '<h3 class="message">Your order is successfully placed, ' . $username . '!</h3>';
                 echo '<p class="message1">
                 We are thrilled to hear that you have purchased a new bike. Enjoy the thrill of the open road and the freedom that comes with it. May your journeys be filled with adventure and memorable experiences. Ride safe and have a fantastic time exploring! <br> <br>
-                 You will be receivinag the <b> <u> CALL THROUGH THE REGISTERED CONTACT NO.</u> </b> Plz be patient till then!  
+                 You will be receivinag the <b> <u> CALL THROUGH OUR REGISTERED CONTACT NO.</u> </b> Plz be patient till then!  
                 </p>';
                 ?>
             </div>

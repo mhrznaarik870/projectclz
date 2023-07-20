@@ -1,43 +1,36 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kawasaki Ninja ZX-10R</title>
 
-    <!-- Bootstrap and icon links -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KTM 390 Duke</title>
 
-    <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css" />
-    <link rel="icon" type="image/x-icon" href="./assets/img/logo.png" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <!-- Custom CSS -->
-    <style>
-      /* Add your custom styles here */
-    </style>
-  </head>
+  <!-- Bootstrap and icon links -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 
-  <body>
-    <header>
-      <?php include('navbar.php'); ?>
-    </header>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+  <link rel="icon" type="image/x-icon" href="../assets/img/logo.png" />
+  <link rel="stylesheet" href="./assets/css/prostyle.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
 
-    <section class="bike-details">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <img
-              src="../img/products/01.jpg"
-              alt="Kawasaki Ninja H2"
-              class="img-fluid"
-            />
+<body>
+  <header>
+    <?php include_once('../content-header.php'); ?>
+  </header>
+  <section class="bike-details">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 proimg">
+          <div class="proimg">
+            <img src="./assets/img/products/04.jpg" alt="Kawasaki Ninja H2" class="img-fluid" />
           </div>
-          <div class="col-md-6">
+          <div class="purchase-info ">
+            <?php $product_name = 'Kawasaki Ninja H2' ?>
+            <?php $product_price = 'Rs.90,00,000' ?>
             <h2>Kawasaki Ninja ZX-10R</h2>
             <div class="product-rating">
               <i class="fas fa-star"></i>
@@ -47,6 +40,7 @@
               <i class="fas fa-star"></i>
               <span>5(40)</span>
             </div>
+
 
             <p>
               The Kawasaki Ninja ZX-10R is powered by a 998 cc air-cooled engine
@@ -131,60 +125,71 @@
               and while exiting. Turn in felt quick for a 207kg motorcycle and
               even direction changes don’t require a lot of effort.
             </p>
-            <h4>Specifications</h4>
-            <ul>
-              <li>Engine Type: Liquid-cooled, 4-stroke In-Line Four</li>
 
-              <li>Displacement: 998 cc</li>
-
-              <li>Max Torque: 114.9 Nm @ 11400 rpm</li>
-
-              <li>No. of Cylinders: 4</li>
-
-              <li>Cooling System: Air Cooled & Liquid Cooled</li>
-
-              <li>Valve Per Cylinder: 4</li>
-
-              <li>Starting: Self Start Only</li>
-
-              <li>Fuel Supply: Fuel Injection</li>
-
-              <li>Clutch: Wet multi-disc, manual</li>
-
-              <li>Ignition: Digital</li>
-
-              <li>Gear Box: 6 Speed</li>
-
-              <li>Bore: 76 mm</li>
-
-              <li>Stroke: 55 mm</li>
-
-              <li>Compression Ratio: 13.0:1</li>
-
-              <li>Emission Type: bs6</li>
-            </ul>
-
-            <div class="last-price">Old Price: <span>Rs.29,00,000/-</span></div>
-            <div class="product-price">
-              New Price: <span>Rs.20,80,000/-</span>
-            </div>
-          </div>
-          <div class="purchase-info">
-            <button type="button" class="btn">
-              Buy Now
-              <i class="fas fa-shopping-cart"></i>
-            </button>
           </div>
         </div>
+
+        <div class="col-md-6  specs">
+
+          <h4>Specifications</h4>
+          <ul>
+            <li>Engine Type: Liquid-cooled, 4-stroke In-Line Four</li>
+
+            <li>Displacement: 998 cc</li>
+
+            <li>Max Torque: 114.9 Nm @ 11400 rpm</li>
+
+            <li>No. of Cylinders: 4</li>
+
+            <li>Cooling System: Air Cooled & Liquid Cooled</li>
+
+            <li>Valve Per Cylinder: 4</li>
+
+            <li>Starting: Self Start Only</li>
+
+            <li>Fuel Supply: Fuel Injection</li>
+
+            <li>Clutch: Wet multi-disc, manual</li>
+
+            <li>Ignition: Digital</li>
+
+            <li>Gear Box: 6 Speed</li>
+
+            <li>Bore: 76 mm</li>
+
+            <li>Stroke: 55 mm</li>
+
+            <li>Compression Ratio: 13.0:1</li>
+
+            <li>Emission Type: bs6</li>
+          </ul>
+
+          <div class="last-price">Old Price:
+            <span>Rs.29,00,000/-</span>
+          </div>
+          <div class="product-price">
+            New Price: <span>Rs.20,80,000/-</span>
+          </div>
+          <div class="purchase-info">
+            <form action="../../backend/orders.php?ordered_bike=Kawasaki Ninja ZX-10R" method="post">
+              <button type="submit" name="purchased" class="btn">
+                Buy Now
+                <i class="fas fa-shopping-cart"></i>
+              </button>
+            </form>
+
+          </div>
+        </div>
+
       </div>
-    </section>
+    </div>
 
-    <footer>
-      <!-- Include your footer content here -->
-    </footer>
+  </section>
 
-    <!-- Bootstrap and JavaScript links -->
-    <script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="./js/script.js"></script>
-  </body>
+  <!-- Bootstrap and JavaScript links -->
+  <script src="../bootstrap/js/bootstrap.min.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+<?php include('../footer.php') ?>
+
 </html>
