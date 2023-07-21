@@ -82,7 +82,7 @@
             <div class="card-body">
               <img src="./assets/img/store/08.jpg" class="img-fluid" />
               <p size="3" align="center">Bajaj Pulsar spare parts</p>
-              <p>Contact: 98000000</p>
+              <p>Price: Based on the spare parts</p>
             </div>
           </div>
         </div>
