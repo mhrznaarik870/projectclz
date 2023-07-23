@@ -61,12 +61,47 @@
     </style>
 </head>
 
+
 <body>
     <div class="container">
         <div class="row">
             <div class="column">
                 <!-- Image column -->
-                <img src="./bikedetails/assets/gif/01.gif" alt="Background Image" class="img-fluid" />
+                <?php
+                // Fetch the GIF path from the database (replace "your_table_name" with the actual table name)
+                $servername = "localhost";
+                $username_db = "root";
+                $password_db = "";
+                $dbname = "admotors";
+
+                $conn = new mysqli($servername, $username_db, $password_db, $dbname);
+
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                // Fetch the GIF path based on the ordered bike
+                
+                $ordered_bike_id = isset($_GET['ordered_bike']) ? $_GET['ordered_bike'] : '';
+                $stmt = $conn->prepare("SELECT gif_path FROM products WHERE bike_id = ?");
+                $stmt->bind_param("i", $ordered_bike_id);
+                $stmt->execute();
+                $result = $stmt->get_result();
+
+                // Check if the result is valid and get the GIF path
+                if ($result->num_rows == 1) {
+                    $row = $result->fetch_assoc();
+                    $gifPath = $row['gif_path'];
+                } else {
+                    // If the bike is not found or the GIF path is not available, you can use a default image
+                    $gifPath = "./bikedetails/assets/gif/default.gif";
+                }
+
+                $stmt->close();
+                $conn->close();
+                ?>
+
+                <img src="<?php echo $gifPath; ?>" alt="Background Image" class="img-fluid" />
             </div>
             <div class="column">
                 <!-- Text column -->
@@ -77,7 +112,7 @@
                 echo '<h3 class="message">Your order is successfully placed, ' . $username . '!</h3>';
                 echo '<p class="message1">
                 We are thrilled to hear that you have purchased a new bike. Enjoy the thrill of the open road and the freedom that comes with it. May your journeys be filled with adventure and memorable experiences. Ride safe and have a fantastic time exploring! <br> <br>
-                 You will be receivinag the <b> <u> CALL THROUGH OUR REGISTERED CONTACT NO.</u> </b> Plz be patient till then!  
+                 You will be receiving the <b><u>CALL THROUGH OUR REGISTERED CONTACT NO.</u></b> Please be patient until then!  
                 </p>';
                 ?>
             </div>

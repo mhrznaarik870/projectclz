@@ -61,7 +61,7 @@ if ($stmt->execute()) {
         window.location.href = "insert_order.php?ordered_bike=' . $ordered_bike . '";
     } else {
         // User cancelled, do something else or redirect
-        window.location.href = "../frontend/trending.php";
+        window.location.href = "../frontend/trending.php?ordered_bike=";
     }
 </script>';
 }

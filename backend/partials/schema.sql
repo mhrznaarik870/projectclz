@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS orders (
     username VARCHAR(30) NOT NULL,
     email VARCHAR(50),
     phoneno INT(10),
+    
     ordered_bike VARCHAR(255),
     ordered_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );

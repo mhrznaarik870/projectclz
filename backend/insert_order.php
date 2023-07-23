@@ -54,7 +54,7 @@ $stmt->bind_param("ssiss", $username, $email, $phoneno, $ordered_bike, $username
 // Execute the statement
 if ($stmt->execute()) {
     // Display a successful alert message
-    echo '<script>alert("Order placed successfully!"); window.location.href="../frontend/purchase_success.php";</script>';
+    echo '<script>alert("Order placed successfully!"); window.location.href="../frontend/purchase_success.php?ordered_bike=' . urlencode($ordered_bike) . '";</script>';
 } else {
     echo '<script>alert("Error placing the order.");</script>';
 }

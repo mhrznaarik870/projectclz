@@ -4,7 +4,7 @@
 
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brands" href="../index.php">
+        <a class="navbar-brands" href="./index.php">
             <img class="logo" src="./assets/img/logo.png" alt="logo" />
             A.D. MOTORS
         </a>
