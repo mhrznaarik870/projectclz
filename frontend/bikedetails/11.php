@@ -123,7 +123,7 @@
           </div>
 
           <div class="purchase-info">
-            <form action="../../backend/orders.php?ordered_bike=11" method="post">
+            <form action="../../backend/orders.php?bike_id=11" method="post">
               <button type="submit" name="purchased" class="btn">
                 Buy Now
                 <i class="fas fa-shopping-cart"></i>

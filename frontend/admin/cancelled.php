@@ -49,8 +49,8 @@ include('../../backend/partials/_dbconnect.php');
 
                         while ($row = $result->fetch_assoc()) {
                             // Get the current timestamp for cancellation date
-                            $cancellation_date = date('Y-m-d H:i:s');
-
+                            // $cancellation_date = date('Y-m-d H:i:s');
+                    
                             echo "<tr>
                                     <td>" . $row["orderno"] . "</td>
                                     <td>" . $row["username"] . "</td>
@@ -59,7 +59,7 @@ include('../../backend/partials/_dbconnect.php');
                                     <td>" . $row["cancelled_bike"] . "</td>
                                     <td>" . $row["cancellation_remarks"] . "</td>
                                     <td>" . $row["ordered_date"] . "</td>
-                                    <td>" . $cancellation_date . "</td>
+                                    <td>" . $row["cancellation_date"] . "</td>
                                 </tr>";
                         }
 

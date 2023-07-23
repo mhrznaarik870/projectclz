@@ -115,7 +115,7 @@
             New Price: <span>Rs.18,75,000/-</span>
           </div>
           <div class="purchase-info">
-            <form action="../../backend/orders.php?ordered_bike=8" method="post">
+            <form action="../../backend/orders.php?bike_id=8" method="post">
               <button type="submit" name="purchased" class="btn">
                 Buy Now
                 <i class="fas fa-shopping-cart"></i>

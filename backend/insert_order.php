@@ -25,41 +25,76 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Prepare and execute the SQL query to fetch user details
-$stmt = $conn->prepare("SELECT * FROM clients WHERE username = ?");
-$stmt->bind_param("s", $username);
-$stmt->execute();
-$result = $stmt->get_result();
+// Get the ordered bike and bike_name from the URL parameters
+$bike_id = $_GET['bike_id'];
+$ordered_bike = $_GET['bike_name'];
 
-if ($result->num_rows == 1) {
-    $row = $result->fetch_assoc();
-    $email = $row['email'];
-    $phoneno = $row['phoneno'];
+// Get the user's email and phoneno from the clients table
+$stmt_clients = $conn->prepare("SELECT email, phoneno FROM clients WHERE username = ?");
+$stmt_clients->bind_param("s", $username);
+$stmt_clients->execute();
+$result_clients = $stmt_clients->get_result();
+
+if ($result_clients->num_rows == 1) {
+    $row_clients = $result_clients->fetch_assoc();
+    $email = $row_clients['email'];
+    $phoneno = $row_clients['phoneno'];
 } else {
     // User details not found
     echo '<script>alert("User details not found."); window.location.href = "../frontend/index.php";</script>';
     exit();
 }
 
-// Close the statement
-$stmt->close();
+// Get the bike_name from the products table
+$stmt_bikes = $conn->prepare("SELECT bike_name FROM products WHERE bike_id = ?");
+$stmt_bikes->bind_param("i", $bike_id);
+$stmt_bikes->execute();
+$result_bikes = $stmt_bikes->get_result();
 
-// Get the ordered bike from the URL parameter
-$ordered_bike = $_GET['ordered_bike'];
+if ($result_bikes->num_rows == 1) {
+    $row_bikes = $result_bikes->fetch_assoc();
+    $ordered_bike = $row_bikes['bike_name'];
+} else {
+    // Bike details not found
+    echo '<script>alert("Bike details not found."); window.location.href = "../frontend/trending.php";</script>';
+    exit();
+}
 
-// Prepare and execute the SQL query to insert the order
-$stmt = $conn->prepare("INSERT INTO orders (username, email, phoneno, ordered_bike) SELECT ?, ?, ?, ? FROM DUAL WHERE NOT EXISTS (SELECT * FROM orders WHERE username = ?)");
-$stmt->bind_param("ssiss", $username, $email, $phoneno, $ordered_bike, $username);
+// Close the statements for clients and bikes
+$stmt_clients->close();
+$stmt_bikes->close();
+
+// Prepare and execute the SQL query to insert the order into the orders table
+$stmt = $conn->prepare("INSERT INTO orders (username, email, phoneno, ordered_bike) VALUES ( ?, ?, ?, ?)");
+$stmt->bind_param("ssis", $username, $email, $phoneno, $ordered_bike);
 
 // Execute the statement
 if ($stmt->execute()) {
     // Display a successful alert message
-    echo '<script>alert("Order placed successfully!"); window.location.href="../frontend/purchase_success.php?ordered_bike=' . urlencode($ordered_bike) . '";</script>';
+    echo '<script>alert("Order placed successfully for ' . $ordered_bike . '!"); window.location.href="../frontend/purchase_success.php?ordered_bike=' . urlencode($bike_id) . '";</script>';
 } else {
-    echo '<script>alert("Error placing the order.");</script>';
+    // Error placing the order
+    echo '<script>alert("Error placing the order."); window.location.href = "../frontend/trending.php";</script>';
 }
 
 // Close the statement and the database connection
 $stmt->close();
+$conn->close();
+
+// Add the following code to fetch the data from the two tables and insert it into the new table
+
+$stmt_new_order = $conn->prepare("INSERT INTO new_orders (username, email, phoneno, bike_id, bike_name) SELECT username, email, phoneno, bike_id, bike_name FROM orders INNER JOIN products ON orders.ordered_bike = products.bike_name WHERE orders.username = ?");
+$stmt_new_order->bind_param("s", $username);
+// Execute the statement
+if ($stmt_new_order->execute()) {
+    // Order successfully inserted into new table
+    echo '<script>alert("Order successfully inserted into new table!");</script>';
+} else {
+    // Error inserting order into new table
+    echo '<script>alert("Error inserting order into new table!");</script>';
+}
+
+// Close the statement and the database connection
+$stmt_new_order->close();
 $conn->close();
 ?>

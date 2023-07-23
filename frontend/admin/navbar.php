@@ -9,7 +9,7 @@
 
     <!-- Bootstrap and icon links -->
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
-    <link rel="icon" type="image/x-icon" href="../assets/img/logo.png" />
+    <link rel="icon" type="image/x-icon" href="./assets/img/logo.png" />
     <link rel="stylesheet" href="../bikedetails/assets/css/style.css" />
     <link rel="stylesheet" href="./admin_style.css">
 </head>

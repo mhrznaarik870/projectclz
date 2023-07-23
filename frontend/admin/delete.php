@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm'])) {
     if ($conn->query($deleteSql) === TRUE) {
         // Insert the order details into the cancelled_orders table with cancellation remarks
         $insertSql = "INSERT INTO cancelled_orders (orderno, username, email, phoneno, cancelled_bike, cancellation_remarks, ordered_date)
-                      VALUES ('$orderno', '{$orderData['username']}', '{$orderData['email']}', '{$orderData['phoneno']}', '{$orderData['ordered_bike']}', '$cancellationRemarks', '{$orderData['ordered_date']}')";
+                      VALUES ('$orderno', '{$orderData['username']}', '{$orderData['email']}', '{$orderData['phoneno']}', '{$orderData['ordered_bike']}', '$cancellationRemarks', '{$orderData['ordered_date']}') ";
         if ($conn->query($insertSql) === TRUE) {
             $_SESSION['success_message'] = "Order has been cancelled successfully!";
         } else {

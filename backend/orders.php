@@ -47,25 +47,36 @@ if ($result->num_rows == 1) {
 $stmt->close();
 
 // Get the ordered bike from the URL parameter
-$ordered_bike = $_GET['ordered_bike'];
+$bike_id = $_GET['bike_id'];
 
-// Prepare and execute the SQL query to insert the order
-$stmt = $conn->prepare("INSERT INTO orders (username, email, phoneno, ordered_bike) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("ssis", $username, $email, $phoneno, $ordered_bike);
+// Prepare and execute the SQL query to fetch bike_name from the products table
+$stmt = $conn->prepare("SELECT bike_name FROM products WHERE bike_id = ?");
+$stmt->bind_param("i", $bike_id);
+$stmt->execute();
+$result = $stmt->get_result();
 
-// Execute the statement
-if ($stmt->execute()) {
+// Check if the bike_id exists in the products table
+if ($result->num_rows == 1) {
+    $row = $result->fetch_assoc();
+    $bike_name = $row['bike_name'];
+
+    // Prompt the user for confirmation
     echo '<script>
-    if (confirm("Are you sure you want to place the order?")) {
-        // User confirmed, proceed with inserting the order data
-        window.location.href = "insert_order.php?ordered_bike=' . $ordered_bike . '";
-    } else {
-        // User cancelled, do something else or redirect
-        window.location.href = "../frontend/trending.php?ordered_bike=";
-    }
-</script>';
+        if (confirm("Are you sure you want to place the order for ' . $bike_name . '?")) {
+            // User confirmed, proceed with inserting the order data
+            window.location.href = "insert_order.php?bike_id=' . $bike_id . '&bike_name=' . urlencode($bike_name) . '";
+        } else {
+            // User cancelled, do something else or redirect
+            window.location.href = "../frontend/trending.php";
+        }
+    </script>';
+} else {
+    // If bike_id doesn't exist in the products table, show an error message
+    echo '<script>alert("Bike not found in the products table."); window.location.href = "../frontend/index.php";</script>';
 }
+
 // Close the statement and the database connection
 $stmt->close();
 $conn->close();
+?>
 ?>
