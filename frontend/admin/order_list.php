@@ -2,6 +2,15 @@
 session_start();
 include('../../backend/partials/_dbconnect.php');
 ?>
+<?php if (!isset($_SESSION['admin_username'])): ?>
+    <script>
+        // Check if the user is not logged in, then show the alert
+        alert("Please log in to our website to access this page.");
+        // Redirect to index.php after the alert is displayed
+        window.location.href = "index.php";
+    </script>
+<?php endif; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

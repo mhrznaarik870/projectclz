@@ -15,7 +15,6 @@ CREATE TABLE IF NOT EXISTS orders (
     email VARCHAR(50),
     phoneno INT(10),
     ordered_bike VARCHAR(255),
-    ordered_bike_name VARCHAR(255),
     ordered_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 -- Create the bikes table if it doesn't exist
