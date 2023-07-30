@@ -1,9 +1,11 @@
+<?php session_start() ?>
 <?php
-session_start();
-
-?>
-
-
+if (!isset($_SESSION['admin_username'])): ?>
+    <script>
+        alert("Please log into our website to access this page. ");
+        window.location.href = "../index.php";
+    </script>
+<?php endif; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +15,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Add Products</title>
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../bikedetails/assets/css/prostyle.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" />
 </head>
@@ -58,7 +61,10 @@ session_start();
                     <label for="bike-gif">Bike GIF:</label>
                     <input type="file" name="bike_gif">
                 </div>
-                <button type="submit" name="add_bikes">Add Product</button>
+                <button type="submit" name="add_bikes" class="btn btn-primary">Add Product</button>
+                <div class="mt-3">
+                    <a class=" btn0  " href="../index.php">Check For The Added Products</a>
+                </div>
             </form>
         </div>
     </section>

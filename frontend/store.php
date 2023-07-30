@@ -12,7 +12,7 @@
         </h4>
         <br>
       </div>
-      <div class="row gy-4">
+      <div class="row gy-4" style="margin-left: initial;">
         <div class="col-lg-3 text-center">
           <div class="card">
             <div class="card-body">

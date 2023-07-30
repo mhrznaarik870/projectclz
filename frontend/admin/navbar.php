@@ -41,13 +41,13 @@
                                     <a class="nav-link" href="order_list.php">Order Lists</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link" href="cancelled.php">Cancelled Orders</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link" href="customer.php">Customers</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="reviews.php">Reviews</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="cancelled.php">Cancelled Orders</a>
                                 </li>
                             </ul>
                             <?php if (isset($_SESSION['admin_username'])): ?>
