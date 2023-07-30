@@ -35,6 +35,9 @@
                             <ul class="navbar-nav m-auto my-2 my-lg-0">
 
                                 <li class="nav-item">
+                                    <a class="nav-link" href="add_products.php">Add Products</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link" href="order_list.php">Order Lists</a>
                                 </li>
                                 <li class="nav-item">

@@ -30,9 +30,6 @@
           </div>
           <div class="purchase-info ">
 
-            <?php $product_name = 'MT-15 V-2.0' ?>
-            <?php $product_price = 'Rs.3,00,000/-' ?>
-
             <h2>MT-15 V-2.0</h2>
             <div class="product-rating">
               <i class="fas fa-star"></i>
@@ -129,11 +126,33 @@
             <li>Emission Type: bs6-2.0</li>
           </ul>
 
-          <div class="last-price">Old Price: <span>Rs.3,10,000/-</spa n>
-          </div>
+          <div class="old-price">
+            <?php
+            $sql = "SELECT old_price FROM products WHERE bike_id=3";
+            $result = $conn->query($sql);
 
-          <div class="product-price">
-            New Price: <span>Rs.3,00,000/-</span>
+            if ($result->num_rows > 0) {
+              $row = $result->fetch_assoc();
+              $oldPrice = $row['old_price'];
+              echo "Old Price: <span> Rs. " . $oldPrice . "/- </span>";
+            } else {
+              echo "Old Price: <span> Price not available. </span>";
+            }
+            ?>
+          </div>
+          <div class="new-price">
+            <?php
+            $sql = "SELECT new_price FROM products WHERE bike_id=3 ";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+              $row = $result->fetch_assoc();
+              $newPrice = $row['new_price'];
+              echo "New Price: <span> Rs. " . $newPrice . "/- </span>";
+            } else {
+              echo "Old Price: <span> Price not available. </span>";
+            }
+            ?>
           </div>
           <div class="purchase-info">
             <form action="../../backend/orders.php?bike_id=3" method="post">

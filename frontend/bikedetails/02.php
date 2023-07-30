@@ -29,8 +29,6 @@
             <img src="./assets/img/products/02.jpg" alt="Royal Enfield Classic 350" class="img-fluid" />
           </div>
           <div class="purchase-info">
-            <?php $product_name = 'Royal Enfield Classic 350' ?>
-            <?php $product_price = 'Rs.90,00,000' ?>
             <h2>Royal Enfield Classic 350</h2>
             <div class="product-rating">
               <i class="fas fa-star"></i>
@@ -126,11 +124,33 @@
             <li>Emission Type: bs6</li>
           </ul>
 
-          <div class="last-price">
-            Old Price: <span>Rs.1,00,00,000,/-</span>
+          <div class="old-price">
+            <?php
+            $sql = "SELECT old_price FROM products WHERE bike_id=2";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+              $row = $result->fetch_assoc();
+              $oldPrice = $row['old_price'];
+              echo "Old Price: <span> Rs. " . $oldPrice . "/- </span>";
+            } else {
+              echo "Old Price: <span> Price not available. </span>";
+            }
+            ?>
           </div>
-          <div class="product-price">
-            New Price: <span>Rs.90,00,000/-</span>
+          <div class="new-price">
+            <?php
+            $sql = "SELECT new_price FROM products WHERE bike_id=2";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+              $row = $result->fetch_assoc();
+              $newPrice = $row['new_price'];
+              echo "New Price: <span> Rs. " . $newPrice . "/- </span>";
+            } else {
+              echo "Old Price: <span> Price not available. </span>";
+            }
+            ?>
           </div>
           <div class="purchase-info">
             <form action="../../backend/orders.php?bike_id=2" method="post">

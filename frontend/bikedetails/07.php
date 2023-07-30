@@ -29,8 +29,7 @@
             <img src="./assets/img/products/07.jpg" alt="TVS Apache RR310" class="img-fluid" />
           </div>
           <div class="purchase-info ">
-            <?php $product_name = 'TVS Apache RR310' ?>
-            <?php $product_price = 'Rs.10,00,000' ?>
+
             <h2>TVS Apache RR310</h2>
             <div class="product-rating">
               <i class="fas fa-star"></i>
@@ -141,21 +140,44 @@
 
             <li>Emission Type bs6</li>
 
-            <div class="last-price">Old Price: <span>Rs.10,00,000/-</span></div>
-            <div class="product-price">
-              New Price: <span>Rs.8,75,000/-</span>
+            <div class="old-price">
+              <?php
+              $sql = "SELECT old_price FROM products WHERE bike_id=7";
+              $result = $conn->query($sql);
+
+              if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $oldPrice = $row['old_price'];
+                echo "Old Price: <span> Rs. " . $oldPrice . "/- </span>";
+              } else {
+                echo "Old Price: <span> Price not available. </span>";
+              }
+              ?>
             </div>
-            <div class="purchase-info">
-              <form action="../../backend/orders.php?bike_id=7" method="post">
-                <button type="submit" name="purchased" class="btn">
-                  Buy Now
-                  <i class="fas fa-shopping-cart"></i>
-                </button>
-              </form>
+            <div class="new-price">
+              <?php
+              $sql = "SELECT new_price FROM products WHERE bike_id=7";
+              $result = $conn->query($sql);
+
+              if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $newPrice = $row['new_price'];
+                echo "New Price: <span> Rs. " . $newPrice . "/- </span>";
+              } else {
+                echo "Old Price: <span> Price not available. </span>";
+              }
+              ?>
+              <div class="purchase-info">
+                <form action="../../backend/orders.php?bike_id=7" method="post">
+                  <button type="submit" name="purchased" class="btn">
+                    Buy Now
+                    <i class="fas fa-shopping-cart"></i>
+                  </button>
+                </form>
+              </div>
             </div>
         </div>
       </div>
-    </div>
   </section>
 
   <!-- Bootstrap and JavaScript links -->

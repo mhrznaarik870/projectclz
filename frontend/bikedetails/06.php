@@ -113,11 +113,33 @@
           <li>Emission Type: bs6</li>
           </ul>
 
-          <div class="last-price">Old Price:
-            <span>Rs.12,50,000/-</span>
+          <div class="old-price">
+            <?php
+            $sql = "SELECT old_price FROM products WHERE bike_id=6";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+              $row = $result->fetch_assoc();
+              $oldPrice = $row['old_price'];
+              echo "Old Price: <span> Rs. " . $oldPrice . "/- </span>";
+            } else {
+              echo "Old Price: <span> Price not available. </span>";
+            }
+            ?>
           </div>
-          <div class="product-price">
-            New Price: <span>Rs.11,75,000/-</span>
+          <div class="new-price">
+            <?php
+            $sql = "SELECT new_price FROM products WHERE bike_id=6";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+              $row = $result->fetch_assoc();
+              $newPrice = $row['new_price'];
+              echo "New Price: <span> Rs. " . $newPrice . "/- </span>";
+            } else {
+              echo "Old Price: <span> Price not available. </span>";
+            }
+            ?>
           </div>
           <div class="purchase-info">
             <form action="../../backend/orders.php?bike_id=6" method="post">

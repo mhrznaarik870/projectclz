@@ -101,11 +101,33 @@
                         <li>Fuel Capacity: 4.5 gal</li>
                     </ul>
 
-                    <div class="last-price">
-                        Old Price: <span>Rs.1,00,00,000,/-</span>
+                    <div class="old-price">
+                        <?php
+                        $sql = "SELECT old_price FROM products WHERE bike_id=1";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            $row = $result->fetch_assoc();
+                            $oldPrice = $row['old_price'];
+                            echo "Old Price: <span> Rs. " . $oldPrice . "/- </span>";
+                        } else {
+                            echo "Old Price: <span> Price not available. </span>";
+                        }
+                        ?>
                     </div>
-                    <div class="product-price">
-                        New Price: <span>Rs.90,00,000/-</span>
+                    <div class="new-price">
+                        <?php
+                        $sql = "SELECT new_price FROM products WHERE bike_id=1 ";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            $row = $result->fetch_assoc();
+                            $newPrice = $row['new_price'];
+                            echo "New Price: <span> Rs. " . $newPrice . "/- </span>";
+                        } else {
+                            echo "Old Price: <span> Price not available. </span>";
+                        }
+                        ?>
                     </div>
                     <div class="purchase-info">
                         <form action="../../backend/orders.php?bike_id=1" method="post">
@@ -123,7 +145,7 @@
     </section>
 
     <!-- Bootstrap and JavaScript links -->
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../js/script.js"></script>
 </body>
 <?php include('../footer.php') ?>

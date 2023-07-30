@@ -1,6 +1,9 @@
 <?php
 session_start();
 include_once('../backend/partials/_dbconnect.php');
+if (isset($_POST['more_bikes'])) {
+  header("Location: more_bikes.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -198,7 +201,7 @@ include_once('../backend/partials/_dbconnect.php');
     </div>
   </div>
 </section>
-<div class="text-center"> <button class="btn1" type="submit">See more</button>
+<div class="text-center"> <button class="btn1" type="submit" name="more_bikes">See more</button>
 </div>
 
 <?php include('footer.php') ?>

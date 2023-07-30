@@ -102,12 +102,59 @@ td {
 }
 
 input[type="text"],
+textarea,
+input[type="number"],
 input[type="password"] {
-  color: floralwhite;
+  color: antiquewhite;
   background-color: rgba(99, 86, 86, 0.8);
   border-radius: 10px;
 }
+
 .navbar {
   background-color: rgba(44, 42, 42, 0.8);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.add-procard {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-procard .mb-3 {
+  margin-bottom: 15px;
+}
+
+.add-procard label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.add-procard input[type="text"],
+.add-procard textarea,
+.add-procard input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #605555;
+  outline: none;
+}
+
+.add-procard button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-procard button:hover {
+  background-color: #0056b3;
 }

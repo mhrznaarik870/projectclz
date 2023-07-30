@@ -1,6 +1,8 @@
+<?php include('header.php') ?>
 <!-- navbar.php -->
 <script src="./js/script.js"></script>
-<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+<script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+
 
 <nav class="navbar navbar-expand-lg">
     <div class="container">

@@ -32,6 +32,7 @@ if (!$conn) {
 <body>
 
     <script href="./js/script.js"></script>
+    
 </body>
 
 </html>
