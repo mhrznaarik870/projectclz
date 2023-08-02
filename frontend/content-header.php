@@ -2,8 +2,6 @@
 
     <!-- navigation bar -->
     <?php include('navbar.php'); ?>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        class="stylesheet">
     <link href="./bootstrap/css/bootstrap.min.css" />
     <link rel="icon" type="image/x-icon" href="./assets/img/logo.png" />
     <link rel="stylesheet" href="./assets/css/style.css" />
@@ -12,7 +10,7 @@
 
         <!-- registration button -->
         <div class="wrapper">
-            <span class="icon-close"><ion-icon name="close-outline"></ion-icon></span>
+            <span class="icon-close"><ion-icon name="close"></ion-icon></span>
 
             <!-- login page box -->
             <div class="register-wrapper d-none">
@@ -37,7 +35,7 @@
                             <input type="tel" id="phoneno" name="phoneno" placeholder="Phone Number" required>
                         </div>
                         <div class="input-box">
-                            <span class="icon"> <ion-icon name="lock-closed"></ion-icon></span>
+                            <span class="icon"> <ion-icon name="lock"></ion-icon></span>
                             <input type="password" id="password" name="password" placeholder="Password" required>
                         </div>
                         <div class="register-box ">
@@ -61,7 +59,7 @@
                     </div>
 
                     <div class="input-box">
-                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                        <span class="icon"><ion-icon name="lock"></ion-icon></span>
                         <input type="password" id="password" name="password" placeholder="Password" required>
                     </div>
 
@@ -79,4 +77,5 @@
 
         </div>
     </div>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </header>
