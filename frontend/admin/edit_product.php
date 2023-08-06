@@ -32,7 +32,6 @@
                 $newPrice = $row['new_price'];
                 $bikeImage = $row['bike_image'];
 
-                // Display the product details in a form for editing
                 ?>
                 <div class="row">
                     <h2 class="text-center mb-5">Edit
@@ -86,7 +85,6 @@
             echo "Invalid product ID.";
         }
 
-        // Check if the form is submitted and update the product in the database
         if (isset($_POST['submit'])) {
             $bikeName = $_POST['bikeName'];
             $specs = $_POST['specs'];
@@ -95,11 +93,9 @@
             $oldPrice = $_POST['oldPrice'];
             $newPrice = $_POST['newPrice'];
 
-            // Prepare the update query with placeholders
             $sql = "UPDATE products SET bike_name=?, specs=?, description=?, rating=?, old_price=?, new_price=? WHERE bike_id=?";
             $stmt = $conn->prepare($sql);
 
-            // Bind the parameters to the prepared statement
             $stmt->bind_param('ssssddi', $bikeName, $specs, $description, $rating, $oldPrice, $newPrice, $bikeID);
 
             // Execute the update query

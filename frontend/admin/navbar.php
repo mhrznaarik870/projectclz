@@ -77,7 +77,6 @@
 
                                 <script>
                                     function redirectToIndex() {
-                                        // Redirect to the desired page
                                         window.location.href = 'index.php';
                                     }
                                 </script>

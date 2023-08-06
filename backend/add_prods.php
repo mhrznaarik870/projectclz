@@ -16,7 +16,6 @@ if (isset($_POST['add_bikes'])) {
     $gifFileName = $_FILES['bike_gif']['name'];
     $gifTmpName = $_FILES['bike_gif']['tmp_name'];
 
-    // Define target directories
     $imageTargetDir = '../frontend/bikedetails/assets/img/products/';
     $gifTargetDir = '../frontend/bikedetails/assets/gif/';
 
@@ -30,7 +29,6 @@ if (isset($_POST['add_bikes'])) {
         $sql = "INSERT INTO products (bike_name, specs, description, rating, old_price, new_price, bike_image, gif_path) 
             VALUES ('$bikeName', '$specs', '$description', '$rating', '$oldPrice', '$newPrice', '$imageFullPath', '$gifFullPath')";
 
-        // Execute the SQL query and handle errors
         if ($conn->query($sql) === TRUE) {
             echo '<script>alert("Product added successfully!");</script>';
             echo '<script>window.location.href = "../frontend/admin/add_products.php";</script>';
@@ -40,16 +38,13 @@ if (isset($_POST['add_bikes'])) {
             fwrite($errorLog, "Database Error: " . $sql . "\n" . $conn->error . "\n");
             fclose($errorLog);
 
-            // Display an error message using JavaScript
             echo '<script>alert("Failed to add the product. Please try again later.");</script>';
         }
     } else {
-        // Log the file upload error to a file for debugging purposes
         $errorLog = fopen("error_log.txt", "a");
         fwrite($errorLog, "File Upload Error: Failed to move uploaded files to target directories.\n");
         fclose($errorLog);
 
-        // Debug: Print the error message
         echo "<p>File Upload Error: Failed to move uploaded files to target directories.</p>";
     }
 }

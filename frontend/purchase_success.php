@@ -68,7 +68,6 @@
             <div class="column">
                 <!-- Image column -->
                 <?php
-                // Fetch the GIF path from the database (replace "your_table_name" with the actual table name)
                 $servername = "localhost";
                 $username_db = "root";
                 $password_db = "";
@@ -88,12 +87,10 @@
                 $stmt->execute();
                 $result = $stmt->get_result();
 
-                // Check if the result is valid and get the GIF path
                 if ($result->num_rows == 1) {
                     $row = $result->fetch_assoc();
                     $gifPath = $row['gif_path'];
                 } else {
-                    // If the bike is not found or the GIF path is not available, you can use a default image
                     $gifPath = "./bikedetails/assets/gif/default.gif";
                 }
 

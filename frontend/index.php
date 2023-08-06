@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once('header.php');
-// include_once('content/content-header.php');
 ?>
 
 <section class="main text-white" style="background-image: url('./assets/img/bg.jpg')">

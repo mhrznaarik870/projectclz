@@ -5,7 +5,6 @@
     <link href="./bootstrap/css/bootstrap.min.css" />
     <link rel="icon" type="image/x-icon" href="./assets/img/logo.png" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <!-- registration and login form -->
     <div class="big-wrapper">
 
         <!-- registration button -->

@@ -7,7 +7,6 @@ include('header.php');
   <div class="container">
     <div class="banner-content1">
 
-      <!-- Display success or error alert -->
       <?php if (isset($_SESSION['success_message'])): ?>
         <div class="alert alert-success" role="alert">
           <?php echo $_SESSION['success_message']; ?>

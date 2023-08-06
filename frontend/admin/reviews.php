@@ -4,9 +4,7 @@ include('../../backend/partials/_dbconnect.php');
 ?>
 <?php if (!isset($_SESSION['admin_username'])): ?>
     <script>
-        // Check if the user is not logged in, then show the alert
         alert("Please log in to our website to access this page.");
-        // Redirect to index.php after the alert is displayed
         window.location.href = "index.php";
     </script>
 <?php endif; ?>
@@ -68,7 +66,6 @@ include('../../backend/partials/_dbconnect.php');
         </div>
     </section>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 

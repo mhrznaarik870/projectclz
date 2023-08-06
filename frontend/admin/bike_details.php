@@ -17,7 +17,6 @@ if (isset($_GET['bike_id'])) {
         $oldPrice = $row['old_price'];
         $newPrice = $row['new_price'];
         $bikeImage = $row['bike_image'];
-        // Add any other details you want to display on the bike_details.php page
     } else {
 
         echo "Bike not found.";

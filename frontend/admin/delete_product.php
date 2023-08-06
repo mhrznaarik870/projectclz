@@ -14,9 +14,7 @@ if (isset($_GET['bike_id']) && !empty($_GET['bike_id'])) {
         $row = $result->fetch_assoc();
         $bikeName = $row['bike_name'];
 
-        // Check if the user has confirmed the deletion
         if (isset($_GET['confirm']) && $_GET['confirm'] === 'yes') {
-            // Create the SQL DELETE query
             $sql = "DELETE FROM products WHERE bike_id = $bike_id";
 
             // Execute the query
@@ -27,7 +25,6 @@ if (isset($_GET['bike_id']) && !empty($_GET['bike_id'])) {
                 echo "Error deleting bike product: " . $conn->error;
             }
         } else {
-            // Show the confirmation alert
             echo "<script>
                 var confirmed = confirm('Are you sure you want to delete the bike product with ID $bike_id and name $bikeName?');
                 if (confirmed) {
@@ -44,6 +41,5 @@ if (isset($_GET['bike_id']) && !empty($_GET['bike_id'])) {
     echo "Invalid bike_id provided.";
 }
 
-// Close the database connection
 $conn->close();
 ?>

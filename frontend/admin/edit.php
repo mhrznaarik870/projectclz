@@ -5,7 +5,6 @@ include('../../backend/partials/_dbconnect.php');
 if (isset($_GET['orderno'])) {
     $orderno = $_GET['orderno'];
 
-    // Retrieve order details from the orders table
     $sql = "SELECT * FROM orders WHERE orderno = '$orderno'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
@@ -19,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
     $ordered_bike = $_POST['ordered_bike'];
     $ordered_date = $_POST['TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'];
 
-    // Update the order details in the orders table
     $stmt = $conn->prepare("UPDATE orders SET username = ?, email = ?, phoneno = ?, ordered_bike = ?, ordered_date = ? WHERE orderno = ?");
     $stmt->bind_param("sssssi", $username, $email, $phoneno, $ordered_bike, $ordered_date, $orderno);
     $stmt->execute();

@@ -17,15 +17,10 @@ if (isset($_GET['bike_id'])) {
         $oldPrice = $row['old_price'];
         $newPrice = $row['new_price'];
         $bikeImage = $row['bike_image'];
-        // Add any other details you want to display on the bike_details.php page
     } else {
-        // Handle the case when the bike ID is not found in the database
-        // You can redirect to an error page or display an error message here
         echo "Bike not found.";
     }
 } else {
-    // Handle the case when the bike ID is not provided in the URL
-    // You can redirect to an error page or display an error message here
     echo "Invalid bike ID.";
 }
 ?>
@@ -103,14 +98,12 @@ if (isset($_GET['bike_id'])) {
                         <li>Engine:
                             <?php echo $specs; ?>
                         </li>
-                        <!-- Add other specifications here -->
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Add any other content you want on the bike_details.php page -->
     <?php include('./footer.php'); ?>
 
     <!-- Bootstrap and JavaScript links -->

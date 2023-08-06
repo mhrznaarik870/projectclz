@@ -124,10 +124,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm'])) {
         function confirmDelete() {
             const confirmation = confirm('Are you sure you want to delete this order?');
             if (confirmation) {
-                // If the user clicked "OK", submit the form and proceed to delete the order
                 return true;
             } else {
-                // If the user clicked "Cancel", prevent form submission and stay on the same page
                 return false;
             }
         }
