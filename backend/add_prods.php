@@ -20,12 +20,12 @@ if (isset($_POST['add_bikes'])) {
     $imageTargetDir = '../frontend/bikedetails/assets/img/products/';
     $gifTargetDir = '../frontend/bikedetails/assets/gif/';
 
-    $imageFullPath = $imageTargetDir . $imageFileName;
-    $gifFullPath = $gifTargetDir . $gifFileName;
+    $imageFullPath = $imageFileName;
+    $gifFullPath = './bikedetails/assets/gif/' . $gifFileName;
 
     if (
-        move_uploaded_file($imageTmpName, $imageFullPath) &&
-        move_uploaded_file($gifTmpName, $gifFullPath)
+        move_uploaded_file($imageTmpName, $imageTargetDir . $imageFileName) &&
+        move_uploaded_file($gifTmpName, $gifTargetDir . $gifFileName)
     ) {
         $sql = "INSERT INTO products (bike_name, specs, description, rating, old_price, new_price, bike_image, gif_path) 
             VALUES ('$bikeName', '$specs', '$description', '$rating', '$oldPrice', '$newPrice', '$imageFullPath', '$gifFullPath')";
@@ -33,7 +33,7 @@ if (isset($_POST['add_bikes'])) {
         // Execute the SQL query and handle errors
         if ($conn->query($sql) === TRUE) {
             echo '<script>alert("Product added successfully!");</script>';
-            echo '<script>window.location.href = "add_products.php";</script>';
+            echo '<script>window.location.href = "../frontend/admin/add_products.php";</script>';
 
         } else {
             $errorLog = fopen("error_log.txt", "a");

@@ -1,9 +1,6 @@
 <?php
 session_start();
 include_once('../backend/partials/_dbconnect.php');
-if (isset($_POST['more_bikes'])) {
-  header("Location: more_bikes.php");
-}
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +13,7 @@ if (isset($_POST['more_bikes'])) {
   <title>A.D MOTORS</title>
 
   <!-- Bootstrap and icon links -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+  <link rel="stylesheet" href="  https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     class="stylesheet">
   <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
   <link rel="icon" type="image/x-icon" href="./assets/img/logo.png" />
@@ -55,7 +52,6 @@ if (isset($_POST['more_bikes'])) {
           <div class="card">
             <a href="./bikedetails/02.php">
               <div class="card-body">
-                <!-- https://www.zigwheels.com/royal-enfield-bikes/classic-350 -->
                 <img src="./assets/img/products/02.jpg" class="img-fluid" />
                 <p size="3" align="center">Royal Enfield Classic 350</p>
                 <p>Rs. 7.75 lakhs - 8 lakhs</p>
@@ -79,7 +75,6 @@ if (isset($_POST['more_bikes'])) {
           <div class="card">
             <a href="./bikedetails/04.php">
               <div class="card-body">
-                <!-- https://www.zigwheels.com/newbikes/Kawasaki/Ninja-ZX-10R  -->
                 <img src="./assets/img/products/04.jpg" class="img-fluid" />
                 <p size="3" align="center">Kawasaki Ninja ZX-10R</p>
                 <p>Rs. 20.75 lakhs - 30 lakhs</p>
@@ -103,7 +98,6 @@ if (isset($_POST['more_bikes'])) {
           <div class="card">
             <a href="./bikedetails/06.php">
               <div class="card-body">
-                <!-- https://www.zigwheels.com/newbikes/KTM/Duke-390 -->
                 <img src="./assets/img/products/06.jpg" class="img-fluid" />
                 <p size="3" align="center">KTM 390 Duke</p>
                 <p>Rs. 10 lakhs - 12 lakhs</p>
@@ -116,7 +110,6 @@ if (isset($_POST['more_bikes'])) {
           <div class="card">
             <a href="./bikedetails/07.php">
               <div class="card-body">
-                <!-- https://www.zigwheels.com/newbikes/TVS/akula-310 -->
                 <img src="./assets/img/products/07.jpg" class="img-fluid" />
                 <p size="3" align="center">TVS Apache RR 310</p>
                 <p>Rs. 8 lakhs - 10 lakhs</p>
@@ -129,7 +122,6 @@ if (isset($_POST['more_bikes'])) {
           <div class="card">
             <a href="./bikedetails/08.php">
               <div class="card-body">
-                <!-- https://www.zigwheels.com/newbikes/Yamaha/mt-15/specifications -->
                 <img src="./assets/img/products/08.jpg" class="img-fluid" />
                 <p size="3" align="center">
                   Royal Enfield Continental GT 650
@@ -145,7 +137,6 @@ if (isset($_POST['more_bikes'])) {
           <div class="card">
             <a href="./bikedetails/09.php">
               <div class="card-body">
-                <!-- https://honda.com.np/motorcycle/hornet-2-0/ -->
                 <img src="./assets/img/products/09.jpg" class="img-fluid" />
                 <p size="3" align="center">Hornet 2.0</p>
                 <p>Rs. 5.75 lakhs - 8 lakhs</p>
@@ -158,7 +149,6 @@ if (isset($_POST['more_bikes'])) {
           <div class="card">
             <a href="./bikedetails/10.php">
               <div class="card-body">
-                <!-- https://www.zigwheels.com/newbikes/Yamaha/mt-15/specifications -->
                 <img src="./assets/img/products/10.jpg" class="img-fluid" />
                 <p size="3" align="center">Honda Xblade</p>
                 <p>Rs. 5 lakhs - 6 lakhs</p>
@@ -172,7 +162,6 @@ if (isset($_POST['more_bikes'])) {
             <a href="./bikedetails/11.php">
 
               <div class="card-body">
-                <!-- https://www.daraz.com.np/products/tvs-apache-rtr-200-abs-fi-i119549959-s1032720508.html?spm=a2a0e.searchlistcategory.list.15.71b01978sfDTdG&search=1    -->
                 <img src="./assets/img/products/11.jpg" class="img-fluid" />
                 <p size="3" align="center">TVS APACHE RTR 200 ABS FI</p>
                 <p>Rs. 4 lakhs - 5 lakhs</p>
@@ -186,7 +175,6 @@ if (isset($_POST['more_bikes'])) {
             <a href="./bikedetails/12.php">
 
               <div class="card-body">
-                <!-- https://www.zigwheels.com/newbikes/Yamaha/mt-15/specifications -->
                 <img src="./assets/img/products/12.jpg" class="img-fluid" />
                 <p size="3" align="center">Honda CB Hornet 160R</p>
                 <p>Rs. 3 lakhs - 4 lakhs</p>
@@ -196,12 +184,12 @@ if (isset($_POST['more_bikes'])) {
           </div>
         </div>
       </div>
-      <i class="fa-regular fa-arrow-down-to-line"></i>
-
     </div>
   </div>
 </section>
-<div class="text-center"> <button class="btn1" type="submit" name="more_bikes">See more</button>
+<form action="more_bikes.php">
+  <div class="text-center"> <button class="btn1" type="submit" name="more_bikes">See more</button>
+</form>
 </div>
 
 <?php include('footer.php') ?>

@@ -3,7 +3,7 @@
 if (!isset($_SESSION['admin_username'])): ?>
     <script>
         alert("Please log into our website to access this page. ");
-        window.location.href = "../index.php";
+        window.location.href = "./index.php";
     </script>
 <?php endif; ?>
 <!DOCTYPE html>
@@ -63,7 +63,7 @@ if (!isset($_SESSION['admin_username'])): ?>
                 </div>
                 <button type="submit" name="add_bikes" class="btn btn-primary">Add Product</button>
                 <div class="mt-3">
-                    <a class=" btn0  " href="../index.php">Check For The Added Products</a>
+                    <a class=" btn0  " href="./view_prods.php">Check For The Added Products</a>
                 </div>
             </form>
         </div>

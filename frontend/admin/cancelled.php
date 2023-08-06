@@ -81,6 +81,8 @@ include('../../backend/partials/_dbconnect.php');
 
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

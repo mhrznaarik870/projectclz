@@ -240,6 +240,15 @@ h2 {
   transform: scale(1.05);
 }
 
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.card-body {
+  flex-grow: 1;
+}
+
 .card:hover {
   box-shadow: 11px -7px 34px 16px rgba(0, 0, 0, 0.7);
   -webkit-box-shadow: 11px -7px 34px 16px rgba(0, 0, 0, 0.7);
@@ -665,6 +674,7 @@ header {
 
 .blogico {
   border-radius: 20px;
+  margin-top: 80px;
 }
 
 .style-blogs {
