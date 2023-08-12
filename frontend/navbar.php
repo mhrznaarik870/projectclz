@@ -46,6 +46,10 @@
                     <?php else: ?>
                         <button style="--clr:#0FF0FC" class="btnlogin-popup" data-bs-toggle="modal"
                             data-bs-target="#loginModal">Login</button>
+                        <button style="--clr:#0FF0FC" class="btn1 btnlogin-popup">
+                            <a href="./admin/index.php">Admin</a>
+                        </button>
+
                     <?php endif; ?>
                 </div>
             </div>

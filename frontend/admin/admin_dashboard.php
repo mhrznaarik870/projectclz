@@ -41,9 +41,8 @@ if (!isset($_SESSION['admin_username'])) {
             </p>
         </div>
     </div>
-</body>
-<script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../js/script.js"></script>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>
