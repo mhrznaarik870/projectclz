@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('navbar.php');
+include('content-header.php');
 include('../backend/partials/_dbconnect.php');
 $sql = "SELECT * FROM products";
 $result = $conn->query($sql);
