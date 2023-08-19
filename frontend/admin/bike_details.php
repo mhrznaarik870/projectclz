@@ -49,6 +49,7 @@ if (isset($_GET['bike_id'])) {
         <?php include('navbar.php'); ?>
     </header>
 
+
     <section class="bike-details" style="margin-top: 90px;">
         <div class=" container">
             <div class="row">
@@ -91,6 +92,12 @@ if (isset($_GET['bike_id'])) {
                             <div class="new-price">New Price: <span>Rs.
                                     <?php echo $newPrice; ?> /-
                                 </span></div>
+                        </div>
+                        <div class="purchase-info">
+                            <a href="edit_product.php?bike_id=<?php echo $bikeID; ?>" class="btn btn-secondary">
+                                Edit Product
+                                <i class="fas fa-edit"></i>
+                            </a>
                         </div>
                     </ul>
                 </div>

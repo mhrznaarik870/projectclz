@@ -16,7 +16,7 @@ include('../../backend/partials/_dbconnect.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clients</title>
+    <title>Clients - Cancelled</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" />
@@ -54,7 +54,7 @@ include('../../backend/partials/_dbconnect.php');
                                 </tr>";
 
                         while ($row = $result->fetch_assoc()) {
-                    
+
                             echo "<tr>
                                     <td>" . $row["orderno"] . "</td>
                                     <td>" . $row["username"] . "</td>

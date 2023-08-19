@@ -675,6 +675,7 @@ header {
 .blogico {
   border-radius: 20px;
   margin-top: 80px;
+  margin-right: 40px;
 }
 
 .style-blogs {
@@ -687,4 +688,11 @@ header {
   text-decoration: underline;
   font-weight: 900;
   color: beige;
+}
+
+.cart {
+  color: white;
+  font-size: 32px;
+  margin-top: 7px;
+  cursor: pointer;
 }

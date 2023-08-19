@@ -2,11 +2,9 @@
 session_start();
 include('../../backend/partials/_dbconnect.php');
 
-// Check if order number is provided in the URL
 if (isset($_GET['orderno'])) {
     $orderno = $_GET['orderno'];
 
-    // Retrieve order details from the orders table based on order number
     $sql = "SELECT * FROM orders WHERE orderno = '$orderno'";
     $result = $conn->query($sql);
 
@@ -23,14 +21,12 @@ if (isset($_GET['orderno'])) {
     exit();
 }
 
-// Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm'])) {
     $cancellationRemarks = $_POST['cancellation_remarks'];
 
-    // Delete the order from the orders table
     $deleteSql = "DELETE FROM orders WHERE orderno = '$orderno'";
     if ($conn->query($deleteSql) === TRUE) {
-        // Insert the order details into the cancelled_orders table with cancellation remarks
+        
         $insertSql = "INSERT INTO cancelled_orders (orderno, username, email, phoneno, cancelled_bike, cancellation_remarks, ordered_date)
                       VALUES ('$orderno', '{$orderData['username']}', '{$orderData['email']}', '{$orderData['phoneno']}', '{$orderData['ordered_bike']}', '$cancellationRemarks', '{$orderData['ordered_date']}') ";
         if ($conn->query($insertSql) === TRUE) {

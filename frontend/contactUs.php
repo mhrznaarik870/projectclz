@@ -18,7 +18,7 @@ include('header.php');
         </div>
         <?php unset($_SESSION['error_message']); ?>
       <?php endif; ?>
-      <font size="6"><u>Contact our Officials!!</u></font><br><br>
+      <font size="6"><u>Feedback to our Officials!!</u></font><br><br>
       <div class="banner-content2"> Please E-mail us from the form below to give us the
         feedback regarding this website!!
       </div><br>

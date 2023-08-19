@@ -16,8 +16,8 @@ if (!isset($_SESSION['admin_username'])): ?>
     <title>Admin - Add Products</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../bikedetails/assets/css/prostyle.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" />
+    <script src="../bootstrap/css/bootstrap.min.css"></script>
+
 </head>
 
 <body>

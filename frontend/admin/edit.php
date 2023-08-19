@@ -7,7 +7,18 @@ if (isset($_GET['orderno'])) {
 
     $sql = "SELECT * FROM orders WHERE orderno = '$orderno'";
     $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+    } else {
+        $_SESSION['error_message'] = "Order not found.";
+        header("Location: order_list.php");
+        exit();
+    }
+} else {
+    $_SESSION['error_message'] = "Invalid order number.";
+    header("Location: order_list.php");
+    exit();
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
@@ -16,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
     $email = $_POST['email'];
     $phoneno = $_POST['phoneno'];
     $ordered_bike = $_POST['ordered_bike'];
-    $ordered_date = $_POST['TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'];
+    $ordered_date = $_POST['ordered_date'];
 
     $stmt = $conn->prepare("UPDATE orders SET username = ?, email = ?, phoneno = ?, ordered_bike = ?, ordered_date = ? WHERE orderno = ?");
     $stmt->bind_param("sssssi", $username, $email, $phoneno, $ordered_bike, $ordered_date, $orderno);
@@ -56,8 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
     <section class="bike-details">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <h2>Edit Order</h2>
+                <h2>Edit Orders</h2>
+                <div class="col-md-6 ">
                     <form action="" method="POST">
                         <div class="mb-3">
                             <label for="orderno" class="form-label">Order Number:</label>
@@ -79,21 +90,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
                             <input type="text" class="form-control" id="phoneno" name="phoneno"
                                 value="<?php echo $row['phoneno']; ?>" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="ordered_bike" class="form-label">Ordered Bike</label>
-                            <input type="text" class="form-control" id="ordered_bike" name="ordered_bike"
-                                value="<?php echo $row['ordered_bike']; ?>" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="ordered_date" class="form-label">Ordered Date</label>
-                            <input type="text" class="form-control" id="ordered_date" name="ordered_date"
-                                value="<?php echo $row['ordered_date']; ?>" readonly>
-                        </div>
-                        <button type="submit" name="update" class="btn btn-primary">Update Order</button>
-                        <a href="order_list.php" class="btn btn-secondary mt-2">Cancel</a>
-                    </form>
                 </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="ordered_bike" class="form-label">Ordered Bike</label>
+                        <input type="text" class="form-control" id="ordered_bike" name="ordered_bike"
+                            value="<?php echo $row['ordered_bike']; ?>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ordered_date" class="form-label">Ordered Date</label>
+                        <input type="text" class="form-control" id="ordered_date" name="ordered_date"
+                            value="<?php echo $row['ordered_date']; ?>" readonly>
+                    </div>
+                    <button type="submit" name="update" class="btn btn-primary">Update Order</button>
+                    <a href="./order_delivered.php" class="btn btn-secondary mt-2" id="productDelivered">Product
+                        Delivered</a>
+                    <a href="order_list.php" class="btn btn-secondary mt-2">Cancel</a>
+                </div>
+                </form>
             </div>
+        </div>
         </div>
     </section>
 

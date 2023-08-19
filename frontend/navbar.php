@@ -1,9 +1,10 @@
 <?php include('header.php') ?>
 <!-- navbar.php -->
-<script src="./js/script.js"></script>
-<script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
 
-
+<head>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
 <nav class="navbar navbar-expand-lg">
     <div class="container">
         <a class="navbar-brands" href="./index.php">
@@ -32,9 +33,13 @@
                         </li>
                         <li
                             class="nav-item <?php echo (basename($_SERVER['PHP_SELF']) == 'contactUs.php') ? 'active' : ''; ?>">
-                            <a class="nav-link" href="./contactUs.php">CONTACT US</a>
+                            <a class="nav-link" href="./contactUs.php">Feedback</a>
                         </li>
                     </ul>
+                    <div class="cart">
+                        <ion-icon name="cart"></ion-icon>
+
+                    </div>
                     <?php if (isset($_SESSION['username'])): ?>
                         <div class="dropdown" id="userDropdown">
                             <a class="user-btn" href="logout.php" data-bs-toggle="tooltip" data-bs-placement="bottom"
@@ -46,7 +51,7 @@
                     <?php else: ?>
                         <button style="--clr:#0FF0FC" class="btnlogin-popup" data-bs-toggle="modal"
                             data-bs-target="#loginModal">Login</button>
-                        <button style="--clr:#0FF0FC" class="btn1 btnlogin-popup">
+                        <button style="--clr:#0FF0FC" class="btnlogin-popup">
                             <a href="./admin/index.php">Admin</a>
                         </button>
 

@@ -16,14 +16,14 @@
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
-<body>
+<body style="color: white">
   <header>
     <?php include_once('./content-header.php'); ?>
   </header>
   <section class="banner">
     <div class="row justify-content-center">
       <div class="col-md-10 text-center ">
-        <img class="mb-4 blogico" src="./assets/img/bg.jpg" alt="AD Motors Banner" width="100%" height="100%" />
+        <img class="mb-4 blogico" src="./assets/img/bg.jpg" alt="AD Motors Banner" width="30%" height="100%" />
         <img class="mb-4 blogico" src="./assets/img/logo.png" alt="AD Motors Banner" width="200" height="100" />
         <h2> WELCOME TO AD MOTORS!</h2>
         <section class="about-us">
@@ -35,7 +35,7 @@
             are
             an experienced biker or a first-time enthusiast, our collection has something to suit every rider's taste
             and
-            preference.</p>
+            preference.</p> <br>
           <h2>About Us</h2>
 
           <p>
@@ -94,7 +94,7 @@
 
             Come, embark on your biking journey with AD Motors, and let's ride together towards endless horizons of
             excitement and adrenaline. Happy biking!
-          </p>
+          </p><br>
           <h2>OUR FACILITIES</h2>
           <p>
           <p>AD Motors offers numerous benefits and advantages to its customers, making it a preferred choice for bike

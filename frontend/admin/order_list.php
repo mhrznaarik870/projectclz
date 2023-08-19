@@ -71,7 +71,7 @@ include('../../backend/partials/_dbconnect.php');
                                     <th>Phone Number</th>
                                     <th>Ordered Bike</th>
                                     <th>Order Date</th>
-                                    <th>Action</th> <!-- New column for action buttons -->
+                                    <th>Action</th> 
                                 </tr>";
 
                         while ($row = $result->fetch_assoc()) {

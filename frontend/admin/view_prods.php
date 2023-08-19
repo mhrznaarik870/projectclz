@@ -33,9 +33,9 @@ $result = $conn->query($sql);
 <?php include_once('navbar.php'); ?>
 
 <section class="more_bikes">
-    <h2 align="center">The more bikes</h2>
-    <h2 align="center">Available in the store!!</h2>
-    <div class="container py-5">
+    <h2 align="center">Edit & delete the details of the product </h2>
+    <h2 align="center">Only after the confirmation!!</h2>
+    <div class="container py-3">
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 py-5">
             <?php
             while ($row = $result->fetch_assoc()) {

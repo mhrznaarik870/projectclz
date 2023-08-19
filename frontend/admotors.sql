@@ -46,6 +46,18 @@ INSERT INTO products (bike_name, bike_image, gif_path, old_price, new_price) VAL
   ('TVS Apache RTR 200', '11.jpg','./bikedetails/assets/gif/11.gif','4,20,000','4,11,000'),
   ('Honda CB Hornet 160R', '12.jpg','./bikedetails/assets/gif/12.gif','5,10,000','4,98,000');
 
+CREATE TABLE IF NOT EXISTS `delivery_completed` (
+  `orderno` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(300) NOT NULL,
+  `phoneno` int NOT NULL,
+  `ordered_bike` varchar(155) NOT NULL,
+  `delivered_comments` text NOT NULL,
+  `delivered_date` timestamp NOT NULL,
+  PRIMARY KEY (`orderno`)
+)
+
+
 CREATE TABLE IF NOT EXISTS cancelled_orders (
     orderno INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(30) NOT NULL,

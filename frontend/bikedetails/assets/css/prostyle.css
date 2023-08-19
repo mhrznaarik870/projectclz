@@ -101,19 +101,20 @@ li span {
 .purchase-info .btn {
   position: relative;
   top: 50%;
-  left: 50%;
+  left: 45%;
   transform: translate(-50%, -50%);
   width: 20rem;
   border-radius: 25px;
   text-align: center;
   outline: none;
-  margin-top: 15px;
+  margin-top: 45px;
   background-color: #f5f5f5;
   color: #555555;
   box-shadow: 0 0 5px 2px #888888;
 }
 
 .purchase-info .btn:hover {
+  transform: translate(-50%, -50%);
   background-color: #555555;
   color: white;
   box-shadow: 0 0 7px 5px #888888;
@@ -123,6 +124,12 @@ li span {
   margin-top: 17px;
   border-radius: 20px;
   max-width: 95%;
+}
+.cart {
+  color: white;
+  font-size: 32px;
+  margin-top: 7px;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 576px) {

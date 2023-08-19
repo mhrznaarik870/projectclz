@@ -36,26 +36,32 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav m-auto my-2 my-lg-0">
 
-                                <a class="nav-link" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    Products
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="view_prods.php">View Products</a></li>
-                                    <li><a class="dropdown-item" href="add_products.php">Add Products</a></li>
-                                </ul>
-                                <a class="nav-link" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    Orders
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="order_list.php">Order Lists</a></li>
-                                    <li><a class="dropdown-item" href="cancelled.php">Cancelled Orders</a></li>
-                                </ul>
-                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="customer.php">Customers</a>
                                 </li>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Products
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                                        <li><a class="dropdown-item" href="view_prods.php">View Products</a></li>
+                                        <li><a class="dropdown-item" href="add_products.php">Add Products</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="ordersDropdown" role="button"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Orders
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="ordersDropdown">
+                                        <li><a class="dropdown-item" href="order_list.php">Order Lists</a></li>
+                                        <li><a class="dropdown-item" href="cancelled.php">Cancelled Orders</a></li>
+                                    </ul>
+                                </li>
+
                                 <li class="nav-item">
                                     <a class="nav-link" href="reviews.php">Reviews</a>
                                 </li>
