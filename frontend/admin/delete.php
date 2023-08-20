@@ -38,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm'])) {
         $_SESSION['error_message'] = "Failed to delete the order from the orders table.";
     }
 
-    // Redirect to order_list.php after processing the form
     header("Location: order_list.php");
     exit();
 

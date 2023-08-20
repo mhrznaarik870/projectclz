@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
         <div class="container">
             <div class="row">
                 <h2>Edit Orders</h2>
-                <div class="col-md-6 ">
+                <div class="col-md-6">
                     <form action="" method="POST">
                         <div class="mb-3">
                             <label for="orderno" class="form-label">Order Number:</label>
@@ -86,12 +86,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
                                 value="<?php echo $row['email']; ?>" required>
                         </div>
                         <div class="mb-3">
-                            <label for="phoneno" class="form-label">Phone Number</label>
-                            <input type="text" class="form-control" id="phoneno" name="phoneno"
-                                value="<?php echo $row['phoneno']; ?>" required>
+                            <button type="submit" name="update" class="btn btn-primary">Update Order</button>
                         </div>
+
                 </div>
                 <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="phoneno" class="form-label">Phone Number</label>
+                        <input type="text" class="form-control" id="phoneno" name="phoneno"
+                            value="<?php echo $row['phoneno']; ?>" required>
+                    </div>
                     <div class="mb-3">
                         <label for="ordered_bike" class="form-label">Ordered Bike</label>
                         <input type="text" class="form-control" id="ordered_bike" name="ordered_bike"
@@ -102,12 +106,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
                         <input type="text" class="form-control" id="ordered_date" name="ordered_date"
                             value="<?php echo $row['ordered_date']; ?>" readonly>
                     </div>
-                    <button type="submit" name="update" class="btn btn-primary">Update Order</button>
-                    <a href="./order_delivered.php" class="btn btn-secondary mt-2" id="productDelivered">Product
-                        Delivered</a>
+
+
+                    </form>
+                    <form action="order_delivered.php" method="POST">
+                        <input type="hidden" name="orderno" value="<?php echo $row['orderno']; ?>">
+                        <button type="submit" name="delivered" class="btn btn-primary mt-2">Delivery Completion</button>
+                    </form>
                     <a href="order_list.php" class="btn btn-secondary mt-2">Cancel</a>
                 </div>
-                </form>
             </div>
         </div>
         </div>

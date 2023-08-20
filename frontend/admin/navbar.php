@@ -19,7 +19,6 @@
     <header>
 
         <!-- navigation bar -->
-
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brands" href="./index.php">
@@ -58,6 +57,7 @@
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="ordersDropdown">
                                         <li><a class="dropdown-item" href="order_list.php">Order Lists</a></li>
+                                        <li><a class="dropdown-item" href="delivered_lists.php">Delivered Lists</a></li>
                                         <li><a class="dropdown-item" href="cancelled.php">Cancelled Orders</a></li>
                                     </ul>
                                 </li>

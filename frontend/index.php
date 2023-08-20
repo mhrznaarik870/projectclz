@@ -1,5 +1,6 @@
 <?php
 session_start();
+//adding the navigation bar through require_once method.
 require_once('header.php');
 ?>
 
@@ -8,6 +9,7 @@ require_once('header.php');
   <div class="container">
     <div class="row">
       <div class="col-md-5">
+        <!-- adding the website contents inside the banner -->
         <div style="text-align: center" class="banner-content">
           <h2>Buy</h2>
           <br />

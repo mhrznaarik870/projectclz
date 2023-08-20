@@ -76,17 +76,18 @@ include('../../backend/partials/_dbconnect.php');
 
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>
-                                    <td>" . $row["orderno"] . "</td>
-                                    <td>" . $row["username"] . "</td>
-                                    <td>" . $row["email"] . "</td>
-                                    <td>" . $row["phoneno"] . "</td>
-                                    <td>" . $row["ordered_bike"] . "</td>
-                                    <td>" . $row["ordered_date"] . "</td>
-                                    <td>
-                                        <a href=\"edit.php?orderno=" . $row["orderno"] . "\" style='color: #ffffff; background-color: #432874;' class='btn btn-sm '>Edit</a>
-                                        <a href=\"delete.php?orderno=" . $row["orderno"] . "\" style='color: #ffffff; background-color: #842029;' class='btn btn-sm mt-2'>Delete</a>
-                                    </td>
-                                </tr>";
+                            <td>" . $row["orderno"] . "</td>
+                            <td>" . $row["username"] . "</td>
+                            <td>" . $row["email"] . "</td>
+                            <td>" . $row["phoneno"] . "</td>
+                            <td>" . $row["ordered_bike"] . "</td>
+                            <td>" . $row["ordered_date"] . "</td>
+                            <td>
+                                <a href=\"edit.php?orderno=" . $row["orderno"] . "\" style='color: #ffffff; background-color: #432874;' class='btn btn-sm '>Edit</a>
+                                <a href=\"delete.php?orderno=" . $row["orderno"] . "\" style='color: #ffffff; background-color: #842029;' class='btn btn-sm mt-2'>Delete</a>
+                                <a href=\"order_delivered.php?orderno=" . $row["orderno"] . "\" class='btn btn-primary mt-2'>Mark Delivered</a>
+                            </td>
+                          </tr>";
                         }
 
                         echo "</table>";
