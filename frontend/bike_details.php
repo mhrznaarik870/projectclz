@@ -43,7 +43,7 @@ if (isset($_GET['bike_id'])) {
     <link rel="stylesheet" href="./bikedetails/assets/css/prostyle.css" />
 </head>
 
-<body>
+<body style="color:white">
     <header>
         <?php include('navbar.php'); ?>
     </header>
