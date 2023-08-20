@@ -73,22 +73,8 @@ if (isset($_GET['bike_id'])) {
                         <p>
                             <?php echo $description; ?>
                         </p>
-                        <div class="price-info">
-                            <div class="old-price">Old Price: <span>Rs.
-                                    <?php echo $oldPrice; ?> /-
-                                </span></div>
-                            <div class="new-price">New Price: <span>Rs.
-                                    <?php echo $newPrice; ?> /-
-                                </span></div>
-                        </div>
-                        <form action="../backend/orders.php?bike_id=<?php echo $bikeID; ?>" method="post">
-                            <div class="purchase-info">
-                                <button type="submit" name="purchased" class="btn">
-                                    Buy Now
-                                    <i class="fas fa-shopping-cart"></i>
-                                </button>
-                            </div>
-                        </form>
+
+
                     </div>
                 </div>
 
@@ -99,6 +85,22 @@ if (isset($_GET['bike_id'])) {
                             <?php echo $specs; ?>
                         </li>
                     </ul>
+                    <div class="price-info">
+                        <div class="old-price">Old Price: <span>Rs.
+                                <?php echo $oldPrice; ?> /-
+                            </span></div>
+                        <div class="new-price">New Price: <span>Rs.
+                                <?php echo $newPrice; ?> /-
+                            </span></div>
+                    </div>
+                    <form action="../backend/orders.php?bike_id=<?php echo $bikeID; ?>" method="post">
+                        <div class="purchase-info">
+                            <button type="submit" name="purchased" class="btn">
+                                Buy Now
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

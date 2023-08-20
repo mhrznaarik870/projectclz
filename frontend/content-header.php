@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="input-box">
-                        <span class="icon"><ion-icon name="lock"></ion-icon></span>
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
                         <input type="password" id="password" name="password" placeholder="Password" required>
                     </div>
 

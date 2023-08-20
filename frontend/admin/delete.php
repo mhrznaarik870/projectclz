@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm'])) {
 
     $deleteSql = "DELETE FROM orders WHERE orderno = '$orderno'";
     if ($conn->query($deleteSql) === TRUE) {
-        
+
         $insertSql = "INSERT INTO cancelled_orders (orderno, username, email, phoneno, cancelled_bike, cancellation_remarks, ordered_date)
                       VALUES ('$orderno', '{$orderData['username']}', '{$orderData['email']}', '{$orderData['phoneno']}', '{$orderData['ordered_bike']}', '$cancellationRemarks', '{$orderData['ordered_date']}') ";
         if ($conn->query($insertSql) === TRUE) {
@@ -53,8 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orders</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
 </head>
 
 <body>
@@ -67,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm'])) {
             <div class="row">
                 <div class="col-md-12">
                     <h2>Delete Order</h2>
+                    <!-- the code will confirmDelete only when the user confirms -->
                     <form method="POST" onsubmit="return confirmDelete();">
                         <ul class="list-group">
                             <li class="list-group-item">
@@ -116,6 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm'])) {
 
 
     <script>
+        // confirmation for the user
         function confirmDelete() {
             const confirmation = confirm('Are you sure you want to delete this order?');
             if (confirmation) {
