@@ -23,6 +23,7 @@ if (!isset($_SESSION['admin_username'])): ?>
 <body>
     <header>
         <?php include('navbar.php') ?>
+        <?php include('../../backend/partials/_dbconnect.php') ?>
     </header>
 
     <section>
