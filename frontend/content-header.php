@@ -36,7 +36,7 @@
                             <span class="icon"><ion-icon name="call"></ion-icon> </span>
                             <input type="text" id="phoneno" name="phoneno" placeholder="Phone Number"
                                 pattern="[0-9]{10}" maxlength="10"
-                                title="Please enter your valid 10 digit phone number." required>
+                                title="Please enter your valid positive 10 digit phone number." required>
                         </div>
                         <div class="input-box">
                             <span class="icon"> <ion-icon name="lock"></ion-icon></span>
