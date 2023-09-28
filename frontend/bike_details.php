@@ -1,6 +1,5 @@
 <?php
 session_start();
-include('navbar.php');
 include('../backend/partials/_dbconnect.php');
 
 if (isset($_GET['bike_id'])) {

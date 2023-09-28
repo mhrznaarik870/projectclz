@@ -9,7 +9,7 @@
     <div class="container">
         <a class="navbar-brands" href="./index.php">
             <img class="logo" src="./assets/img/logo.png" alt="logo" />
-            A.D. MOTORS
+            AD Motors Store
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,10 +36,10 @@
                             <a class="nav-link" href="./contactUs.php">Feedback</a>
                         </li>
                     </ul>
-                    <div class="cart">
+                    <!-- <div class="cart">
                         <ion-icon name="cart"></ion-icon>
 
-                    </div>
+                    </div> -->
                     <?php if (isset($_SESSION['username'])): ?>
                         <div class="dropdown" id="userDropdown">
                             <a class="user-btn" href="logout.php" data-bs-toggle="tooltip" data-bs-placement="bottom"

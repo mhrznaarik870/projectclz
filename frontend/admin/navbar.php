@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A.D MOTORS - Admin Panel</title>
+    <title>AD Motors Store - Admin Panel</title>
 
     <!-- Bootstrap and icon links -->
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
@@ -23,7 +23,7 @@
             <div class="container">
                 <a class="navbar-brands" href="./index.php">
                     <img class="logo" src="../assets/img/logo.png" alt="logo" />
-                    A.D. MOTORS
+                    AD Motors Store
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

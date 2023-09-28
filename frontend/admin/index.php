@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A.D MOTORS - Admin Panel</title>
+    <title>AD Motor Store - Admin Panel</title>
 
     <?php include('navbar.php'); ?>
 

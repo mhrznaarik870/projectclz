@@ -31,7 +31,7 @@ if (isset($_POST['add_bikes'])) {
 
         if ($conn->query($sql) === TRUE) {
             echo '<script>alert("Product added successfully!");</script>';
-            echo '<script>window.location.href = "../frontend/admin/add_products.php";</script>';
+            echo '<script>window.location.href = "../frontend/admin/view_prods.php";</script>';
 
         } else {
             $errorLog = fopen("error_log.txt", "a");

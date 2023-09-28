@@ -30,36 +30,40 @@ if (!isset($_SESSION['admin_username'])): ?>
             <form action="../../backend/add_prods.php" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="bike-name">Bike Name:</label>
-                    <input type="text" name="bike_name" placeholder="Name of the bike.">
+                    <input type="text" name="bike_name" placeholder="Name of the bike"
+                        title="Enter the name of the bike" required>
                 </div>
                 <div class="mb-3">
                     <label for="specs">Specifications:</label>
-                    <textarea name="specs[]" rows="4"
-                        placeholder=" PLZ USE COMMA when one line of specification list is over."></textarea>
+                    <textarea name="specs[]" rows="4" placeholder="Add Specification"
+                        title="Enter the specifications of bike" required></textarea>
                 </div>
                 <div class=" mb-3">
                     <label for="description">Description:</label>
-                    <textarea name="description" placeholder="DESCRIPTION"></textarea>
+                    <textarea name="description" placeholder="DESCRIPTION" required></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="rating">Rating:</label>
-                    <input type="number" name="rating" step="0.1" min="0" max="5" placeholder="Rate between 0-5">
+                    <input type="number" name="rating" step="0.1" min="0" max="5" placeholder="Rate between 0-5"
+                        required>
                 </div>
                 <div class="mb-3">
                     <label for="old_price">Old Price:</label>
-                    <input type="text" name="old_price" placeholder="Initial Price">
+                    <input type="text" name="old_price" placeholder="Initial Price" pattern="[0-9]+"
+                        title="Please enter the positive value!" required>
                 </div>
                 <div class="mb-3">
                     <label for="new_price">New Price:</label>
-                    <input type="text" name="new_price" placeholder="Final Price">
+                    <input type="text" name="new_price" placeholder="Final Price" pattern="[0-9]+"
+                        title="Please enter the positive value!" required>
                 </div>
                 <div class="mb-3">
                     <label for="bike-image">Bike Image:</label>
-                    <input type="file" name="bike_image">
+                    <input type="file" name="bike_image" title="Please enter the correct file format!" required>
                 </div>
                 <div class="mb-3">
                     <label for="bike-gif">Bike GIF:</label>
-                    <input type="file" name="bike_gif">
+                    <input type="file" name="bike_gif" title="Please use correct file format!" required>
                 </div>
                 <button type="submit" name="add_bikes" class="btn btn-primary">Add Product</button>
                 <div class="mt-3">
