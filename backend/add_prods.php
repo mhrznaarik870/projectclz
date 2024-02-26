@@ -42,7 +42,7 @@ if (isset($_POST['add_bikes'])) {
             VALUES ('$bikeName', '$specs', '$description', '$rating', '$oldPrice', '$newPrice', '$imageFullPath', '$gifFullPath')";
 
             if ($conn->query($sql) === TRUE) {
-                echo '<script>alert("Product added successfully!");</script>';
+                echo '<script>alert("Product added successfully!");</>';
                 echo '<script>window.location.href = "../frontend/admin/view_prods.php";</script>';
 
             } else {
