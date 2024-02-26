@@ -1,0 +1,142 @@
+body {
+  margin-top: 100px;
+  background-color: #333333;
+  background-repeat: repeat;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  font-weight: 700;
+  position: relative;
+  color: #bbbbbb;
+}
+h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 50px;
+  background: #555555;
+}
+
+h4 {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.3rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  padding: 0 0.3rem;
+  transition: all 0.5 ease;
+}
+h4:hover {
+  opacity: 0.9;
+}
+
+.product-rating {
+  color: #ffc107;
+}
+.product-rating span {
+  font-weight: 600;
+  color: #0dcaf0;
+}
+
+p {
+  font-size: 0.9rem;
+  padding: 0.3rem;
+  opacity: 0.8;
+}
+
+ul {
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+li {
+  margin: 0;
+  line-height: 1.7rem;
+  list-style: none;
+  text-decoration: none;
+  background-size: 20px;
+  /* padding-left: 1.7rem; */
+  font-weight: 400;
+}
+
+ul,
+li span {
+  font-weight: 400;
+}
+
+.new-price {
+  margin: 1rem 0;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: 700;
+}
+
+.new-price span {
+  font-weight: 400;
+  font-size: 1.7;
+  color: #0ed6d6;
+}
+
+.old-price {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.old-price span {
+  color: red;
+  font-weight: 400;
+  text-decoration: line-through;
+}
+
+.purchase-info {
+  margin: 1.5rem 0;
+}
+.purchase-info .btn {
+  position: relative;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  width: 20rem;
+  border-radius: 25px;
+  text-align: center;
+  outline: none;
+  margin-top: 45px;
+  background-color: #f5f5f5;
+  color: #555555;
+  box-shadow: 0 0 5px 2px #888888;
+}
+
+.purchase-info .btn:hover {
+  transform: translate(-50%, -50%);
+  background-color: #555555;
+  color: white;
+  box-shadow: 0 0 7px 5px #888888;
+}
+
+.proimg img {
+  margin-top: 17px;
+  border-radius: 20px;
+  max-width: 95%;
+}
+.cart {
+  color: white;
+  font-size: 32px;
+  margin-top: 7px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 576px) {
+  .proimg img {
+    margin-top: 0;
+    margin-left: 0;
+    max-width: 90%;
+    margin-left: 5%;
+  }
+}
