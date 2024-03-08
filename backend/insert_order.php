@@ -45,56 +45,64 @@ if ($result_clients->num_rows == 1) {
     exit();
 }
 
-// Get the bike_name from the products table
-$stmt_bikes = $conn->prepare("SELECT bike_name FROM products WHERE bike_id = ?");
-$stmt_bikes->bind_param("i", $bike_id);
-$stmt_bikes->execute();
-$result_bikes = $stmt_bikes->get_result();
+// Close the statement for clients
+$stmt_clients->close();
 
-if ($result_bikes->num_rows == 1) {
-    $row_bikes = $result_bikes->fetch_assoc();
-    $ordered_bike = $row_bikes['bike_name'];
+// Prepare and execute the SQL query to insert the order into the orders table
+$stmt = $conn->prepare("INSERT INTO orders (username, email, phoneno, ordered_bike) VALUES (?, ?, ?, ?)");
+$stmt->bind_param("ssis", $username, $email, $phoneno, $ordered_bike);
+
+// Execute the statement
+if ($stmt->execute()) {
+    // Display a successful alert message
+    echo '<script>alert("Order placed successfully for ' . $ordered_bike . '!");</script>';
+} else {
+    // Error placing the order
+    echo '<script>alert("Error placing the order."); window.location.href = "../frontend/trending.php";</script>';
+    exit();
+}
+
+// Close the statement for orders
+$stmt->close();
+
+// Prepare and execute the SQL query to insert data into the cart table
+$quantity = 1;
+$stmt_cart = $conn->prepare("INSERT INTO cart (username, bike_name, price, bike_id, quantity) VALUES (?, ?, ?, ?,?)");
+$stmt_cart->bind_param("ssiii", $username, $ordered_bike, $price, $bike_id, $quantity);
+
+// Fetch data from the products table based on bike_id
+$stmt_products = $conn->prepare("SELECT bike_name, new_price FROM products WHERE bike_id = ?");
+$stmt_products->bind_param("i", $bike_id);
+$stmt_products->execute();
+$result_products = $stmt_products->get_result();
+
+if ($result_products->num_rows == 1) {
+    // Fetch the row
+    $row_products = $result_products->fetch_assoc();
+
+    // Extract the data
+    $ordered_bike = $row_products['bike_name'];
+    $price = $row_products['new_price'];
+
+    // Close the statement
+    $stmt_products->close();
+
+    // Execute the statement to insert into the cart table
+    if ($stmt_cart->execute()) {
+        // Display success message
+        echo '<script>alert("Item added to cart successfully!"); window.location.href = "../frontend/Aarik_Maharjan_cart.php";</script>';
+    } else {
+        // Display error message
+        echo '<script>alert("Error adding item to cart."); window.location.href = "../frontend/trending.php";</script>';
+        exit();
+    }
 } else {
     // Bike details not found
     echo '<script>alert("Bike details not found."); window.location.href = "../frontend/trending.php";</script>';
     exit();
 }
 
-// Close the statements for clients and bikes
-$stmt_clients->close();
-$stmt_bikes->close();
-
-// Prepare and execute the SQL query to insert the order into the orders table
-$stmt = $conn->prepare("INSERT INTO orders (username, email, phoneno, ordered_bike) VALUES ( ?, ?, ?, ?)");
-$stmt->bind_param("ssis", $username, $email, $phoneno, $ordered_bike);
-
-// Execute the statement
-if ($stmt->execute()) {
-    // Display a successful alert message
-    echo '<script>alert("Order placed successfully for ' . $ordered_bike . '!"); window.location.href="../frontend/purchase_success.php?ordered_bike=' . urlencode($bike_id) . '";</script>';
-} else {
-    // Error placing the order
-    echo '<script>alert("Error placing the order."); window.location.href = "../frontend/trending.php";</script>';
-}
-
 // Close the statement and the database connection
-$stmt->close();
-$conn->close();
-
-// Add the following code to fetch the data from the two tables and insert it into the new table
-
-$stmt_new_order = $conn->prepare("INSERT INTO new_orders (username, email, phoneno, bike_id, bike_name) SELECT username, email, phoneno, bike_id, bike_name FROM orders INNER JOIN products ON orders.ordered_bike = products.bike_name WHERE orders.username = ?");
-$stmt_new_order->bind_param("s", $username);
-// Execute the statement
-if ($stmt_new_order->execute()) {
-    // Order successfully inserted into new table
-    echo '<script>alert("Order successfully inserted into new table!");</script>';
-} else {
-    // Error inserting order into new table
-    echo '<script>alert("Error inserting order into new table!");</script>';
-}
-
-// Close the statement and the database connection
-$stmt_new_order->close();
+$stmt_cart->close();
 $conn->close();
 ?>

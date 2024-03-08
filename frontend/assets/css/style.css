@@ -692,7 +692,15 @@ header {
 
 .cart {
   color: white;
-  font-size: 32px;
-  margin-top: 7px;
+  margin-top: 10px;
   cursor: pointer;
+}
+
+.cart ion-icon {
+  font-size: 25px;
+  transition: transform 0.28s ease-in-out;
+}
+
+.cart:hover ion-icon {
+  transform: scale(1.16);
 }

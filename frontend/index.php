@@ -1,6 +1,5 @@
 <?php
 session_start();
-//adding the navigation bar through require_once method.
 require_once('header.php');
 ?>
 

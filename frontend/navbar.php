@@ -1,5 +1,4 @@
 <?php include('header.php') ?>
-<!-- navbar.php -->
 
 <head>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -36,10 +35,11 @@
                             <a class="nav-link" href="./contactUs.php">Feedback</a>
                         </li>
                     </ul>
-                    <!-- <div class="cart">
-                        <ion-icon name="cart"></ion-icon>
-
-                    </div> -->
+                    <div class="cart">
+                        <a href="./Aarik_Maharjan_cart.php">
+                            <ion-icon name="cart"></ion-icon>
+                        </a>
+                    </div>
                     <?php if (isset($_SESSION['username'])): ?>
                         <div class="dropdown" id="userDropdown">
                             <a class="user-btn" href="logout.php" data-bs-toggle="tooltip" data-bs-placement="bottom"

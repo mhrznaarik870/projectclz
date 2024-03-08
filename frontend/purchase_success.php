@@ -13,52 +13,76 @@
         class="stylesheet">
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
     <link rel="icon" type="image/x-icon" href="./assets/img/logo.png" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" !important />
+    <link rel="stylesheet" href="./assets/css/prostyle.css" !important />
 
     <?php include('content-header.php') ?>
 
-    <style>
-        body {
-            text-align: center;
-            margin-top: 10%;
-        }
+</head>
 
-        .row {
-            display: flex;
-            align-items: center;
-        }
+<style>
+    body {
+        text-align: center;
+        margin-top: 10%;
+    }
 
-        .column {
-            flex: 1;
-            padding: 20px;
-        }
+    .row {
+        display: flex;
+        align-items: center;
+    }
 
-        .column:first-child {
-            border-right: 2px solid #fff;
-        }
+    .column {
+        flex: 1;
+        padding: 20px;
+    }
 
-        .congrats {
-            margin-bottom: 20px;
-            color: #fff;
-            font-family: 'rakkas', sans-serif;
-            text-shadow: 0 0 20px #9E131C, 0 0 40px #9E131C, 0 0 60px #9E131C, 0 0 80px #9E131C, 0 0 100px #9E131C;
-            font-size: 40px;
-        }
+    .column:first-child {
+        border-right: 2px solid #fff;
+    }
 
-        .message {
-            color: #fff;
-            margin-bottom: 20px;
-            font-size: 28px;
-            line-height: 1.5;
-        }
+    .congrats {
+        margin-bottom: 20px;
+        color: #fff;
+        font-family: 'rakkas', sans-serif;
+        text-shadow: 0 0 20px #9E131C, 0 0 40px #9E131C, 0 0 60px #9E131C, 0 0 80px #9E131C, 0 0 100px #9E131C;
+        font-size: 40px;
+    }
 
-        .message1 {
-            color: #fff;
-            line-height: 1.5;
-            font-size: 17px;
+    .message {
+        color: #fff;
+        margin-bottom: 20px;
+        font-size: 28px;
+        line-height: 1.5;
+    }
 
-        }
-    </style>
+    .message1 {
+        color: #fff;
+        line-height: 1.5;
+        font-size: 17px;
+    }
+
+    .btn {
+        position: relative;
+        top: 90%;
+        left: 30%;
+        transform: translate(-50%, -50%);
+        width: 20rem;
+        border-radius: 25px;
+        text-align: center;
+        outline: none;
+        margin-top: 95px;
+        background-color: #f5f5f5;
+        color: #555555;
+        box-shadow: 0 0 5px 2px #888888;
+    }
+
+    .btn:hover {
+        transform: translate(-50%, -50%);
+        background-color: #555555;
+        color: white;
+        box-shadow: 0 0 7px 5px #888888;
+    }
+</style>
 </head>
 
 
@@ -112,6 +136,11 @@
                  You will be receiving the <b><u>CALL THROUGH OUR REGISTERED CONTACT NO.</u></b> Please be patient until then!  
                 </p>';
                 ?>
+                <form action="./Aarik_Maharjan_cart.php">
+                    <input type="hidden" name="bike_id" value="<?php echo $ordered_bike_id; ?>">
+                    <button type="submit" class="btn">See Your Cart <ion-icon name="cart"></ion-icon></button>
+                </form>
+
             </div>
         </div>
     </div>
