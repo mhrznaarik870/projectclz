@@ -94,7 +94,7 @@
                 <?php
                 $servername = "localhost";
                 $username_db = "root";
-                $password_db = "";
+                $password_db = "mysql";
                 $dbname = "admotors";
 
                 $conn = new mysqli($servername, $username_db, $password_db, $dbname);
